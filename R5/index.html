@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>
+function lineopen()
+{
+window.location.href="https:/www.qq.com";
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIによるアクションの診断</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1e3c72;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 36px 18px 18px 18px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(30, 60, 114, 0.10);
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0a2540;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .analysis-img {
+      width: 90%;
+      max-width: 260px;
+      margin: 18px 0 18px 0;
+      display: block;
+    }
+    .subtitle {
+      font-size: 0.97rem;
+      color: #3b4a6b;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+      max-width: 340px;
+      width: 100%;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    input[type="text"] {
+      padding: 13px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #e0e6ed;
+      font-size: 1.08rem;
+      outline: none;
+      background: #f5f7fa;
+      color: #1e3c72;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: box-shadow 0.2s, border 0.2s;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+    }
+    input[type="text"]:focus {
+      box-shadow: 0 0 0 2px #ffd70033;
+      border: 1.5px solid #ffd700;
+    }
+    button {
+      padding: 13px 0;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #ffd700 0%, #ffb300 100%);
+      color: #0a2540;
+      font-size: 1.12rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.10);
+      animation: floatBtn 2s ease-in-out infinite;
+      width: 100%;
+      margin: 0;
+    }
+    button:active {
+      background: #ffb300;
+      color: #fff;
+    }
+    @keyframes floatBtn {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+      100% { transform: translateY(0); }
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #7a8ca7;
+      margin: 32px 0 12px 0;
+      opacity: 0.85;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 18px 4px 12px 4px;
+        margin-top: 10px;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      .subtitle {
+        font-size: 0.98rem;
+      }
+      .analysis-img {
+        max-width: 180px;
+      }
+    }
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes drawLineLoop {
+      0% { stroke-dashoffset: 40; }
+      40% { stroke-dashoffset: 0; }
+      60% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 40; }
+    }
+    @keyframes pieSpin {
+      0% { transform: rotate(-90deg); opacity:0; }
+      60% { opacity:1; }
+      100% { transform: rotate(0deg); opacity:1; }
+    }
+    @keyframes pieSpinLoop {
+      0% { transform: rotate(-90deg); opacity:0; }
+      20% { opacity:1; }
+      50% { transform: rotate(0deg); opacity:1; }
+      80% { opacity:1; }
+      100% { transform: rotate(-90deg); opacity:0; }
+    }
+    @keyframes magnify {
+      0% { transform: scale(0.7); opacity:0; }
+      60% { opacity:1; }
+      100% { transform: scale(1); opacity:1; }
+    }
+    @keyframes magnifyLoop {
+      0% { transform: scale(0.7); opacity:0.5; }
+      20% { opacity:1; }
+      50% { transform: scale(1.1); opacity:1; }
+      80% { opacity:1; }
+      100% { transform: scale(0.7); opacity:0.5; }
+    }
+    @keyframes aiSpin {
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes floatAvatar {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes glowPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
+      100% { opacity: 0.6; transform: scale(1); }
+    }
+    .glow-bg-anim {
+      animation: glowPulse 2.2s infinite;
+      transition: opacity 0.3s;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.4s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 更AI化的科技感AI机器人SVG主标题头像 -->
+    <div style="display:flex;justify-content:center;align-items:center;margin-bottom:10px;position:relative;width:180px;height:180px;">
+      <!-- 蓝金渐变柔光背景（放大到180px） -->
+      <div style="position:absolute;left:0;top:0;width:180px;height:180px;border-radius:50%;z-index:0;pointer-events:none;overflow:visible;">
+        <svg width="180" height="180" viewBox="0 0 180 180" style="position:absolute;left:0;top:0;" class="glow-bg-anim">
+          <defs>
+            <radialGradient id="bgBlueGold" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#A5B4FC" stop-opacity="0.38"/>
+              <stop offset="60%" stop-color="#6EC6FF" stop-opacity="0.22"/>
+              <stop offset="90%" stop-color="#FFD700" stop-opacity="0.13"/>
+              <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="90" cy="90" r="86" fill="url(#bgBlueGold)"/>
+          <!-- 金色粒子点缀 -->
+          <circle cx="50" cy="46" r="7" fill="#FFD700" fill-opacity="0.38"/>
+          <circle cx="150" cy="60" r="5" fill="#FFD700" fill-opacity="0.32"/>
+          <circle cx="80" cy="160" r="4.5" fill="#FFD700" fill-opacity="0.28"/>
+          <circle cx="130" cy="140" r="3.5" fill="#FFD700" fill-opacity="0.22"/>
+          <circle cx="110" cy="38" r="3.5" fill="#FFD700" fill-opacity="0.25"/>
+        </svg>
+      </div>
+      <svg width="150" height="150" style="position:absolute;left:15px;top:15px;z-index:1;pointer-events:none;" viewBox="0 0 150 150">
+        <defs>
+          <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="#FFD700" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="75" cy="75" r="70" fill="none" stroke="#FFD700" stroke-width="4"/>
+        <circle cx="75" cy="75" r="66" fill="none" stroke="url(#goldGlow)" stroke-width="8"/>
+      </svg>
+      <img src="520.jpg" alt="AI头像" style="width:140px;height:140px;border-radius:50%;box-shadow:0 4px 24px #4F8DFD33;object-fit:cover;display:block;background:#f5f7fa;position:absolute;left:20px;top:20px;z-index:2;" />
+    </div>
+    <!-- 动态分析图标区 -->
+    <div class="analysis-img" style="padding:0;margin:18px 0 18px 0;max-width:320px;width:100%;display:flex;justify-content:space-between;gap:10px;">
+      <div style="flex:1;text-align:center;">
+        <!-- 趋势图标，线条动画 -->
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="6" width="36" height="36" rx="10" fill="#f5f7fa" stroke="#e0e6ed" stroke-width="2"/>
+          <polyline id="trendLine" points="14,34 22,24 28,28 36,16" fill="none" stroke="#1e3c72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:40;stroke-dashoffset:40;animation:drawLineLoop 2.4s linear infinite;"/>
+          <circle cx="14" cy="34" r="2.5" fill="#ffd700"/>
+          <circle cx="22" cy="24" r="2.5" fill="#ffd700"/>
+          <circle cx="28" cy="28" r="2.5" fill="#ffd700"/>
+          <circle cx="36" cy="16" r="2.5" fill="#ffd700"/>
+        </svg>
+        <div style="font-size:0.92rem;color:#1e3c72;margin-top:4px;">テクニカル分析<br><span class="percent" data-target="85" style="color:#ffb300;font-weight:bold;">0%</span></div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <!-- 饼图标，扇形旋转动画 -->
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="6" width="36" height="36" rx="10" fill="#f5f7fa" stroke="#e0e6ed" stroke-width="2"/>
+          <circle cx="24" cy="24" r="12" fill="#fff" stroke="#ffd700" stroke-width="2"/>
+          <path id="pieSlice" d="M24 24 L24 12 A12 12 0 0 1 36 24 Z" fill="#ffd700" style="transform-origin:24px 24px;animation:pieSpinLoop 2.4s linear infinite;"/>
+        </svg>
+        <div style="font-size:0.92rem;color:#1e3c72;margin-top:4px;">基本データ<br><span class="percent" data-target="90" style="color:#ffb300;font-weight:bold;">0%</span></div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <!-- 放大镜图标，缩放动画 -->
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="6" width="36" height="36" rx="10" fill="#f5f7fa" stroke="#e0e6ed" stroke-width="2"/>
+          <g id="magnifier" style="transform-origin:22px 22px;animation:magnifyLoop 2.4s linear infinite;">
+            <circle cx="22" cy="22" r="8" fill="#fff" stroke="#1e3c72" stroke-width="2"/>
+            <rect x="30" y="30" width="8" height="2.5" rx="1.25" transform="rotate(45 30 30)" fill="#ffd700"/>
+          </g>
+        </svg>
+        <div style="font-size:0.92rem;color:#1e3c72;margin-top:4px;">市場動向<br><span class="percent" data-target="70" style="color:#ffb300;font-weight:bold;">0%</span></div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <!-- AI芯片图标，光效闪烁 -->
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="6" width="36" height="36" rx="10" fill="#f5f7fa" stroke="#e0e6ed" stroke-width="2"/>
+          <rect x="16" y="16" width="16" height="16" rx="4" fill="#1e3c72" stroke="#ffd700" stroke-width="2"/>
+          <text x="24" y="28" text-anchor="middle" font-size="10" fill="#ffd700" font-weight="bold">IA</text>
+          <ellipse cx="24" cy="24" rx="10" ry="4" fill="#ffd700" fill-opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="1.5s" repeatCount="indefinite"/>
+          </ellipse>
+        </svg>
+        <div style="font-size:0.92rem;color:#1e3c72;margin-top:4px;">IA 積分<br><span class="percent" data-target="100" style="color:#ffb300;font-weight:bold;">0%</span></div>
+      </div>
+    </div>
+    <div class="subtitle">アクションのコードを入力し、高度な分析に基づく無料の診断を受けてください。</div>
+    <form id="stockForm" autocomplete="off" style="width:100%">
+      <div class="input-group">
+        <input type="text" id="stockCode" name="stockCode" placeholder="入力してください..." maxlength="10" />
+        <button type="submit">今すぐ診断する</button>
+      </div>
+    </form>
+    <!-- 权威背书竖排分组区 -->
+    <div class="endorsements-list" style="margin:18px 0 10px 0;display:flex;flex-direction:column;gap:14px;align-items:center;">
+      <div class="endorsement-item" style="display:flex;align-items:center;gap:12px;background:#f5f7fa;border-radius:12px;padding:12px 16px;max-width:340px;width:100%;box-shadow:0 1px 6px #e0e6ed33;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#ffd700"/><text x="18" y="24" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">IA</text></svg>
+        <div>
+          <div style="font-weight:bold;color:#1e3c72;font-size:0.98em;">金融AIのリーダー</div>
+          <div style="color:#3b4a6b;font-size:0.93em;">金融AIの先端技術で裏付けられたデータ.</div>
+        </div>
+      </div>
+      <div class="endorsement-item" style="display:flex;align-items:center;gap:12px;background:#f5f7fa;border-radius:12px;padding:12px 16px;max-width:340px;width:100%;box-shadow:0 1px 6px #e0e6ed33;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#1e3c72"/><text x="18" y="24" text-anchor="middle" font-size="18" fill="#ffd700" font-weight="bold">★</text></svg>
+        <div>
+          <div style="font-weight:bold;color:#1e3c72;font-size:0.98em;">投資家の信頼</div>
+          <div style="color:#3b4a6b;font-size:0.93em;">10,000人を超えるスペインの投資家が当社の分析を信頼しています。</div>
+        </div>
+      </div>
+      <div class="endorsement-item" style="display:flex;align-items:center;gap:12px;background:#f5f7fa;border-radius:12px;padding:12px 16px;max-width:340px;width:100%;box-shadow:0 1px 6px #e0e6ed33;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#ffd700"/><text x="18" y="24" text-anchor="middle" font-size="18" fill="#1e3c72" font-weight="bold">✓</text></svg>
+        <div>
+          <div style="font-weight:bold;color:#1e3c72;font-size:0.98em;">専門家が推奨する</div>
+          <div style="color:#3b4a6b;font-size:0.93em;">株式分析の専門家が推奨する.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    © 2024 アクションの診断 | プライバシーの保証 | 先進的なホモモルフィック分析 | 情報提供目的のみ
+  </div>
+  <div class="legal" style="text-align:center;font-size:0.92em;color:#7a8ca7;margin:18px 0 8px 0;line-height:1.6;">
+    <a href="" target="_blank" style="color:#7a8ca7;text-decoration:underline;">プライバシーポリシー</a> |
+    <span>法的通知：この診断は情報提供を目的としたものであり、金融または投資に関する助言を構成するものではありません。当社は、将来の結果や収益を保証するものではありません。</span>
+  </div>
+  <div id="aiProgress" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(30,44,80,0.18);align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:14px;max-width:90vw;width:320px;padding:28px 18px 22px 18px;box-shadow:0 4px 32px #1e3c7240;text-align:center;">
+      <div style="font-size:1.13em;color:#1e3c72;font-weight:bold;margin-bottom:12px;">AIを活用した分析。...</div>
+      <div id="aiProgressBars">
+        <div class="ai-bar-block" style="margin-bottom:12px;">
+          <div style="font-size:0.99em;color:#1e3c72;margin-bottom:4px;text-align:left;">テクニカル分析</div>
+          <div style="width:100%;height:12px;background:#e0e6ed;border-radius:6px;overflow:hidden;">
+            <div id="aiBar1" style="height:100%;width:0%;background:linear-gradient(90deg,#ffd700 0%,#ffb300 100%);transition:width 0.4s;"></div>
+          </div>
+        </div>
+        <div class="ai-bar-block" style="margin-bottom:12px;">
+          <div style="font-size:0.99em;color:#1e3c72;margin-bottom:4px;text-align:left;">基本データ</div>
+          <div style="width:100%;height:12px;background:#e0e6ed;border-radius:6px;overflow:hidden;">
+            <div id="aiBar2" style="height:100%;width:0%;background:linear-gradient(90deg,#1e3c72 0%,#0a2540 100%);transition:width 0.4s;"></div>
+          </div>
+        </div>
+        <div class="ai-bar-block">
+          <div style="font-size:0.99em;color:#1e3c72;margin-bottom:4px;text-align:left;">総合的な人工知能</div>
+          <div style="width:100%;height:12px;background:#e0e6ed;border-radius:6px;overflow:hidden;">
+            <div id="aiBar3" style="height:100%;width:0%;background:linear-gradient(90deg,#ffd700 0%,#1e3c72 100%);transition:width 0.4s;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="color:#3b4a6b;font-size:0.98em;margin-top:10px;">少々お待ちください。.</div>
+    </div>
+  </div>
+  <div id="wsModal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(30,44,80,0.28);align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:14px;max-width:90vw;width:320px;padding:28px 18px 18px 18px;box-shadow:0 4px 32px #1e3c7240;text-align:center;">
+      <div style="font-size:1.13em;color:#1e3c72;font-weight:bold;margin-bottom:10px;">詳細なレポートを入手しましょう！</div>
+      <div style="color:#3b4a6b;font-size:1em;margin-bottom:18px;">
+        「次へ」をクリックして送信してください。 <b style='color:#ffb300;font-size:1.1em;'>&quot;7&quot;</b> ライン経由で.<br>
+        あなたの個人に合わせた診断を受け取ってください。 <b style='color:#ffb300;font-size:1.1em;'>3つの注目すべきアクション</b> 無料.
+      </div>
+      <div style="display:flex;gap:16px;justify-content:center;">
+        <button id="wsGoBtn" style="flex:1;background:linear-gradient(90deg,#ffd700 0%,#ffb300 100%);color:#0a2540;font-weight:bold;border:none;border-radius:8px;padding:10px 0;font-size:1.08em;cursor:pointer;">続行する</button>
+        <button id="wsCancelBtn" style="flex:1;background:#e0e6ed;color:#1e3c72;font-weight:bold;border:none;border-radius:8px;padding:10px 0;font-size:1.08em;cursor:pointer;">キャンセル</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('stockForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var code = document.getElementById('stockCode').value.trim();
+      if (!code) {
+        var input = document.getElementById('stockCode');
+        input.classList.remove('shake');
+        // 触发重绘以便重复抖动
+        void input.offsetWidth;
+        input.classList.add('shake');
+        input.focus();
+        return;
+      }
+      // 先显示AI分析进度条
+      window._wsCode = code;
+      var aiProgress = document.getElementById('aiProgress');
+      var aiBar1 = document.getElementById('aiBar1');
+      var aiBar2 = document.getElementById('aiBar2');
+      var aiBar3 = document.getElementById('aiBar3');
+      aiBar1.style.width = '0%';
+      aiBar2.style.width = '0%';
+      aiBar3.style.width = '0%';
+      aiProgress.style.display = 'flex';
+      // 依次动画
+      setTimeout(function() {
+        aiBar1.style.width = '100%';
+        setTimeout(function() {
+          aiBar2.style.width = '100%';
+          setTimeout(function() {
+            aiBar3.style.width = '100%';
+            setTimeout(function() {
+              aiProgress.style.display = 'none';
+              document.getElementById('wsModal').style.display = 'flex';
+            }, 400);
+          }, 500);
+        }, 500);
+      }, 100);
+    });
+    document.getElementById('wsGoBtn').onclick = function() {
+      var code = window._wsCode || '';
+      //var wsLink = 'https://wa.me/34xxxxxxxxx?text=7';
+      document.getElementById('wsModal').style.display = 'none';
+      lineopen();
+    };
+    document.getElementById('wsCancelBtn').onclick = function() {
+      document.getElementById('wsModal').style.display = 'none';
+    };
+    // 百分比数字动态增长
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.percent').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'));
+        var current = 0;
+        var step = Math.max(1, Math.round(target / 30));
+        function update() {
+          if (current < target) {
+            current += step;
+            if (current > target) current = target;
+            el.textContent = current + '%';
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = target + '%';
+          }
+        }
+        setTimeout(update, 400); // 动画延迟
+      });
+
+      // 让SVG动画循环
+      // 趋势线
+      var trendLine = document.getElementById('trendLine');
+      if(trendLine) trendLine.style.animation = 'drawLineLoop 2.4s linear infinite';
+      // 饼图
+      var pieSlice = document.getElementById('pieSlice');
+      if(pieSlice) pieSlice.style.animation = 'pieSpinLoop 2.4s linear infinite';
+      // 放大镜
+      var magnifier = document.getElementById('magnifier');
+      if(magnifier) magnifier.style.animation = 'magnifyLoop 2.4s linear infinite';
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+ function k2() { 
+            window.open('https://wa.me/1234567890', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Fifteen Min Crypto - Smart Investment Signals</title>
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --dark-bg: #0f172a;
+            --light-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--light-bg) 0%, #f8fafc 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-wrapper {
+            padding: 60px 0;
+        }
+
+        .section-wrapper:nth-child(even) {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+            color: var(--light-bg);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--light-bg);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-heading {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sub-heading {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-image-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .feature-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 3px solid var(--accent-blue);
+        }
+
+        .cta-button-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+            color: white;
+            padding: 18px 36px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 50px rgba(30, 64, 175, 0.15);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .stats-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f1f5f9 0%, var(--light-bg) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .problem-solution-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+            color: var(--light-bg);
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .problem-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .problem-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .solution-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .risk-disclosure {
+            background: #fef3c7;
+            border: 2px solid var(--warning-orange);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 60px 0;
+        }
+
+        .risk-disclosure h3 {
+            color: #92400e;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .risk-disclosure h3::before {
+            content: '⚠️';
+            font-size: 1.5rem;
+        }
+
+        .risk-disclosure ul {
+            color: #92400e;
+            margin-left: 20px;
+        }
+
+        .risk-disclosure li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section {
+            background: var(--dark-bg);
+            color: var(--light-bg);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-bg);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            content: '1';
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--warning-orange) 0%, #d97706 100%);
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        }
+
+        .floating-cta-button {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .floating-cta-button:hover {
+            background: white;
+            color: var(--warning-orange);
+            transform: scale(1.05);
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .breathing-effect {
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-float {
+            animation: pulse 2s infinite;
+        }
+
+        .stats-highlight-text {
+            font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
+            font-weight: 800 !important;
+            color: var(--primary-blue) !important;
+            margin-bottom: 30px !important;
+            text-shadow: 0 2px 4px rgba(30, 64, 175, 0.2) !important;
+            line-height: 1.3 !important;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            position: relative !important;
+        }
+
+        .stats-highlight-text::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section-wrapper {
+                padding: 40px 0;
+            }
+            
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .whatsapp-float {
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-icon {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .floating-cta {
+                padding: 12px 15px;
+            }
+            
+            .floating-cta-button {
+                padding: 10px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="main-heading">Earn USDC in Just 15 Minutes Daily with Fifteen Min Crypto!</h1>
+                <p class="sub-heading">Does the crypto market feel overwhelming? Complex charts and confusing data analysis leaving you lost? Not anymore! With Fifteen Min Crypto, spend just 15 minutes daily to earn USDC and fast-track your wealth growth!</p>
+                <div class="feature-image-container">
+                    <img src="img/1.jpg" alt="Crypto Trading Platform" class="feature-image">
+                </div>
+                <a href="javascript:void(0)" onclick="k2()" class="cta-button-primary breathing-effect">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Section -->
+    <div class="section-wrapper">
+        <div class="container">
+            <h2 class="section-title">Why Choose Fifteen Min Crypto?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Ready-to-Use Signals</h3>
+                    <p>No need to study charts or follow news - our system provides precise market signals for you.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Easy Digital Wallet Management</h3>
+                    <p>All earnings go directly to your USDC digital wallet - secure and convenient.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Simple & Efficient</h3>
+                    <p>From beginners to advanced investors, Fifteen Min Crypto helps you seize every opportunity!</p>
+                </div>
+            </div>
+            <div class="feature-image-container">
+                <img src="img/3.jpg" alt="Investment Dashboard" class="feature-image">
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="javascript:void(0)" onclick="k2()" class="cta-button-primary">Start Earning USDC in 15 Minutes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem/Solution Section -->
+    <div class="problem-solution-section">
+        <div class="container">
+            <h2 class="section-title">Why 99% Don't Earn USDC, But You Can?</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">The crypto market offers incredible opportunities, but why do only a few people make money? Because most people:</p>
+            
+            <ul class="problem-list">
+                <li>Lack professional knowledge to judge market signals</li>
+                <li>Don't have time or energy to research market trends</li>
+                <li>Fear entering the market, missing the best money-making opportunities</li>
+                <li>Get overwhelmed by complex trading platforms and analysis</li>
+            </ul>
+
+            <div style="text-align: center; margin: 50px 0;">
+                <h3 style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 30px;">Fifteen Min Crypto Changes Everything!</h3>
+                <img src="img/3.jpg" alt="Solution Preview" class="feature-image">
+            </div>
+
+            <ul class="solution-list">
+                <li>Anytime Investment Signals: Our system filters the best market opportunities - no time wasted studying charts</li>
+                <li>Extremely Simple Operation: Just 15 minutes daily following our signals to earn USDC easily</li>
+                <li>Controlled Risk: USDC as a USD-pegged stablecoin lets you achieve efficient wealth growth with low risk</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="javascript:void(0)" onclick="k2()" class="cta-button-primary">Grab Opportunities Others Miss</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advantages Section -->
+    <div class="section-wrapper">
+        <div class="container">
+            <h2 class="section-title">Fifteen Min Crypto Advantages</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Start from Zero, Easy Learning</h3>
+                    <p>Even without experience, our professional team will guide you step-by-step to create a digital wallet and earn USDC.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Stable Returns, Safe & Reliable</h3>
+                    <p>USDC stability ensures steady income growth, while digital wallets make asset management more convenient.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Time-Friendly</h3>
+                    <p>Only 15 minutes daily needed - use your spare time anytime, anywhere to achieve income growth.</p>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <h3 class="stats-highlight-text">Whether you're a beginner or experienced investor, Fifteen Min Crypto provides professional guidance to help you achieve financial freedom!</h3>
+                <div class="feature-image-container">
+                    <img src="img/2.jpg" alt="Success Stories" class="feature-image">
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="javascript:void(0)" onclick="k2()" class="cta-button-primary breathing-effect">Seize the Opportunity</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Disclosure -->
+    <div class="section-wrapper">
+        <div class="container">
+            <div class="risk-disclosure">
+                <h3>Important Risk Disclosure</h3>
+                <ul>
+                    <li>This service is for reference only and does not provide investment advisory or financial product trading services.</li>
+                    <li>The information provided is for reference only and should not be used as the basis for investment decisions.</li>
+                    <li>You bear the risk of final investment decisions yourself.</li>
+                    <li>Data accuracy is not guaranteed.</li>
+                    <li>Past performance does not guarantee future results.</li>
+                    <li>Cryptocurrency investments carry high risk and may result in total loss of capital.</li>
+                    <li>Please consult with qualified financial advisors before making investment decisions.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 Fifteen Min Crypto. This service complies with Google Financial Services policies.</p>
+            <div class="footer-links">
+                <a href="https://www.baidu.com" target="_blank">Privacy Policy</a>
+                <a href="https://www.baidu.com" target="_blank">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float breathing-effect" onclick="k2()">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.891 3.426"/>
+        </svg>
+    </div>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta breathing-effect">
+        <button class="floating-cta-button" onclick="k2()">Join Fifteen Min Crypto Now</button>
+    </div>
+
+    <script>
+       
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-section::before');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+            }
+        });
+    </script>
+</body>
+</html>

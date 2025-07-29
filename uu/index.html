@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  function k7() {
+            window.open('https://wa.me/', '_blank');
+        }
+
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Enterprise Financial Data Analysis Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --accent-orange: #f97316;
+            --accent-green: #059669;
+            --neutral-gray: #6b7280;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --dark-text: #1f2937;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        .disclaimer-header {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 12px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-container {
+            margin-top: 60px;
+            padding: 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .primary-heading {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--white);
+        }
+
+        .section-heading {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        .section-subheading {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-green), #047857);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(5, 150, 105, 0.4);
+        }
+
+        .secondary-button {
+            background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+            color: white;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .secondary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .stats-container {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .company-info {
+            background: var(--dark-text);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .company-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 16px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+            animation: breathe 2s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+        }
+
+        .risk-warning {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 12px;
+        }
+
+        .risk-title {
+            color: #92400e;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 15px 40px;
+            }
+            
+            .content-section {
+                padding: 50px 15px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .floating-button {
+                bottom: 15px;
+                padding: 14px 40px;
+                font-size: 16px;
+            }
+        }
+
+        .availability-badge {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .testimonials-section {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            padding: 60px 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer-header">
+        【Information Service】This tool only provides search and display of public information, does not provide any investment advice or financial product trading services, investment risks are borne by you.
+    </div>
+
+    <div class="main-container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="primary-heading">Enterprise-Level Intelligent Market Trend Analysis Platform</h1>
+                <p class="hero-description">
+                    One-click penetrative financial report analysis: historical trends, peer comparison, risk indicator visualization. Committed to providing you with comprehensive and in-depth analysis of corporate and listed company financial reports, sourced from: integration and organization of public financial data. Does not constitute investment advice.
+                </p>
+                <div class="image-container">
+                    <img src="img/11.jpg" alt="Financial Analysis Platform" class="content-image">
+                </div>
+                <div class="availability-badge">Currently Only 30 Spots Available</div>
+                <br>
+                <button class="cta-button" onclick="k7()">Get Free Trial</button>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-heading">Query Data Scope</h2>
+            <p style="font-size: 18px; text-align: center; margin-bottom: 40px;">Our system covers a wide range of data, including:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="section-subheading">Corporate Financial Data</h3>
+                    <p>Deep access to financial reports of thousands of companies, obtaining key financial indicators such as revenue, net profit and cash flow, helping you fully understand the financial health of companies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="section-subheading">Listed Company Information</h3>
+                    <p>Real-time grasp of the latest listed company dynamics, analyze market performance, understand industry trends, ensuring you stay sharp in rapidly changing markets.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="section-subheading">Financial Report Analysis</h3>
+                    <p>Detailed interpretation of financial statements, helping you identify potential investment opportunities and risks, ensuring you are more confident in every decision you make.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <p style="font-size: 20px; font-weight: 600; margin-bottom: 20px;">Access Now, Discover Potential Opportunities</p>
+                <img src="img/1.jpg" alt="Data Analysis" class="content-image">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-heading">Technical Advantages</h2>
+            <p style="font-size: 18px; text-align: center; margin-bottom: 40px;">Our system utilizes cutting-edge intelligent technology, including:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="section-subheading">Artificial Intelligence</h3>
+                    <p>Through deep learning algorithms, automatically extract and analyze financial data, providing you with fast and accurate insights.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="section-subheading">Machine Learning</h3>
+                    <p>The system continuously learns and optimizes analysis models to provide more accurate market predictions, keeping you one step ahead.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-heading">Core Functions</h2>
+            <p style="font-size: 18px; text-align: center; margin-bottom: 40px;">Our platform provides multiple powerful functions to help users easily query and analyze data:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="section-subheading">Real-time Query</h3>
+                    <p>Quick access to required financial data, supporting multiple filtering and sorting methods, making it easy for you to find key data.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="section-subheading">Deep Analysis</h3>
+                    <p>Using advanced data analysis tools, generate customized reports, help you identify market trends and potential investment opportunities, seize every possible profit point.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="section-subheading">User-friendly Interface</h3>
+                    <p>Clean and intuitive interface design, allowing you to navigate complex data with ease, no complex operations required to get the information you need.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="secondary-button" onclick="k7()">Master Market Pulse</button>
+                <div style="margin: 20px 0;">
+                    <img src="img/2.jpg" alt="Core Functions" class="content-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="section-heading">User Trust</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Professional Analysis</h4>
+                    <p>"The comprehensive data analysis tools have significantly improved our market research efficiency."</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Reliable Data</h4>
+                    <p>"Access to accurate financial information from thousands of publicly listed companies in real-time."</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 15px;">User-Friendly</h4>
+                    <p>"Intuitive interface makes complex financial data analysis accessible to professionals at all levels."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 40px;">The Wisdom Choice for Investment</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 40px;">
+                Experience our enterprise-level intelligent financial information integration query system immediately, enhance your investment decision-making ability, master the pulse of the US stock market, making every investment more precise and wiser!
+            </p>
+            <button class="cta-button" onclick="k7()">Start Your Journey</button>
+        </section>
+
+        <section class="company-info">
+            <div class="company-content">
+                <div>
+                    <h3 style="color: var(--accent-orange); font-size: 1.5rem; margin-bottom: 20px;">Company Information</h3>
+                    <p><strong>Company Name:</strong> Tech Growth Solutions, LLC</p>
+                    <p><strong>Address:</strong> 2392 Market Street, Suite 200, Philadelphia, PA 19107, USA</p>
+                    <p><strong>Contact Phone:</strong> +1 (267) 239-0923</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--accent-orange); font-size: 1.5rem; margin-bottom: 20px;">Certification & License Information</h3>
+                    <p>This service is a data retrieval service and does not require registration as investment consulting or financial instrument trading business.</p>
+                    <p><strong>Applicable Laws:</strong> Personal Information Protection Act, Consumer Contract Act, Electronic Commerce Act.</p>
+                    <p><strong>Related Agencies:</strong> Federal Trade Commission (FTC).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="risk-warning">
+                <h3 class="risk-title">⚠️ Important Risk Warning</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• This service is for reference only and does not provide any investment consulting services or financial product trading services.</li>
+                    <li>• The information provided is for reference only and should not be used as a basis for investment decisions.</li>
+                    <li>• Final investment decision risks are borne by you.</li>
+                    <li>• Data accuracy is not guaranteed.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer-links">
+            <a href="Privacy.html" target="_blank">Privacy Policy</a>
+            <a href="terms.html" target="_blank">User Agreement</a>
+			 <a href="Disclaimer.html" target="_blank">Disclaimer</a>
+        </div>
+    </div>
+
+    <button class="floating-button" onclick="k7()">Get Access Now</button>
+
+    <script>
+      
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Apply animation to cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Prevent zoom on mobile
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('gesturechange', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('gestureend', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

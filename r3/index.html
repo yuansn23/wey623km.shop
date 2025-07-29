@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+  function goToLine() {
+            const modal = document.getElementById('completionModal');
+            modal.style.display = 'none';
+            window.open('https://google.com', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI株式データ統合プラットフォーム</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --yellow-gradient: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            --accent-neon: #00ffff;
+            --accent-electric: #ff006e;
+            --accent-lime: #39ff14;
+            --accent-yellow: #ffd700;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8d1;
+            --grid-color: rgba(102, 126, 234, 0.1);
+            --shadow-neon: 0 0 20px rgba(0, 255, 255, 0.3);
+            --shadow-yellow: 0 0 20px rgba(255, 215, 0, 0.4);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .fundamentals-container {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .grid-pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .disclaimer-notification-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--yellow-gradient);
+            color: #1a1a2e;
+            padding: 12px 20px;
+            font-size: 14px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-yellow);
+            font-weight: bold;
+        }
+
+        .main-content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        .hero-section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .primary-heading-complex {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .subtitle-descriptor-line {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .descriptor-segment {
+            position: relative;
+            padding: 8px 16px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 20px;
+            border: 1px solid var(--accent-neon);
+        }
+
+        .descriptor-segment::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .descriptor-segment:hover::before {
+            opacity: 1;
+        }
+
+        .profile-image-circular-container {
+            margin: 40px auto;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .circular-image-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-neon);
+            box-shadow: var(--shadow-neon);
+            position: relative;
+        }
+
+        .circular-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: var(--secondary-gradient);
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-image-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-description-block {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid var(--accent-electric);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-title-primary {
+            font-size: 1.5rem;
+            color: var(--accent-lime);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .service-description-text {
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .interactive-search-section {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .search-input-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .search-input-field {
+            width: 100%;
+            padding: 20px;
+            font-size: 18px;
+            border: 2px solid var(--accent-neon);
+            border-radius: 15px;
+            background: rgba(26, 26, 46, 0.9);
+            color: var(--text-primary);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input-field:focus {
+            box-shadow: var(--shadow-neon);
+            border-color: var(--accent-electric);
+        }
+
+        .search-input-field::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .action-button-animated {
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background: var(--yellow-gradient);
+            color: #1a1a2e;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-button-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .action-button-animated:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .action-button-animated:hover::before {
+            left: 100%;
+        }
+
+        .action-button-animated:active {
+            transform: translateY(-1px);
+        }
+
+        .progress-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .progress-modal-content {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--accent-neon);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .analysis-status-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .analysis-item {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            transition: var(--transition-smooth);
+        }
+
+        .analysis-item.active {
+            color: var(--accent-lime);
+            opacity: 1;
+        }
+
+        .company-info-section {
+            background: rgba(26, 26, 46, 0.6);
+            padding: 40px 20px;
+            margin: 60px auto;
+            max-width: 1000px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-electric);
+        }
+
+        .info-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card-component {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--accent-neon);
+        }
+
+        .info-card-title {
+            color: var(--accent-lime);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .info-card-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .risk-warning-section {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(245, 87, 108, 0.1));
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--accent-electric);
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .warning-title {
+            color: var(--accent-electric);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .warning-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warning-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .warning-list li::before {
+            content: '*';
+            color: var(--accent-electric);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-navigation-links {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(26, 26, 46, 0.8);
+        }
+
+        .footer-link-element {
+            color: var(--accent-neon);
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-neon);
+            border-radius: 20px;
+            display: inline-block;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-link-element:hover {
+            background: var(--accent-neon);
+            color: var(--bg-primary);
+            box-shadow: var(--shadow-neon);
+        }
+
+        @media (max-width: 768px) {
+            .disclaimer-notification-bar {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
+            .main-content-wrapper {
+                padding-top: 70px;
+            }
+
+            .hero-section-container {
+                padding: 20px 15px;
+            }
+
+            .subtitle-descriptor-line {
+                gap: 10px;
+            }
+
+            .profile-image-circular-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .service-description-block {
+                padding: 20px;
+                margin: 20px 15px;
+            }
+
+            .interactive-search-section {
+                padding: 0 15px;
+            }
+
+            .search-input-field {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .action-button-animated {
+                padding: 15px;
+                font-size: 18px;
+            }
+
+            .progress-modal-content {
+                padding: 25px;
+            }
+
+            .info-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-link-element {
+                display: block;
+                margin: 10px auto;
+                width: 200px;
+            }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-neon);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="fundamentals-container">
+    <div class="grid-pattern-overlay"></div>
+    <div class="floating-particles" id="particlesContainer"></div>
+    
+    <div class="disclaimer-notification-bar">
+        【情報サービス】本サービスは公開情報の検索と表示のみを提供し、投資アドバイスや金融商品取引サービスは提供いたしません。投資リスクはお客様ご自身で負担していただきます。
+    </div>
+
+    <div class="main-content-wrapper">
+        <div class="hero-section-container">
+            <h1 class="primary-heading-complex">
+                インテリジェント公開財務データ統合検索プラットフォーム
+            </h1>
+            
+            <div class="subtitle-descriptor-line">
+                <span class="descriptor-segment">情報検索</span>
+                <span class="descriptor-segment">情報統合</span>
+                <span class="descriptor-segment">参考資料提供</span>
+            </div>
+
+            <div class="profile-image-circular-container pulse-animation">
+                <div class="circular-image-frame">
+                    <img src="img/1.jpg" alt="AI株式アナリスト" class="profile-image-element">
+                </div>
+            </div>
+
+            <div class="service-description-block">
+                <h2 class="service-title-primary">データ検索サービス</h2>
+                <p class="service-description-text">
+                    機械学習に基づく公開データ統合、すべてのデータは公開情報から取得（データは参考用のみ、投資アドバイスではありません）
+                </p>
+            </div>
+
+            <div class="interactive-search-section">
+                <div class="search-input-container">
+                    <input type="text" class="search-input-field" placeholder="会社名またはコードを入力してください" id="companySearchInput">
+                </div>
+                <button class="action-button-animated" onclick="k7()">
+                    データ検索を開始
+                </button>
+            </div>
+        </div>
+
+        <div class="company-info-section">
+            <div class="info-grid-layout">
+                <div class="info-card-component">
+                    <h3 class="info-card-title">サービス提供者情報</h3>
+                    <div class="info-card-content">
+                        <p><strong>会社名:</strong> イノベーティブファイナンシャルソリューションズ株式会社.</p>
+                        <p><strong>住所:</strong> 〒100-0005 東京都千代田区丸の内1-1-1/p>
+                        <p><strong>連絡:</strong> help2389a@hotmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-card-component">
+                    <h3 class="info-card-title">認証・許可情報</h3>
+                    <div class="info-card-content">
+                        <p>本サービスはデータ検索サービスであり、投資相談や金融商品取引業として登録する必要はありません。</p>
+                        <p><strong>適用法律:</strong> 個人情報保護法、消費者契約法、電子商取引法</p>
+                        <p><strong>関連機関:</strong> 連邦取引委員会（FTC）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="risk-warning-section">
+            <h3 class="warning-title">
+                ⚠️ 重要なリスク警告
+            </h3>
+            <div class="warning-content">
+                <ul class="warning-list">
+                    <li>本サービスは参考用のみで、投資相談サービスや金融商品取引サービスは提供いたしません。</li>
+                    <li>提供される情報は参考用のみで、投資決定の根拠として使用すべきではありません。</li>
+                    <li>最終的な投資決定のリスクはお客様ご自身で負担していただきます。</li>
+                    <li>データの正確性は保証されません。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-navigation-links">
+            <a href="Privacy.html" class="footer-link-element">プライバシーポリシー</a>
+            <a href="terms.html" class="footer-link-element">利用規約</a>
+			 <a href="Disclaimer.html" class="footer-link-element">免責事項</a>
+        </div>
+    </div>
+
+    <div class="progress-modal-overlay" id="progressModal">
+        <div class="progress-modal-content">
+            <h3>AI システムが分析中です...</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <div class="analysis-status-list">
+                <div class="analysis-item" id="analysis1">📊 市場分析</div>
+                <div class="analysis-item" id="analysis2">📰 最新ニュース分析</div>
+                <div class="analysis-item" id="analysis3">📈 過去データ分析</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-modal-overlay" id="completionModal">
+        <div class="progress-modal-content">
+            <p style="color: var(--accent-lime); font-weight: bold; margin-bottom: 30px; font-size: 18px; line-height: 1.8;">
+                あなたの情報検索が完了しました。<br>
+                詳細な財務情報が必要な場合は、専任カスタマーサービスにお問い合わせください。明確な公開資料を提供いたします。<br>
+                詳細はLineをご覧ください
+            </p>
+            <button onclick="goToLine()" style="
+                background: var(--yellow-gradient);
+                color: #1a1a2e;
+                border: none;
+                padding: 15px 30px;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: var(--transition-smooth);
+            ">
+                Line
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function initializeParticles() {
+            const container = document.getElementById('particlesContainer');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        function k7() {
+            const modal = document.getElementById('progressModal');
+            const progressBar = document.getElementById('progressBar');
+            const completionMessage = document.getElementById('completionMessage');
+            const analysisItems = ['analysis1', 'analysis2', 'analysis3'];
+            
+            modal.style.display = 'flex';
+            
+            let progress = 0;
+            let currentAnalysis = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15 + 10;
+                
+                if (progress > 100) progress = 100;
+                progressBar.style.width = progress + '%';
+                
+                if (currentAnalysis < analysisItems.length && progress > (currentAnalysis + 1) * 25) {
+                    document.getElementById(analysisItems[currentAnalysis]).classList.add('active');
+                    currentAnalysis++;
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.getElementById('completionModal').style.display = 'flex';
+                    }, 500);
+                }
+            }, 100);
+        }
+
+        function addHoverEffects() {
+            const cards = document.querySelectorAll('.info-card-component');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 25px rgba(102, 126, 234, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+
+        function enableDynamicGridEffect() {
+            const gridOverlay = document.querySelector('.grid-pattern-overlay');
+            let mouseX = 0, mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                const intensity = Math.sin(Date.now() * 0.001) * 0.5 + 0.5;
+                gridOverlay.style.background = `
+                    radial-gradient(circle at ${mouseX}px ${mouseY}px, rgba(102, 126, 234, ${0.2 * intensity}), transparent 300px),
+                    linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px)
+                `;
+            });
+        }
+
+      
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeParticles();
+            addHoverEffects();
+            enableDynamicGridEffect();
+            
+            const searchInput = document.getElementById('companySearchInput');
+            searchInput.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--accent-electric)';
+                this.style.boxShadow = 'var(--shadow-neon)';
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                this.style.borderColor = 'var(--accent-neon)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
