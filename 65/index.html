@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI株式投資教育プラットフォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#F59E0B',
+                        accent: '#DC2626',
+                        depth: '#0F172A',
+                        surface: '#F8FAFC'
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'breath': 'breath 3s ease-in-out infinite',
+                        'gradient-shift': 'gradient-shift 4s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", Meiryo, sans-serif;
+            letter-spacing: 0.025em;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.6); transform: scale(1); }
+            50% { box-shadow: 0 0 30px rgba(220, 38, 38, 0.9); transform: scale(1.05); }
+        }
+        @keyframes breath {
+            0%, 100% { transform: scale(1) translateY(0px); opacity: 0.8; }
+            50% { transform: scale(1.1) translateY(-5px); opacity: 1; }
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0F172A, #1E40AF, #0F172A, #1E3A8A);
+            background-size: 400% 400%;
+            animation: gradient-shift 4s ease-in-out infinite;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .depth-shadow {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-depth text-white overflow-x-hidden">
+    <!-- 固定ヘッダー警告 -->
+    <div class="fixed top-0 w-full bg-accent text-white text-center py-2 z-50 text-sm">
+        <span class="font-semibold">重要声明：本プラットフォームは投資アドバイスを提供せず、すべての教育内容は一般的な知識研修です</span>
+    </div>
+
+    <!-- メインコンテナ -->
+    <div class="mainWrapper md:pt-12 pt-2">
+        <!-- ヒーローセクション -->
+        <section class="heroSection min-h-screen flex items-center justify-center relative overflow-hidden" style="background-image: url('img/b.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-black to-transparent opacity-80"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="textContent space-y-6 bg-black bg-opacity-40 p-6 rounded-xl">
+                        <h1 class="titleMain text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+                            <span class="text-secondary drop-shadow-lg">AI技術</span>で向上させる<br>
+                            <span class="text-white drop-shadow-lg">投資スキル</span>
+                        </h1>
+                        <p class="descriptionText text-lg md:text-xl text-gray-100 leading-relaxed drop-shadow-md">
+                            変化の激しい株式市場において、成功する投資家は常に先を行っています。当社のAI駆動株式教育プラットフォームを通じて、賢明な投資決定を行うためのツールと知識を獲得できます。
+                        </p>
+                        <div class="buttonGroup flex flex-col sm:flex-row gap-4">
+                            <button onclick="k2()" class="ctaButton bg-accent hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 animate-pulse-glow">
+                                今すぐ私たちの学習に参加
+                            </button>
+                            <button onclick="showLoginModal()" class="loginButton bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                                ログイン / 登録
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imageContainer">
+                        <img src="img/3.jpg" alt="1" class="rounded-2xl depth-shadow w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 堀江貴文セクション -->
+        <section class="horieSakionSection bg-gradient-to-r from-slate-900 via-depth to-slate-900 md:py-16 py-2">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="profileImage lg:block hidden">
+                        <img src="img/2.jpg" alt="堀江貴文" class="rounded-2xl depth-shadow w-full">
+                    </div>
+                    <div class="profileContent">
+                        <h2 class="profileTitle text-3xl md:text-4xl font-bold mb-6">
+                            <span class="text-secondary">堀江貴文</span>
+                        </h2>
+                        
+                        <div class="profileInfo space-y-4">
+                            <p class="titleText text-xl font-semibold text-gray-200 mb-4">
+                                東京大学出身の起業家・投資家・実業家
+                            </p>
+                            
+                            <div class="profileImageMobile lg:hidden block mb-4">
+                                <img src="img/2.jpg" alt="堀江貴文" class="rounded-2xl depth-shadow w-full">
+                            </div>
+                            
+                            <p class="descriptionBio text-lg text-gray-300 leading-relaxed mb-4">
+                                1972年生まれ、東京大学在学中に起業し、創業したインターネット企業を東証マザーズに上場させ、時価総額8,000億円規模にまで成長させた伝説的な起業家です。
+                            </p>
+                            
+                            <p class="currentRole text-lg text-gray-300 leading-relaxed mb-4">
+                                現在は、SNS media & consulting株式会社のファウンダー、インターステラテクノロジズ株式会社のファウンダー、ゼロ高等学院の主宰など、数多くの役職を務めております。
+                            </p>
+                            
+                            <p class="expertise text-lg text-gray-200 leading-relaxed font-medium">
+                                投資のプロフェッショナルとして培ってきた豊富な経験と知識を、惜しみなく共有いたします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 機能セクション -->
+        <section class="featuresSection bg-gradient-to-b from-depth to-slate-900 md:py-16 py-2">
+            <div class="container mx-auto px-4">
+                <h2 class="sectionTitle text-3xl md:text-4xl font-bold text-center mb-12">
+                    なぜ当社の<span class="text-secondary">AI株式教育</span>プラットフォームを選ぶのか？
+                </h2>
+                
+                <div class="featuresGrid grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="featureCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="cardIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h3 class="cardTitle text-xl font-semibold mb-3 text-secondary">個人化学習体験</h3>
+                        <p class="cardText text-gray-300 text-sm">人工知能技術を活用してオーダーメイドの学習プランを提供。投資経験に関係なく、ニーズに合った適切なコース内容を推奨します。</p>
+                    </div>
+                    
+                    <div class="featureCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="cardIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h3 class="cardTitle text-xl font-semibold mb-3 text-secondary">リアルタイム市場洞察</h3>
+                        <p class="cardText text-gray-300 text-sm">AIアルゴリズムにより最新の市場分析とトレンド予測を提供し、投資機会を正確に把握できるようサポートします。</p>
+                    </div>
+                    
+                    <div class="featureCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="cardIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">👥</span>
+                        </div>
+                        <h3 class="cardTitle text-xl font-semibold mb-3 text-secondary">インタラクティブコミュニティ</h3>
+                        <p class="cardText text-gray-300 text-sm">活発な投資家コミュニティに参加し、志を同じくする人々と経験や戦略を共有し、共に投資スキルを向上させましょう。</p>
+                    </div>
+                    
+                    <div class="featureCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="cardIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">🎓</span>
+                        </div>
+                        <h3 class="cardTitle text-xl font-semibold mb-3 text-secondary">専門家指導</h3>
+                        <p class="cardText text-gray-300 text-sm">定期的にオンラインセミナーを開催し、業界専門家に直接相談する機会を提供し、実用的な投資アドバイスを獲得できます。</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="k2()" class="participateBtn bg-accent hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 animate-pulse-glow">
+                        今すぐ私たちの学習に参加
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 登録特典セクション -->
+        <section class="benefitsSection bg-gradient-to-r from-slate-900 to-depth md:py-16 py-2">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="benefitsContent">
+                        <h2 class="benefitsTitle text-3xl md:text-4xl font-bold mb-8">
+                            <span class="text-secondary">今すぐ登録</span>して特典をゲット：
+                        </h2>
+                        
+                        <div class="benefitsList space-y-4 mb-8">
+                            <div class="benefitItem flex items-center space-x-3">
+                                <span class="checkIcon text-secondary text-xl">✓</span>
+                                <span class="benefitText">無料体験コースで優質コンテンツを体験</span>
+                            </div>
+                            <div class="benefitItem flex items-center space-x-3">
+                                <span class="checkIcon text-secondary text-xl">✓</span>
+                                <span class="benefitText">週間市場分析レポートで最新動向を把握</span>
+                            </div>
+                            <div class="benefitItem flex items-center space-x-3">
+                                <span class="checkIcon text-secondary text-xl">✓</span>
+                                <span class="benefitText">会員限定イベントでセミナー優先参加</span>
+                            </div>
+                        </div>
+                        
+                        <p class="closingText text-lg text-gray-300 mb-6">
+                            私たちと一緒に投資の旅を始めましょう！初心者でも経験豊富な投資家でも、当プラットフォームは必要な知識とサポートを提供します。
+                        </p>
+                        
+                        <button onclick="k2()" class="registrationBtn bg-gradient-to-r from-secondary to-yellow-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            今すぐ私たちの学習に参加
+                        </button>
+                    </div>
+                    
+                    <div class="benefitsImage">
+                        <img src="img/1.jpg" alt="投資教育" class="rounded-2xl depth-shadow w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 専属コミュニティ福利セクション -->
+        <section class="communityBenefitsSection bg-gradient-to-b from-slate-800 to-depth md:py-16 py-2">
+            <div class="container mx-auto px-4">
+                <h2 class="communityTitle text-3xl md:text-4xl font-bold text-center mb-12">
+                    <span class="text-secondary">専属コミュニティ</span>福利
+                </h2>
+                
+                <div class="benefitsGrid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">💬</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">会員専属交流フォーラム</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">会員限定のフォーラムで、他の学習者と市場トレンド、戦略、経験について深く議論できます。</p>
+                    </div>
+                    
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">❓</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">毎月専門家Q&A</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">毎月業界専門家とのQ&Aセッションを開催し、直接質問して専門的な見解を得ることができます。</p>
+                    </div>
+                    
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">📚</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">独占学習リソース</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">電子書籍、ビデオチュートリアル、市場分析レポートを含む専属学習資料ライブラリへのアクセス。</p>
+                    </div>
+                    
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">パーソナライズ分析レポート</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">学習の好みと目標に基づいて、毎月カスタマイズされた分析レポートを提供し、賢明な意思決定をサポート。</p>
+                    </div>
+                    
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">🏆</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">コミュニティチャレンジと報酬</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">コミュニティチャレンジに参加し、報酬と栄誉を獲得して、継続的な学習と実践への意欲を高めます。</p>
+                    </div>
+                    
+                    <div class="benefitCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="benefitIcon w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
+                            <span class="text-2xl">🤝</span>
+                        </div>
+                        <h3 class="benefitTitle text-xl font-semibold mb-3 text-secondary">オフライン活動優先参加</h3>
+                        <p class="benefitDescription text-gray-300 text-sm">オフラインセミナーやイベントに無料または優先参加し、ネットワークを拡大し、経験を共有。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ユーザーレビューセクション -->
+        <section class="userReviewsSection bg-gradient-to-r from-depth to-slate-800 md:py-16 py-2">
+            <div class="container mx-auto px-4">
+                <h2 class="reviewsTitle text-3xl md:text-4xl font-bold text-center mb-12">
+                    <span class="text-secondary">参加者</span>の声
+                </h2>
+                
+                <div class="reviewsGrid grid md:grid-cols-3 gap-8">
+                    <div class="reviewCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="userInfo flex items-center mb-4">
+                            <div class="avatar w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold">
+                                田
+                            </div>
+                            <div class="userDetails ml-4">
+                                <h4 class="userName text-lg font-semibold text-white">田中 Tさん</h4>
+                                <p class="userRole text-sm text-gray-400">会社員・30代</p>
+                            </div>
+                        </div>
+                        <p class="reviewText text-gray-300 leading-relaxed text-sm">
+                            「投資について全く知識がありませんでしたが、AI技術を使った学習システムで自分のペースで進められました。基礎から丁寧に教えてもらい、徐々に市場の動きが理解できるようになってきています。」
+                        </p>
+                    </div>
+                    
+                    <div class="reviewCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="userInfo flex items-center mb-4">
+                            <div class="avatar w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold">
+                                佐
+                            </div>
+                            <div class="userDetails ml-4">
+                                <h4 class="userName text-lg font-semibold text-white">佐藤 Sさん</h4>
+                                <p class="userRole text-sm text-gray-400">フリーランス・40代</p>
+                            </div>
+                        </div>
+                        <p class="reviewText text-gray-300 leading-relaxed text-sm">
+                            「これまで独学で投資をしていましたが、体系的な知識が不足していることを感じていました。こちらの教育プラットフォームで学習し、リスク管理や分析手法について新しい視点を得られました。」
+                        </p>
+                    </div>
+                    
+                    <div class="reviewCard glass-effect rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="userInfo flex items-center mb-4">
+                            <div class="avatar w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold">
+                                鈴
+                            </div>
+                            <div class="userDetails ml-4">
+                                <h4 class="userName text-lg font-semibold text-white">鈴木 Rさん</h4>
+                                <p class="userRole text-sm text-gray-400">主婦・50代</p>
+                            </div>
+                        </div>
+                        <p class="reviewText text-gray-300 leading-relaxed text-sm">
+                            「老後の資産形成について真剣に考え始めたタイミングで参加しました。専門用語が多くて不安でしたが、分かりやすい説明と豊富な教材のおかげで、少しずつ理解が深まっています。」
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <p class="noteText text-gray-400 text-sm">
+                        ※ 上記は参加者の個人的な学習体験談であり、投資の成果を保証するものではありません。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 免責事項セクション -->
+        <section class="disclaimerSection bg-slate-800 md:py-12 py-2">
+            <div class="container mx-auto px-4">
+                <div class="disclaimerContent glass-effect rounded-xl p-8">
+                    <h3 class="disclaimerTitle text-2xl font-bold mb-6 text-secondary">🔹 基本性質</h3>
+                    <p class="disclaimerText mb-4">• 本プラットフォームは純教育製品として、AI技術による金融知識教育サービスを提供</p>
+                    
+                    <h3 class="disclaimerTitle text-2xl font-bold mb-6 text-accent">🔹 非サービス範囲</h3>
+                    <div class="restrictionsList mb-6">
+                        <p class="restrictionItem mb-2">🚫 <strong>私たちは提供しません：</strong></p>
+                        <p class="restrictionItem mb-2">× あらゆる形式の証券売買アドバイス（株式、ETF、デリバティブを含むがこれに限定されない）</p>
+                        <p class="restrictionItem mb-2">× 投資ポートフォリオ管理または資産管理サービス</p>
+                        <p class="restrictionItem mb-4">× 具体的なエントリー/エグジット価格分析</p>
+                    </div>
+                    
+                    <h3 class="disclaimerTitle text-2xl font-bold mb-6 text-secondary">🔹 データ使用規範</h3>
+                    <p class="disclaimerText mb-2">• すべての教育事例は少なくとも6ヶ月前の履歴データを採用</p>
+                    <p class="disclaimerText mb-6">• アルゴリズム演示結果には「履歴バックテストに基づき、将来の成果を予示するものではない」と標記</p>
+                    
+                    <h3 class="disclaimerTitle text-2xl font-bold mb-6 text-accent">🔹 重要リスク提示</h3>
+                    <p class="riskText mb-2">• <strong>市場にはリスクがあり、投資は慎重に</strong>、過去の成績は将来の成果を代表するものではありません。</p>
+                    <p class="riskText mb-6">• コース内容およびツールは参考目的のみで、<strong>個人化投資アドバイスを構成するものではありません</strong></p>
+                    
+                    <div class="finalDisclosure bg-depth rounded-lg p-6">
+                        <h4 class="disclosureTitle text-lg font-semibold mb-4 text-secondary">重要披露:</h4>
+                        <p class="disclosureText text-sm text-gray-300 leading-relaxed">
+                            本ウェブサイトは日本の金融株式に興味のある投資家に学習と交流のプラットフォームを提供することを目的としています。グループメンバーが共有する市場観点、投資経験、関連情報は参考と討論のためのみで、いかなる形式の投資アドバイスや保証も構成しません。本交流グループは純粋な共有性質で、いかなる形式の理財や投資アドバイスも構成しません。本サロンのすべての内容は教育目的で、いかなる投資アドバイスも構成しません。株式市場には元本損失リスクが存在し、過去の成績は将来の成果を予示するものではありません。参加は《リスク告知書》全条項への同意とみなされます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- フッター -->
+        <footer class="footerSection bg-depth py-8 border-t border-gray-700">
+            <div class="container mx-auto px-4 text-center">
+                <div class="footerLinks space-x-6 mb-4">
+                    <a href="Privacy.html" class="footerLink text-gray-400 hover:text-secondary transition-colors">プライバシーポリシー</a>
+                    <a href="terms.html" class="footerLink text-gray-400 hover:text-secondary transition-colors">利用規約</a>
+					  <a href="Disclaimer.html" class="footerLink text-gray-400 hover:text-secondary transition-colors">免責事項</a>
+                </div>
+                <p class="copyrightText text-gray-500 text-sm">© 2025プラットフォーム. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ログイン/登録モーダル -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden items-center justify-center">
+        <div class="modalContent bg-depth rounded-xl p-8 w-full max-w-md mx-4 relative">
+            <button onclick="hideLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            
+            <div class="modalTabs flex mb-6">
+                <button onclick="showLogin()" id="loginTab" class="tabButton flex-1 py-2 px-4 bg-secondary text-white rounded-l-lg font-semibold">ログイン</button>
+                <button onclick="showRegister()" id="registerTab" class="tabButton flex-1 py-2 px-4 bg-gray-600 text-gray-300 rounded-r-lg font-semibold">登録</button>
+            </div>
+            
+            <!-- ログインフォーム -->
+            <div id="loginForm" class="authForm">
+                <h3 class="formTitle text-2xl font-bold text-white mb-6 text-center">ログイン</h3>
+                <form class="space-y-4">
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">メールアドレス</label>
+                        <input type="email" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="email@example.com">
+                    </div>
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">パスワード</label>
+                        <input type="password" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="パスワード">
+                    </div>
+                    <button type="submit" class="submitButton w-full bg-secondary hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                        ログイン
+                    </button>
+                </form>
+            </div>
+            
+            <!-- 登録フォーム -->
+            <div id="registerForm" class="authForm hidden">
+                <h3 class="formTitle text-2xl font-bold text-white mb-6 text-center">新規登録</h3>
+                <form class="space-y-4">
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">お名前</label>
+                        <input type="text" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="お名前">
+                    </div>
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">メールアドレス</label>
+                        <input type="email" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="email@example.com">
+                    </div>
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">パスワード</label>
+                        <input type="password" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="パスワード">
+                    </div>
+                    <div class="inputGroup">
+                        <label class="inputLabel block text-sm font-medium text-gray-300 mb-2">パスワード確認</label>
+                        <input type="password" class="inputField w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary" placeholder="パスワード確認">
+                    </div>
+                    <button type="submit" class="submitButton w-full bg-secondary hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                        登録
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- フローティングボタン -->
+    <div class="floatingButton fixed bottom-6 left-1/2 transform -translate-x-1/2 md:left-auto md:right-6 md:transform-none z-50">
+        <button onclick="k2()" class="breathButton bg-accent hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full shadow-2xl animate-breath text-sm">
+            今すぐ私たちの学習に参加
+        </button>
+    </div>
+
+    <script>
+        function k2() {
+            // LINE連携のロジックをここに実装
+            console.log('LINE連携ボタンがクリックされました');
+            // window.open('LINE_URL', '_blank');
+        }
+
+        // ログイン/登録モーダル関数
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+        }
+
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('flex');
+        }
+
+        function showLogin() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginTab').classList.add('bg-secondary', 'text-white');
+            document.getElementById('loginTab').classList.remove('bg-gray-600', 'text-gray-300');
+            document.getElementById('registerTab').classList.add('bg-gray-600', 'text-gray-300');
+            document.getElementById('registerTab').classList.remove('bg-secondary', 'text-white');
+        }
+
+        function showRegister() {
+            document.getElementById('registerForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerTab').classList.add('bg-secondary', 'text-white');
+            document.getElementById('registerTab').classList.remove('bg-gray-600', 'text-gray-300');
+            document.getElementById('loginTab').classList.add('bg-gray-600', 'text-gray-300');
+            document.getElementById('loginTab').classList.remove('bg-secondary', 'text-white');
+        }
+
+        // モーダル外クリックで閉じる
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideLoginModal();
+            }
+        });
+
+        // ダークモード対応
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

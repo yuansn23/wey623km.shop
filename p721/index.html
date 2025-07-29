@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Online Gratuito - Os Três Segredos dos Maiores Investidores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+        }
+        .countdown-digit {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1), inset 0 1px 3px rgba(255,255,255,0.3);
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #5D5CDE 0%, #7C3AED 100%);
+            box-shadow: 0 10px 30px rgba(93, 92, 222, 0.4);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px) translateZ(0);
+            box-shadow: 0 15px 40px rgba(93, 92, 222, 0.6);
+        }
+        .cta-button:active {
+            transform: translateY(0) translateZ(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="fixed inset-0 z-0">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/579464/687a97357613f_redheaderwebinar.png" 
+             alt="Webinar Background" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 gradient-overlay"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="relative z-10 min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            
+            <!-- Header Section -->
+            <div class="mb-5 animate-slide-up">
+                <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-subtle">
+                    WEBINAR ONLINE GRATUITO
+                </div>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 leading-tight">
+                    <span class="block">Os Três Segredos dos</span>
+                    <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                        Maiores Investidores
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-1 font-light">
+                    Que os Fazem Acumular Lucros no Mercado de Ações
+                </p>
+                <p class="text-base md:text-lg text-yellow-400 font-medium">
+                   25 de julho, 21h
+                </p>
+            </div>
+
+            <!-- Countdown Section -->
+            <div class="mb-5 animate-slide-up" style="animation-delay: 0.2s">
+                <p class="text-white text-base md:text-lg mb-3 font-medium">
+                    O webinar começará em:
+                </p>
+                
+                <div class="flex justify-center items-center space-x-4 md:space-x-8">
+                    <!-- Days -->
+                    <div class="text-center">
+                        <div class="countdown-digit rounded-xl p-4 md:p-6 mb-2">
+                            <span id="days" class="text-3xl md:text-5xl font-bold text-gray-800">04</span>
+                        </div>
+                        <span class="text-white text-sm md:text-base font-medium">DIAS</span>
+                    </div>
+                    
+                    <!-- Hours -->
+                    <div class="text-center">
+                        <div class="countdown-digit rounded-xl p-4 md:p-6 mb-2">
+                            <span id="hours" class="text-3xl md:text-5xl font-bold text-gray-800">00</span>
+                        </div>
+                        <span class="text-white text-sm md:text-base font-medium">HORAS</span>
+                    </div>
+                    
+                    <!-- Minutes -->
+                    <div class="text-center">
+                        <div class="countdown-digit rounded-xl p-4 md:p-6 mb-2">
+                            <span id="minutes" class="text-3xl md:text-5xl font-bold text-gray-800">00</span>
+                        </div>
+                        <span class="text-white text-sm md:text-base font-medium">MIN</span>
+                    </div>
+                    
+                    <!-- Seconds -->
+                    <div class="text-center">
+                        <div class="countdown-digit rounded-xl p-4 md:p-6 mb-2">
+                            <span id="seconds" class="text-3xl md:text-5xl font-bold text-gray-800">00</span>
+                        </div>
+                        <span class="text-white text-sm md:text-base font-medium">SEG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="animate-slide-up" style="animation-delay: 0.4s">
+                <a href="a.html" 
+                   target="_blank"
+                   class="cta-button inline-block px-6 md:px-12 py-3 md:py-5 text-white text-base md:text-xl font-bold rounded-full hover:scale-105 transition-all duration-300 relative z-50">
+                    ✓ SIM, QUERO PARTICIPAR DO WEBINAR
+                </a>
+                <p class="text-gray-400 text-sm mt-4">
+                    Vagas limitadas • Totalmente gratuito
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            // Set countdown to 4 days from now
+            const now = new Date().getTime();
+            const countdownDate = now + (4 * 24 * 60 * 60 * 1000); // 4 days from now
+            
+            const timer = setInterval(function() {
+                const currentTime = new Date().getTime();
+                const distance = countdownDate - currentTime;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update display with leading zeros
+                document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+                
+                // Add pulse animation to seconds
+                const secondsElement = document.getElementById("seconds").parentElement;
+                secondsElement.style.animation = 'pulse 1s ease-in-out';
+                setTimeout(() => {
+                    secondsElement.style.animation = '';
+                }, 1000);
+                
+                // If countdown is finished
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("days").textContent = "00";
+                    document.getElementById("hours").textContent = "00";
+                    document.getElementById("minutes").textContent = "00";
+                    document.getElementById("seconds").textContent = "00";
+                }
+            }, 1000);
+        }
+        
+        // Start countdown when page loads
+        updateCountdown();
+        
+        // Add smooth scrolling and animation triggers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animations with staggered delays
+            const elements = document.querySelectorAll('.animate-slide-up');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>

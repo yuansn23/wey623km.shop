@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  function h2() {
+            window.open('https://wa.me/111', '_blank');
+        }
+
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI Technology Investment Education</title>
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-blue: #004499;
+            --accent-blue: #3399ff;
+            --text-white: #ffffff;
+            --text-gray: #f0f0f0;
+            --background-dark: #000000;
+            --background-secondary: #111111;
+            --border-blue: #0066cc;
+            --shadow-blue: rgba(0, 102, 204, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-secondary) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-blue);
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--text-white), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .content-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--border-blue);
+            box-shadow: 0 10px 30px var(--shadow-blue);
+            margin: 30px auto;
+            display: block;
+        }
+
+        .cta-button-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue));
+            color: var(--text-white);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px var(--shadow-blue);
+        }
+
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-blue);
+        }
+
+        .features-section {
+            padding: 80px 20px;
+            background: var(--background-secondary);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-white);
+            font-weight: bold;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--background-dark);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-blue);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px var(--shadow-blue);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .services-section {
+            padding: 80px 20px;
+            background: var(--background-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-item {
+            background: var(--background-secondary);
+            padding: 35px 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            border-left-color: var(--accent-blue);
+            transform: translateX(10px);
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .final-cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-dark) 100%);
+            text-align: center;
+            border-top: 2px solid var(--border-blue);
+        }
+
+        .final-cta-text {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .risk-disclosure-section {
+            background: var(--background-secondary);
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-blue);
+        }
+
+        .risk-title {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .risk-content {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .risk-item {
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            background: var(--background-dark);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-blue);
+        }
+
+        .footer-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-white);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            animation: breathe 2s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon::before {
+            content: '💬';
+            font-size: 24px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff3333;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .floating-cta-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 0 20px 20px;
+        }
+
+        .floating-button {
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue));
+            color: var(--text-white);
+            padding: 18px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: breathe 2s ease-in-out infinite;
+            box-shadow: 0 -5px 20px var(--shadow-blue);
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.4rem; }
+            .section-title { font-size: 2.2rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 30px; }
+            .services-grid { grid-template-columns: 1fr; gap: 25px; }
+            .whatsapp-float { right: 15px; }
+            .whatsapp-icon { width: 50px; height: 50px; }
+            .whatsapp-icon::before { font-size: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section { padding: 40px 15px; }
+            .features-section, .services-section, .final-cta-section { padding: 60px 15px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <section class="hero-section">
+            <h1 class="hero-title">AI Tech Companies Rise Strongly, Building Musk-Level Investment Logic</h1>
+            <h2 class="hero-subtitle">Seize the Tech Wave, Step Into a New Future of Wealth!</h2>
+            <p class="hero-description">
+                Artificial intelligence is transforming global markets with unprecedented growth opportunities. 
+                Discover professional investment methodologies and trend analysis to navigate the future of technology investing.
+            </p>
+            <img src="img/1.jpg" alt="AI Technology Investment" class="content-image">
+            <div style="margin-top: 40px;">
+                <button class="cta-button-primary" onclick="h2()">Explore Investment Education</button>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title">Why Learn AI Technology Investment?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI-Driven Future</h3>
+                    <p class="feature-description">
+                        AI technology applications span healthcare, semiconductors, autonomous driving, and more, 
+                        creating diverse market opportunities for informed investors.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Growing Market Opportunities</h3>
+                    <p class="feature-description">
+                        Multiple AI-related companies demonstrate significant growth potential, 
+                        attracting global investor attention across various sectors.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Professional Investment Logic</h3>
+                    <p class="feature-description">
+                        Learn comprehensive market analysis and innovative portfolio strategies 
+                        to identify high-potential investment opportunities in technology sectors.
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <img src="img/2.webp" alt="Investment Education" class="content-image">
+                <div style="margin-top: 30px;">
+                    <button class="cta-button-primary" onclick="h2()">Start Learning Today</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <h2 class="section-title">What We Provide</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3 class="service-title">AI-Powered Analysis Tools</h3>
+                    <p class="service-description">
+                        Educational resources utilizing big data and machine learning concepts 
+                        to help understand market analysis methodologies and stay ahead of trends.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title">Daily Market Insights</h3>
+                    <p class="service-description">
+                        Access to AI technology company updates and educational analysis 
+                        to enhance your understanding of market dynamics and opportunities.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title">Expert Educational Guidance</h3>
+                    <p class="service-description">
+                        Learn from experienced market professionals who provide comprehensive 
+                        educational support from basic concepts to advanced strategies.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title">Musk-Style Investment Logic</h3>
+                    <p class="service-description">
+                        Combine market trends with personal goals to create efficient investment portfolios 
+                        and help you achieve wealth growth through strategic planning.
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <img src="img/3.webp" alt="Professional Guidance" class="content-image">
+                <div style="margin-top: 30px;">
+                    <button class="cta-button-primary" onclick="h2()">Begin Your Learning Journey</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section">
+            <div class="testimonials-section" style="margin-bottom: 50px;">
+                <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <div class="testimonial-card" style="background: var(--background-dark); padding: 25px; border-radius: 12px; border: 1px solid var(--border-blue); text-align: center;">
+                        <div class="testimonial-avatar" style="width: 50px; height: 50px; background: var(--primary-blue); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 20px;">👨‍💼</div>
+                        <div class="testimonial-name" style="color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">Michael R.</div>
+                        <div class="testimonial-text" style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">"The educational content helped me understand market analysis better. I've gained valuable insights into AI sector trends and improved my investment knowledge significantly."</div>
+                    </div>
+                    <div class="testimonial-card" style="background: var(--background-dark); padding: 25px; border-radius: 12px; border: 1px solid var(--border-blue); text-align: center;">
+                        <div class="testimonial-avatar" style="width: 50px; height: 50px; background: var(--primary-blue); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 20px;">👩‍💻</div>
+                        <div class="testimonial-name" style="color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">Sarah L.</div>
+                        <div class="testimonial-text" style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">"Joined the learning community and gained access to comprehensive market research tools. The educational approach is professional and easy to understand."</div>
+                    </div>
+                    <div class="testimonial-card" style="background: var(--background-dark); padding: 25px; border-radius: 12px; border: 1px solid var(--border-blue); text-align: center;">
+                        <div class="testimonial-avatar" style="width: 50px; height: 50px; background: var(--primary-blue); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 20px;">👨‍🔬</div>
+                        <div class="testimonial-name" style="color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">David K.</div>
+                        <div class="testimonial-text" style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">"The daily market insights and educational materials have enhanced my understanding of technology sector dynamics. Great learning experience overall."</div>
+                    </div>
+                </div>
+            </div>
+            <div class="enhanced-cta-container" style="background: var(--background-dark); border-radius: 20px; padding: 50px 40px; margin: 0 auto; max-width: 900px; border: 2px solid var(--border-blue); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue), var(--primary-blue)); animation: shimmer 3s infinite;"></div>
+                
+                <div class="cta-stats-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <div class="stat-item" style="text-align: center; border-right: 1px solid var(--border-blue); padding-right: 20px;">
+                        <div style="font-size: 2.5rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">🚀</div>
+                        <div style="color: var(--accent-blue); font-size: 1.8rem; font-weight: bold;">2025</div>
+                        <div style="color: var(--text-gray); font-size: 0.9rem;">AI Technology Focus Year</div>
+                    </div>
+                    <div class="stat-item" style="text-align: center; border-right: 1px solid var(--border-blue); padding: 0 20px;">
+                        <div style="font-size: 2.5rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">📊</div>
+                        <div style="color: var(--accent-blue); font-size: 1.8rem; font-weight: bold;">Expert</div>
+                        <div style="color: var(--text-gray); font-size: 0.9rem;">Market Insights</div>
+                    </div>
+                    <div class="stat-item" style="text-align: center; padding-left: 20px;">
+                        <div style="font-size: 2.5rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 10px;">⚡</div>
+                        <div style="color: var(--accent-blue); font-size: 1.8rem; font-weight: bold;">Limited</div>
+                        <div style="color: var(--text-gray); font-size: 0.9rem;">Spots Available</div>
+                    </div>
+                </div>
+
+                <div class="cta-main-text" style="text-align: center; margin-bottom: 30px;">
+                    <p style="font-size: 1.4rem; color: var(--text-white); margin-bottom: 20px; font-weight: 600; line-height: 1.6;">
+                        Combine professional knowledge with market insights to transform from trend follower to informed decision maker.
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 30px; line-height: 1.7;">
+                        Click below to access professional AI technology investment education strategies.
+                    </p>
+                </div>
+
+                <div class="cta-urgency-bar" style="background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue)); height: 6px; border-radius: 3px; margin-bottom: 30px; animation: pulse 2s ease-in-out infinite;"></div>
+
+                <div style="text-align: center;">
+                    <button class="cta-button-primary" onclick="h2()" style="font-size: 1.3rem; padding: 20px 50px; box-shadow: 0 10px 30px var(--shadow-blue);">Join Learning Community - Unlock Your Potential!</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="risk-disclosure-section">
+            <h3 class="risk-title">⚠️ Important Risk Disclosure</h3>
+            <div class="risk-content">
+                <div class="risk-item">*This service is for educational purposes only and does not provide investment advisory services or financial product trading services.</div>
+                <div class="risk-item">*All information provided is for educational reference only and should not be used as the basis for investment decisions.</div>
+                <div class="risk-item">*Final investment decision risks are borne by you independently.</div>
+                <div class="risk-item">*Accuracy of data is not guaranteed.</div>
+                <div class="risk-item">*Past performance does not guarantee future results.</div>
+                <div class="risk-item">*All investments carry risk of loss.</div>
+            </div>
+        </section>
+
+        <footer class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+        </footer>
+    </div>
+
+    <div class="whatsapp-float">
+        <div class="whatsapp-icon" onclick="k2()">
+            <div class="notification-badge">1</div>
+        </div>
+    </div>
+
+    <div class="floating-cta-button">
+        <button class="floating-button" onclick="h2()">🚀 Start Learning AI Investment Strategies</button>
+    </div>
+
+    <script>
+      
+      
+
+        // Dark mode detection (optional enhancement)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

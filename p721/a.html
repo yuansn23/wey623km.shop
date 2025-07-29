@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Registro - Webinar Confirmado!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #5D5CDE 0%, #7C3AED 100%);
+            box-shadow: 0 10px 30px rgba(93, 92, 222, 0.4);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px) translateZ(0);
+            box-shadow: 0 15px 40px rgba(93, 92, 222, 0.6);
+        }
+        .cta-button:active {
+            transform: translateY(0) translateZ(0);
+        }
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    
+    <!-- Main Content -->
+    <div class="flex items-center justify-center px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                
+                <!-- Left Column - Content -->
+                <div class="text-center md:text-left animate-fade-in order-2 md:order-1">
+                    
+                    <!-- Header Section -->
+                    <div class="mb-5 animate-slide-up">
+                        <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-subtle">
+                            CONFIRMAÇÃO DE REGISTRO
+                        </div>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 leading-tight">
+                            <span class="block">🎉 Parabéns!</span>
+                            <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                                Confirmamos seu Registro
+                            </span>
+                            <span class="block text-white">
+                                no Webinar!
+                            </span>
+                        </h1>
+                    </div>
+
+                    <!-- WhatsApp Section -->
+                    <div class="mb-5 animate-slide-up" style="animation-delay: 0.2s">
+                        <p class="text-white text-base md:text-lg mb-3 font-medium">
+                           Adicione um analista de ações para obter aconselhamento profissional e aprender mais sobre ações de alto rendimento para seu portfólio
+                        </p>
+                        
+                        <div class="max-w-md mx-auto md:mx-0">
+                            <button class="whatsapp-button w-full px-6 py-3 text-white text-base md:text-lg font-semibold rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
+                                 
+                                <span> Clique aqui para adicionar um analista</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Right Column - Image -->
+                <div class="flex justify-center animate-fade-in order-1 md:order-2" style="animation-delay: 0.1s">
+                    <div class="max-w-md w-full">
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/579464/687a940cd05a8_fredobrigado.jpg" 
+                             alt="Confirmação de Registro" 
+                             class="w-full h-auto rounded-2xl shadow-2xl object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // k3 function as requested
+        function k3() {
+            console.log('k3() function called');
+            // Add any additional functionality here if needed
+        }
+
+        // y2 function as requested
+        function y2() {
+            console.log('y2() function called');
+            // Add any additional functionality here if needed
+        }
+
+        // WhatsApp functionality
+        document.querySelector('.whatsapp-button').addEventListener('click', function() {
+            y2();
+            location.href = 'https://www.google.com';
+        });
+
+        // Add smooth animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.animate-slide-up');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1 + 0.3}s`;
+            });
+        });
+    </script>
+</body>
+</html>
