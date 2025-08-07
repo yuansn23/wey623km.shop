@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+  function kkb() {
+          window.location.href="https://www.qq.com";
+        }
+
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本大和証券株式交流コミュニティへようこそ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'daiwa-blue': '#1e3a8a',
+                        'daiwa-gold': '#f59e0b',
+                        'daiwa-dark': '#0f172a',
+                        'daiwa-light': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'japanese': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+            height: 2px;
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.8); }
+        }
+        .countdown-timer {
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body class="font-japanese bg-gray-50 dark:bg-gray-900">
+    <!-- Dark mode setup -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+      
+        // Countdown timer
+        function startCountdown() {
+            const countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours from now
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = hours + "時間 " + minutes + "分 " + seconds + "秒";
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "終了";
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            startCountdown();
+        };
+    </script>
+
+
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        
+
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="bg-daiwa-gold text-daiwa-dark px-4 py-2 rounded-full inline-block mb-6 font-bold">
+                        ⭐ 120年の信頼と実績
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                        <span class="block text-daiwa-gold">日本大和証券</span>
+                        <span class="block">株式交流コミュニティ</span>
+                        <span class="block text-xl md:text-2xl font-medium mt-4">へようこそ</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                        株式市場での成功の鍵は、<span class="text-daiwa-gold font-semibold">情報と戦略の獲得</span>にあります！
+                    </p>
+                    
+                    <!-- Social Proof -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-8">
+                        <div class="flex items-center space-x-4 text-sm">
+                            <div class="flex items-center">
+                                <span class="text-green-400">👥</span>
+                                <span class="ml-1">25,847名が参加中</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="ml-1">満足度98.3%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-blue-400">📈</span>
+                                <span class="ml-1">平均利益率+15%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="kkb()" class="pulse-glow bg-daiwa-gold hover:bg-yellow-500 text-daiwa-dark px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                        🎁 無料で独占情報を今すぐ取得
+                    </button>
+                    
+                    <p class="text-sm mt-4 text-white/80">
+                        ✅ 完全無料 ✅ 1分で登録完了 ✅ いつでも退会可能
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <img src="img/1.jpg" 
+                         alt="大和証券代表" 
+                         class="w-full max-w-lg mx-auto rounded-2xl shadow-2xl animate-float">
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-6 grid grid-cols-3 gap-4 text-center text-white">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                            <div class="text-2xl font-bold text-daiwa-gold">120+</div>
+                            <div class="text-sm">年の歴史</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                            <div class="text-2xl font-bold text-daiwa-gold">2.5兆</div>
+                            <div class="text-sm">円の資産</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                            <div class="text-2xl font-bold text-daiwa-gold">世界</div>
+                            <div class="text-sm">展開</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="py-16 bg-red-50 dark:bg-red-900/20 border-t-4 border-red-500">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-red-600 dark:text-red-400 mb-4">
+                    ⚠️ 市場は待ってくれません！
+                </h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                    今この瞬間にも投資機会は生まれています。情報格差が利益の差となります。
+                </p>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg inline-block">
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">本日の登録者限定特典</div>
+                    <div class="text-2xl font-bold text-daiwa-blue mb-2">📊 2025年厳選10銘柄リスト</div>
+                    <div class="text-red-500 font-semibold">価値: 数万円相当 → 今なら無料</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        日本大和証券について
+                    </h2>
+                    <div class="section-divider w-24 mx-auto mb-8"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-daiwa-blue p-4 mb-6">
+                            <div class="text-daiwa-blue font-bold">🏆 業界No.1の実績</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">日本証券業協会認定</div>
+                        </div>
+                        
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            日本大和証券（Daiwa Securities Group Inc.）は<span class="font-semibold text-daiwa-blue">1902年に設立</span>され、日本を代表する金融サービス会社の一つとして、百年以上の業界経験を有しています。
+                        </p>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            2022年のデータによると、当社の資産管理規模は<span class="font-semibold text-daiwa-gold">2.5兆円（約2,300億米ドル）</span>を超え、世界中の投資家に高品質な投資サービスとソリューションを提供しています。
+                        </p>
+                        
+                        <!-- Statistics -->
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="text-center bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                <div class="text-2xl font-bold text-daiwa-blue">25,000+</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-400">アクティブ会員</div>
+                            </div>
+                            <div class="text-center bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                <div class="text-2xl font-bold text-daiwa-blue">98.3%</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-400">顧客満足度</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="kkb()" class="bg-daiwa-blue hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+                            詳細を見る
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <img src="img/2.jpg" 
+                             alt="大和証券オフィス" 
+                             class="w-full rounded-2xl shadow-2xl">
+                        
+                        <!-- Awards -->
+                        <div class="mt-6 bg-gradient-to-r from-daiwa-gold to-yellow-500 text-white rounded-lg p-4">
+                            <div class="font-bold text-lg">🏅 受賞歴</div>
+                            <div class="text-sm mt-2">
+                                • 2023年 ベスト投資アドバイザー賞<br>
+                                • 2022年 顧客満足度最優秀賞<br>
+                                • 2021年 イノベーション証券会社賞
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        📢 利用者の声
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">実際に利益を上げている会員様からの評価</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-daiwa-blue rounded-full flex items-center justify-center text-white font-bold">田中</div>
+                            <div class="ml-3">
+                                <div class="font-semibold text-daiwa-dark dark:text-white">田中様（40代・会社員）</div>
+                                <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 italic">
+                            "推奨銘柄で3ヶ月で<span class="font-bold text-green-600">+32%の利益</span>を達成！初心者の私でも安心して投資できました。"
+                        </p>
+                        <div class="mt-4 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <div class="text-green-600 font-bold">💰 実績：+100万円以上</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-daiwa-blue rounded-full flex items-center justify-center text-white font-bold">佐藤</div>
+                            <div class="ml-3">
+                                <div class="font-semibold text-daiwa-dark dark:text-white">佐藤様（50代・経営者）</div>
+                                <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 italic">
+                            "市場分析の精度が驚異的。<span class="font-bold text-green-600">勝率85%</span>という結果に感謝しています。"
+                        </p>
+                        <div class="mt-4 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <div class="text-green-600 font-bold">💰 実績：+200万円以上</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-daiwa-blue rounded-full flex items-center justify-center text-white font-bold">山田</div>
+                            <div class="ml-3">
+                                <div class="font-semibold text-daiwa-dark dark:text-white">山田様（30代・主婦）</div>
+                                <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 italic">
+                            "家事の合間でも<span class="font-bold text-green-600">月20万円の副収入</span>！家計が大幅に改善しました。"
+                        </p>
+                        <div class="mt-4 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <div class="text-green-600 font-bold">💰 実績：+80万円</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 1 -->
+    <section class="py-16 gradient-bg">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-white mb-6">
+                    今すぐ行動しないと機会を逃します！
+                </h3>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 inline-block">
+                    <div class="text-white text-lg">
+                        <span class="text-daiwa-gold font-bold">限定100名</span> まで無料招待
+                    </div>
+                    <div class="text-white/80 text-sm mt-2">残り席数: 23席</div>
+                </div>
+                <button onclick="kkb()" class="bg-white text-daiwa-blue px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl pulse-glow">
+                    🚀 今すぐ無料で独占情報を取得
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        今日の急速に変化する株式市場において
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">多くの投資家が以下の課題に直面しています</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-2xl shadow-xl border-l-4 border-red-500">
+                        <div class="text-red-500 text-4xl mb-4">⚖️</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">情報の非対称性</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            調査によると、約<span class="font-semibold text-red-500">70%の個人投資家</span>が正確でタイムリーな市場情報の取得に困難を感じています。
+                        </p>
+                        <div class="mt-4 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                            <div class="text-red-600 text-sm font-semibold">⚠️ 年間平均損失: -8.5%</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-2xl shadow-xl border-l-4 border-red-500">
+                        <div class="text-red-500 text-4xl mb-4">🤔</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">意思決定の困難</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <span class="font-semibold text-red-500">60%以上の投資家</span>が投資戦略の策定時に迷いを感じ、専門的なアドバイスを求めています。
+                        </p>
+                        <div class="mt-4 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                            <div class="text-red-600 text-sm font-semibold">⚠️ 機会損失: 年間平均15銘柄</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-2xl shadow-xl border-l-4 border-red-500">
+                        <div class="text-red-500 text-4xl mb-4">💬</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">交流不足</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            調査によると、約<span class="font-semibold text-red-500">55%の投資家</span>が他の投資家と交流し、見識や経験を共有できるプラットフォームを求めています。
+                        </p>
+                        <div class="mt-4 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                            <div class="text-red-600 text-sm font-semibold">⚠️ 孤独感による判断ミス多発</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <img src="img/3.jpg" 
+                         alt="投資課題" 
+                         class="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl mb-8">
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-300 rounded-lg p-6 max-w-2xl mx-auto mb-8">
+                        <div class="text-yellow-700 dark:text-yellow-300 font-bold text-lg mb-2">
+                            🎁 解決策をお教えします！
+                        </div>
+                        <div class="text-gray-700 dark:text-gray-300">
+                            これらの問題を全て解決する独占情報とコミュニティを無料で提供中
+                        </div>
+                    </div>
+                    <button onclick="kkb()" class="bg-daiwa-gold hover:bg-yellow-500 text-daiwa-dark px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl pulse-glow">
+                        🎯 問題を今すぐ解決する
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        日本大和証券の包括的サポート
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">上記の課題を克服するための全方位的なソリューション</p>
+                    
+                    <!-- Guarantee Badge -->
+                    <div class="mt-8 inline-block bg-green-500 text-white px-6 py-3 rounded-full font-bold">
+                        ✅ 30日間満足保証付き
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                            <h3 class="text-2xl font-bold text-daiwa-blue mb-4 flex items-center">
+                                💎 専門株式推奨
+                                <span class="ml-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full">HOT</span>
+                            </h3>
+                            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                当社のアナリストチームが定期的に優良株式を推奨します。過去のデータによると、当社推奨株式の過去1年間の<span class="font-semibold text-green-600">平均リターン率は15%</span>に達しています。
+                            </p>
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <div class="text-green-600 font-bold">📊 実績データ</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                    • 勝率: 78.3%<br>
+                                    • 最高リターン: +145%<br>
+                                    • 推奨銘柄数: 月平均12銘柄
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                            <h3 class="text-2xl font-bold text-daiwa-blue mb-4">📊 市場洞察と分析</h3>
+                            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                最新の市場動向と深い業界分析を提供し、投資決定における<span class="font-semibold text-daiwa-gold">自信を高めます</span>。
+                            </p>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <div class="text-blue-600 font-bold">🔍 分析内容</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                    • 日次マーケットレポート<br>
+                                    • 週次業界動向分析<br>
+                                    • 月次経済指標解説
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                        <h3 class="text-2xl font-bold text-daiwa-blue mb-4">🌐 インタラクティブ交流プラットフォーム</h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto mb-6">
+                            当社のオンラインコミュニティを通じて、他の投資家や専門家と深い交流を行い、経験と見識を共有できます。
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                                <div class="text-purple-600 font-bold">💬 アクティブメンバー</div>
+                                <div class="text-2xl font-bold text-purple-700">25,847名</div>
+                            </div>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                                <div class="text-orange-600 font-bold">📝 日次投稿数</div>
+                                <div class="text-2xl font-bold text-orange-700">1,200+</div>
+                            </div>
+                            <div class="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
+                                <div class="text-teal-600 font-bold">⚡ 応答時間</div>
+                                <div class="text-2xl font-bold text-teal-700">< 5分</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <img src="img/4.jpg" 
+                             alt="ソリューション" 
+                             class="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl mb-8">
+                        
+                        <!-- Special Offer -->
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-8 max-w-3xl mx-auto mb-8">
+                            <div class="text-3xl font-bold mb-4">🎉 特別限定オファー</div>
+                            <div class="text-xl mb-4">通常価格 数万円/年 → 今なら完全無料</div>
+                            <div class="text-lg">さらに初回登録特典として価値数万円の投資ガイドブックを無料進呈！</div>
+                        </div>
+                        
+                        <button onclick="kkb()" class="bg-gradient-to-r from-daiwa-blue to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white px-16 py-6 rounded-full text-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl pulse-glow">
+                            🎁 今すぐ無料で参加して特典を受け取る
+                        </button>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">
+                            ⏰ このオファーは24時間限定です
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Webinar Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        🎓 無料オンラインセミナー
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">定期開催される充実したコンテンツ</p>
+                    
+                    <!-- Next Webinar Alert -->
+                    <div class="mt-8 bg-yellow-100 dark:bg-yellow-900/20 border border-yellow-400 rounded-lg p-4 max-w-2xl mx-auto">
+                        <div class="text-yellow-700 dark:text-yellow-300 font-bold">
+                            📅 次回セミナー: 即将开始
+                        </div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm mt-1">
+                            テーマ: "2025年注目の成長株厳選リスト"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-8 rounded-2xl shadow-xl">
+                        <div class="text-daiwa-gold text-4xl mb-4">📈</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">市場トレンド分析</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            最新の市場動向と投資機会を理解。過去のセミナー参加者の<span class="font-semibold text-green-600">85%</span>が後の投資決定に積極的な影響があったと回答。
+                        </p>
+                        <div class="bg-white dark:bg-gray-700 p-3 rounded-lg">
+                            <div class="text-sm font-semibold text-daiwa-blue">参加者平均利益率</div>
+                            <div class="text-2xl font-bold text-green-600">+22.5%</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-2xl shadow-xl">
+                        <div class="text-daiwa-gold text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">投資戦略共有</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            プロ投資家の成功体験を学び、取引スキルを向上させます。
+                        </p>
+                        <div class="bg-white dark:bg-gray-700 p-3 rounded-lg">
+                            <div class="text-sm font-semibold text-daiwa-blue">戦略成功率</div>
+                            <div class="text-2xl font-bold text-green-600">91.2%</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-8 rounded-2xl shadow-xl">
+                        <div class="text-daiwa-gold text-4xl mb-4">❓</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">リアルタイムQ&A</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            専門家との直接交流で、疑問を解決します。
+                        </p>
+                        <div class="bg-white dark:bg-gray-700 p-3 rounded-lg">
+                            <div class="text-sm font-semibold text-daiwa-blue">質問解決率</div>
+                            <div class="text-2xl font-bold text-green-600">98.7%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Webinar Registration CTA -->
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-2xl p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">🚀 次回セミナーに無料参加</h3>
+                    <p class="text-lg mb-6">先着100名限定！参加者には特別レポートをプレゼント</p>
+                    <button onclick="kkb()" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-all duration-300">
+                        今すぐ席を確保する
+                    </button>
+                    <p class="text-indigo-100 mt-4 text-sm">残り席数: 47席</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Disclaimer -->
+    <section class="py-8 bg-gray-200 dark:bg-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                    <strong>リスク開示:</strong> 投資にはリスクが伴います。過去の実績は将来の成果を保証するものではありません。投資判断は自己責任で行ってください。当社の情報は投資アドバイスではなく、教育目的での提供です。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-daiwa-dark dark:text-white mb-6">
+                        💎 参加のメリット
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">会員だけが得られる特別な価値</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                        <div class="bg-gradient-to-r from-daiwa-blue to-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">📊</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">最新株式推奨の獲得</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            専門的な株式推奨を最初に受け取り、投資機会を掴みます。
+                        </p>
+                        <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <div class="text-green-600 font-bold">平均利益</div>
+                            <div class="text-2xl font-bold text-green-700">+数十万円/月</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                        <div class="bg-gradient-to-r from-daiwa-gold to-yellow-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">🎓</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">投資知識の向上</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            セミナーとコミュニティ交流を通じて、投資視野を広げ、決定能力を向上させます。
+                        </p>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                            <div class="text-blue-600 font-bold">スキル向上率</div>
+                            <div class="text-2xl font-bold text-blue-700">+156%</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">🤝</div>
+                        <h3 class="text-xl font-bold text-daiwa-dark dark:text-white mb-4">人脈ネットワークの構築</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            志を同じくする投資家との繋がりを築き、共に交流し学習します。
+                        </p>
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
+                            <div class="text-purple-600 font-bold">ネットワーク価値</div>
+                            <div class="text-2xl font-bold text-purple-700">計り知れない</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-2xl p-8 max-w-4xl mx-auto mb-8">
+                        <h3 class="text-3xl font-bold mb-4">⚡ 最後のチャンス！</h3>
+                        <p class="text-xl mb-4">
+                            今すぐ行動し、成功投資への第一歩を踏み出しましょう！
+                        </p>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 mb-6 inline-block">
+                            <div class="text-2xl font-bold">無料期間終了まで</div>
+                            <div class="text-lg" id="countdown2"></div>
+                        </div>
+                        <p class="text-lg">
+                            以下の情報を入力し、日本大和証券株式交流コミュニティに無料参加して、<br>
+                            株式推奨と最新活動情報を獲得しましょう！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <img src="img/5.jpg" 
+                     alt="最終行動呼びかけ" 
+                     class="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl mb-12">
+                
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
+                    💰 成功への扉を開こう
+                </h2>
+                
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    投資の世界で勝ち続けるために必要なすべてがここにあります
+                </p>
+
+                <!-- Final Offer Box -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
+                    <div class="text-3xl font-bold text-daiwa-gold mb-4">🎁 今だけの特別プレゼント</div>
+                    <div class="grid md:grid-cols-3 gap-4 text-white">
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <div class="font-bold">厳選10銘柄リスト</div>
+                            <div class="text-sm opacity-80">価値: 数万円</div>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <div class="font-bold">投資戦略ガイド</div>
+                            <div class="text-sm opacity-80">価値: 数万円</div>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <div class="font-bold">個別相談権</div>
+                            <div class="text-sm opacity-80">価値: 数万円</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white mt-4">
+                        総額 十万円以上 → <span class="text-daiwa-gold">今なら完全無料</span>
+                    </div>
+                </div>
+                
+                <button onclick="kkb()" class="bg-daiwa-gold hover:bg-yellow-500 text-daiwa-dark px-20 py-8 rounded-full text-3xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl pulse-glow mb-8">
+                    🚀 今すぐ無料で全て受け取る
+                </button>
+                
+                <div class="grid md:grid-cols-3 gap-4 text-white/80 text-lg">
+                    <div class="flex items-center justify-center">
+                        <span class="text-green-400 mr-2">✅</span>
+                        完全無料
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <span class="text-green-400 mr-2">✅</span>
+                        30秒で登録完了
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <span class="text-green-400 mr-2">✅</span>
+                        いつでも退会可能
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-daiwa-dark text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4 text-daiwa-gold">日本大和証券株式交流コミュニティ</h3>
+                        <p class="text-gray-400 mb-6">あなたの投資成功をサポートします</p>
+                        <div class="flex space-x-4">
+                            <div class="bg-daiwa-blue p-3 rounded-lg">
+                                <span class="text-2xl">📈</span>
+                            </div>
+                            <div class="bg-daiwa-gold p-3 rounded-lg">
+                                <span class="text-2xl">💎</span>
+                            </div>
+                            <div class="bg-green-500 p-3 rounded-lg">
+                                <span class="text-2xl">🏆</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">サービス</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>株式推奨</li>
+                            <li>市場分析</li>
+                            <li>投資セミナー</li>
+                            <li>コミュニティ</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">実績</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>会員数: 25,847名</li>
+                            <li>平均利益率: +15%</li>
+                            <li>満足度: 98.3%</li>
+                            <li>勝率: 78.3%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8 text-center">
+                    <button onclick="kkb()" class="bg-daiwa-gold hover:bg-yellow-500 text-daiwa-dark px-12 py-4 rounded-full font-bold transition-all duration-300 mb-6">
+                        最後のチャンス - 今すぐ参加
+                    </button>
+                    <p class="text-gray-400 text-sm">
+                        © 2025 日本大和証券株式交流コミュニティ. All rights reserved. | 投資にはリスクが伴います。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Second countdown timer for footer
+        function startCountdown2() {
+            const countDownDate = new Date().getTime() + 12 * 60 * 60 * 1000; // 12 hours from now
+            
+            setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                const element = document.getElementById("countdown2");
+                if (element) {
+                    element.innerHTML = hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+                }
+                
+                if (distance < 0) {
+                    if (element) element.innerHTML = "終了";
+                }
+            }, 1000);
+        }
+
+        // Start both countdown timers
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+            startCountdown2();
+        });
+    </script>
+</body>
+</html>
