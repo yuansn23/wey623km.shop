@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>優良株式投資分析 - 無料レポート配布中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .investment-landing-page-container {
+            font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .financial-analysis-hero-section {
+            padding: 40px 20px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,107,0,0.1) 0%, rgba(255,193,7,0.1) 100%);
+            border-bottom: 3px solid #ff6b00;
+        }
+
+        .stock-analysis-main-heading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b00, #ffc107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: market-pulse-animation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes market-pulse-animation {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+
+
+        .market-research-image-container {
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .professional-analysis-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .professional-analysis-image:hover {
+            transform: scale(1.05);
+        }
+
+        .call-to-action-primary-button {
+            background: linear-gradient(45deg, #4caf50, #81c784);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(76,175,80,0.4);
+            transition: all 0.3s ease;
+            animation: success-button-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes success-button-glow {
+            0% { box-shadow: 0 8px 25px rgba(76,175,80,0.4); }
+            100% { box-shadow: 0 8px 35px rgba(76,175,80,0.7); }
+        }
+
+        .call-to-action-primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(76,175,80,0.6);
+        }
+
+        .investor-problems-identification-section {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(33,150,243,0.1) 0%, rgba(103,58,183,0.1) 100%);
+        }
+
+        .pain-points-heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2196f3;
+        }
+
+        .trading-challenges-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .challenge-item-wrapper {
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #f44336;
+            backdrop-filter: blur(10px);
+        }
+
+        .methodology-explanation-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(255,87,34,0.1) 100%);
+        }
+
+        .analysis-approach-heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        .technical-analysis-description {
+            font-size: 16px;
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-showcase-section {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(156,39,176,0.1) 0%, rgba(233,30,99,0.1) 100%);
+        }
+
+        .benefits-main-heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #9c27b0;
+        }
+
+        .advantage-points-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .benefit-item-card {
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            backdrop-filter: blur(10px);
+        }
+
+        .free-report-acquisition-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0,150,136,0.1) 0%, rgba(76,175,80,0.1) 100%);
+        }
+
+        .report-offer-heading {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #009688;
+        }
+
+        .report-content-description {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .line-contact-instruction {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #00bcd4, #4caf50);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .floating-action-button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .breathing-cta-button {
+            background: linear-gradient(45deg, #ff5722, #e91e63);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255,87,34,0.5);
+            animation: breathing-pulse-effect 2s ease-in-out infinite;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
+            line-height: 1.5;
+            width: 95%;
+            max-width: 500px;
+            min-height: 60px;
+        }
+
+        @keyframes breathing-pulse-effect {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 8px 25px rgba(255,87,34,0.5);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 12px 35px rgba(255,87,34,0.8);
+            }
+        }
+
+        .risk-disclosure-section {
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.3);
+            border-top: 2px solid #ff9800;
+            margin-top: 50px;
+        }
+
+        .warning-notice-heading {
+            font-size: 20px;
+            color: #ff9800;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .compliance-statements-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .risk-statement-item {
+            margin: 10px 0;
+            padding: 10px 0;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .legal-agreements-footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            border-top: 1px solid #333;
+        }
+
+        .agreement-link-element {
+            color: #2196f3;
+            text-decoration: underline;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .agreement-link-element:hover {
+            color: #64b5f6;
+        }
+
+        /* PC端样式 */
+        @media (min-width: 1024px) {
+            .investment-landing-page-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .financial-analysis-hero-section {
+                padding: 80px 40px 100px;
+            }
+            
+            .stock-analysis-main-heading {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+            
+            .investor-problems-identification-section,
+            .methodology-explanation-section,
+            .benefits-showcase-section,
+            .free-report-acquisition-section {
+                padding: 80px 40px;
+            }
+            
+            .trading-challenges-list,
+            .advantage-points-container {
+                max-width: 800px;
+            }
+            
+            .professional-analysis-image {
+                max-width: 500px;
+            }
+            
+            .call-to-action-primary-button {
+                padding: 20px 50px;
+                font-size: 20px;
+            }
+            
+            .breathing-cta-button {
+                padding: 20px 40px;
+                font-size: 18px;
+                width: 60%;
+            }
+        }
+
+        /* 平板端样式 */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .financial-analysis-hero-section {
+                padding: 60px 30px 80px;
+            }
+            
+            .stock-analysis-main-heading {
+                font-size: 32px;
+            }
+            
+            .investor-problems-identification-section,
+            .methodology-explanation-section,
+            .benefits-showcase-section,
+            .free-report-acquisition-section {
+                padding: 60px 30px;
+            }
+            
+            .trading-challenges-list,
+            .advantage-points-container {
+                max-width: 600px;
+            }
+        }
+
+        /* 移动端样式 */
+        @media (max-width: 768px) {
+            .stock-analysis-main-heading {
+                font-size: 24px;
+            }
+            
+            .pain-points-heading,
+            .analysis-approach-heading,
+            .benefits-main-heading {
+                font-size: 20px;
+            }
+            
+            /* 移动端段落间距调整为4 */
+            .financial-analysis-hero-section {
+                padding: 16px 20px 24px;
+                margin-bottom: 16px;
+            }
+            
+            .investor-problems-identification-section {
+                padding: 16px 20px;
+                margin-bottom: 16px;
+            }
+            
+            .methodology-explanation-section {
+                padding: 16px 20px;
+                margin-bottom: 16px;
+            }
+            
+            .benefits-showcase-section {
+                padding: 16px 20px;
+                margin-bottom: 16px;
+            }
+            
+            .free-report-acquisition-section {
+                padding: 16px 20px;
+                margin-bottom: 16px;
+            }
+            
+            .risk-disclosure-section {
+                padding: 16px 20px;
+                margin-top: 16px;
+            }
+            
+            .challenge-item-wrapper,
+            .benefit-item-card {
+                margin: 8px 0;
+                padding: 16px;
+            }
+            
+            .market-research-image-container {
+                margin: 16px 0;
+            }
+            
+            .report-content-description,
+            .line-contact-instruction {
+                margin: 16px 0;
+                padding: 16px;
+            }
+            
+            .technical-analysis-description {
+                padding: 20px;
+            }
+            
+            .breathing-cta-button {
+                width: 100%;
+                padding: 28px 20px;
+                font-size: 15px;
+                line-height: 1.6;
+                min-height: 85px;
+            }
+            
+            .floating-action-button-container {
+                left: 10px;
+                right: 10px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="investment-landing-page-container">
+        <!-- Hero Section -->
+        <section class="financial-analysis-hero-section">
+            <h1 class="stock-analysis-main-heading">
+                優良株式をお探しですか？<br>データがあなたの投資判断をサポートします！
+            </h1>
+            
+
+            
+            <div class="market-research-image-container">
+                <img src="img/2.jpg" alt="株式市場分析" class="professional-analysis-image">
+            </div>
+            
+            <button class="call-to-action-primary-button" onclick="ada()">
+                今すぐ枠を確保する
+            </button>
+        </section>
+
+        <!-- Problems Section -->
+        <section class="investor-problems-identification-section">
+            <h2 class="pain-points-heading">このような悩みはありませんか？</h2>
+            <ul class="trading-challenges-list">
+                <li class="challenge-item-wrapper">
+                    <strong>❌ 盲目的に流行に従い、いつも高値で買ってしまう？</strong>
+                </li>
+                <li class="challenge-item-wrapper">
+                    <strong>❌ 情報過多で、本当に価値のある株式の選び方が分からない？</strong>
+                </li>
+                <li class="challenge-item-wrapper">
+                    <strong>❌ 体系的な分析不足で、最適な売買タイミングを逃している？</strong>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="methodology-explanation-section">
+            <h2 class="analysis-approach-heading">私たちの手法</h2>
+            <div class="technical-analysis-description">
+                <strong>市場トレンド分析 + 資金の流れ + テクニカル指標</strong><br>
+                これらを組み合わせて、潜在力のある株式を特定いたします
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-showcase-section">
+            <h2 class="benefits-main-heading">✨ 何が得られるのか？ ✨</h2>
+            <div class="advantage-points-container">
+                <div class="benefit-item-card">
+                    <strong>✅ 毎日・毎週厳選された株式観察リスト</strong>
+                </div>
+                <div class="benefit-item-card">
+                    <strong>✅ 重要な売買ポイント分析（推奨ではなく、研究用のみ）</strong>
+                </div>
+                <div class="benefit-item-card">
+                    <strong>✅ 市場リスク警告で、理性的な判断をサポート</strong>
+                </div>
+            </div>
+            
+            <div class="market-research-image-container">
+                <img src="img/3.jpg" alt="市場分析レポート" class="professional-analysis-image">
+            </div>
+        </section>
+
+        <!-- Free Report Section -->
+        <section class="free-report-acquisition-section">
+            <h2 class="report-offer-heading">📲 無料で「現在の市場注目株式分析レポート」を入手</h2>
+            <div class="report-content-description">
+                （業界トレンド、資金動向、テクニカル面の解説を含む）
+            </div>
+            
+            <div class="line-contact-instruction">
+                <strong>👉 今すぐ受け取る</strong>：LINEで友達追加後、<br>
+                キーワード【レポート】を送信すると自動で受け取れます
+            </div>
+            
+            <button class="call-to-action-primary-button" onclick="ada()">
+                LINEで今すぐ受け取る
+            </button>
+        </section>
+
+        <!-- Risk Disclosure Section -->
+        <section class="risk-disclosure-section">
+            <h3 class="warning-notice-heading">⚠️ 重要なリスク開示</h3>
+            <ul class="compliance-statements-list">
+                <li class="risk-statement-item">• 本サービスは一般的な市場情報のみを提供し、投資助言や推奨を構成するものではありません。</li>
+                <li class="risk-statement-item">• 金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。</li>
+                <li class="risk-statement-item">• 表示されている例はすべて過去のデータ分析であり、将来の収益を保証するものではありません。</li>
+                <li class="risk-statement-item">• 投資家は自身のリスク許容度に基づいて慎重に判断してください。</li>
+                <li class="risk-statement-item">• すべての情報は客観的事実の陳述であり、投資助言を構成するものではありません。</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="legal-agreements-footer">
+            <a href="Privacy.html" class="agreement-link-element">プライバシーポリシー</a>
+            <a href="terms.html" class="agreement-link-element">利用規約</a>
+        </footer>
+
+        <!-- Floating Button -->
+        <div class="floating-action-button-container">
+            <button class="breathing-cta-button" onclick="ada()">
+                今すぐ参加して学習を始めましょう
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function ada() {
+           window.location.href="https://www.qq.com";
+        }
+
+        // ダークモード対応
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // スムーズスクロール効果
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // ボタンクリック時の視覚的フィードバック
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
