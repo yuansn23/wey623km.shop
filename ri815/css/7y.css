@@ -1,0 +1,353 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient-sophisticated: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #5c6bc0 100%);
+            --secondary-accent-vibrant: #ff6b35;
+            --tertiary-highlight-luminous: #ffd700;
+            --quaternary-background-luxurious: #0f0f23;
+            --quinary-text-pristine: #ffffff;
+            --senary-shadow-ethereal: rgba(0, 0, 0, 0.3);
+            --septenary-border-refined: rgba(255, 255, 255, 0.1);
+            --octonary-success-emerald: #00e676;
+            --nonary-warning-amber: #ff9800;
+        }
+
+        .comprehensive-financial-landscape-container {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: var(--quaternary-background-luxurious);
+            color: var(--quinary-text-pristine);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .sophisticated-investment-header-section {
+            background: var(--primary-gradient-sophisticated);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sophisticated-investment-header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .primary-headline-sophisticated-typography {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px var(--senary-shadow-ethereal);
+            position: relative;
+            z-index: 2;
+        }
+
+        .secondary-subtitle-refined-messaging {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .strategic-content-organization-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .fundamental-analysis-showcase-segment {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .critical-insights-revelation-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid var(--septenary-border-refined);
+            box-shadow: 0 20px 40px var(--senary-shadow-ethereal);
+        }
+
+        .attention-grabbing-headline-composition {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--tertiary-highlight-luminous);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comprehensive-description-narrative {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        .professional-imagery-showcase-element {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px var(--senary-shadow-ethereal);
+            margin: 30px auto;
+            display: block;
+            border: 3px solid var(--secondary-accent-vibrant);
+        }
+
+        .methodological-evaluation-framework-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c1810 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .analytical-framework-title-presentation {
+            font-size: 2.4rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--octonary-success-emerald);
+        }
+
+        .comprehensive-methodology-enumeration-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .individual-analytical-criterion-item {
+            background: rgba(255, 255, 255, 0.08);
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary-accent-vibrant);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .individual-analytical-criterion-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-accent-vibrant), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .individual-analytical-criterion-item:hover::before {
+            opacity: 0.1;
+        }
+
+        .individual-analytical-criterion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--senary-shadow-ethereal);
+        }
+
+        .methodology-criterion-title-designation {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--tertiary-highlight-luminous);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .detailed-criterion-explanation-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .engagement-invitation-segment {
+            padding: 80px 0;
+            background: var(--primary-gradient-sophisticated);
+            text-align: center;
+        }
+
+        .compelling-action-proposition-heading {
+            font-size: 2.6rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: var(--quinary-text-pristine);
+        }
+
+        .comprehensive-benefit-enumeration-container {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
+
+        .individual-benefit-statement-element {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            border: 1px solid var(--septenary-border-refined);
+        }
+
+        .primary-interaction-mechanism-button {
+            background: linear-gradient(45deg, var(--secondary-accent-vibrant), var(--nonary-warning-amber));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-interaction-mechanism-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .primary-interaction-mechanism-button:hover::before {
+            left: 100%;
+        }
+
+        .primary-interaction-mechanism-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .comprehensive-risk-disclosure-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            border-top: 3px solid var(--secondary-accent-vibrant);
+        }
+
+        .legal-compliance-warning-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--nonary-warning-amber);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .detailed-risk-enumeration-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .individual-risk-statement-item {
+            padding: 15px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .individual-risk-statement-item::before {
+            content: '• ';
+            color: var(--secondary-accent-vibrant);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .legal-documentation-navigation-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .individual-legal-document-link {
+            color: var(--tertiary-highlight-luminous);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .individual-legal-document-link:hover {
+            color: var(--secondary-accent-vibrant);
+        }
+
+        .persistent-floating-action-element {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--secondary-accent-vibrant), var(--tertiary-highlight-luminous));
+            color: var(--quaternary-background-luxurious);
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
+            z-index: 1000;
+            animation: sophisticated-breathing-animation 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .persistent-floating-action-element:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        @keyframes sophisticated-breathing-animation {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .primary-headline-sophisticated-typography {
+                font-size: 2rem;
+            }
+            
+            .secondary-subtitle-refined-messaging {
+                font-size: 1.1rem;
+            }
+            
+            .critical-insights-revelation-container {
+                padding: 30px 20px;
+            }
+            
+            .attention-grabbing-headline-composition {
+                font-size: 1.8rem;
+            }
+            
+            .persistent-floating-action-element {
+                bottom: 20px;
+                left: 50%;
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+        }
