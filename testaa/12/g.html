@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>株式市場の学習</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E0B38;
+            --secondary: #4D1C77;
+            --accent: #FFBD00;
+            --accent-hover: #FFD54F;
+            --accent-glow: rgba(255, 189, 0, 0.5);
+            --light: #F8F5FF;
+            --dark: #13091F;
+            --text: #2D2D2D;
+            --text-light: #FFFFFF;
+            --gray: #757083;
+            --gray-light: #E6E4EB;
+            --white: #FFFFFF;
+            --box-shadow: 0 10px 30px -5px rgba(30, 11, 56, 0.15);
+            --box-shadow-hover: 0 20px 40px -5px rgba(30, 11, 56, 0.2);
+            --gradient-bg: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-accent: linear-gradient(135deg, var(--accent), #FF8A00);
+            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+            --card-glass: rgba(255, 255, 255, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background-color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px -5px var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px -5px var(--accent-glow);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-large {
+            padding: 18px 38px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-align: center;
+            line-height: 1.3;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+        
+        /* Header Hero Section */
+        .hero {
+            position: relative;
+            padding: 180px 0 120px;
+            background-size: 300% 300%;
+            background-image: linear-gradient(
+                -45deg,
+                var(--primary) 0%,
+                var(--secondary) 25%,
+                #3B1163 50%,
+                var(--secondary) 75%,
+                var(--primary) 100%
+            );
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(77, 28, 119, 0.8), transparent 40%),
+                        radial-gradient(circle at 80% 30%, rgba(77, 28, 119, 0.6), transparent 50%);
+            z-index: 1;
+        }
+        
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .particle:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .particle:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 20%;
+            animation: float 15s infinite ease-in-out;
+            animation-delay: -2s;
+        }
+        
+        .particle:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 15%;
+            animation: float 25s infinite ease-in-out;
+            animation-delay: -5s;
+        }
+        
+        .particle:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            bottom: 15%;
+            right: 10%;
+            animation: float 18s infinite ease-in-out;
+            animation-delay: -8s;
+        }
+        
+        .particle:nth-child(5) {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            animation: float 12s infinite ease-in-out;
+            animation-delay: -3s;
+        }
+        
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInLeft 1s ease-out;
+        }
+        
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            position: relative;
+        }
+        
+        .hero-title span {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            width: 100%;
+            height: 8px;
+            background-color: var(--accent);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+        
+        .hero-img {
+            flex: 1;
+            position: relative;
+            max-width: 550px;
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        .hero-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: perspective(1000px) rotateY(-12deg) rotateX(5deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+        
+        .hero-img-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 189, 0, 0.2), transparent 80%);
+            z-index: 2;
+        }
+        
+        .hero-img-container:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(20px);
+        }
+        
+        .hero-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(1.02);
+        }
+        
+        .hero-img-container:hover img {
+            transform: scale(1.08);
+        }
+        
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .deco-circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+        }
+        
+        .deco-circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -80px;
+        }
+        
+        .limited-offer {
+            position: absolute;
+            bottom: -25px;
+            right: -15px;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            font-weight: 700;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            z-index: 3;
+            transform: rotate(-5deg);
+        }
+        
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 50px;
+            border: var(--card-border);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+        
+        .profile-title {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+        
+        .profile-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .quote-mark {
+            position: absolute;
+            font-size: 5rem;
+            opacity: 0.1;
+            line-height: 0;
+            font-family: serif;
+        }
+        
+        .quote-start {
+            top: 15px;
+            left: -15px;
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--light);
+            position: relative;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top left, rgba(30, 11, 56, 0.03), transparent 70%),
+                        radial-gradient(ellipse at bottom right, rgba(30, 11, 56, 0.03), transparent 70%);
+            z-index: 1;
+        }
+        
+        .features-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .features-heading {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid rgba(230, 228, 235, 0.5);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+            z-index: 1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-bg);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-size: 1.7rem;
+            box-shadow: 0 10px 20px -5px rgba(30, 11, 56, 0.2);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            border-radius: 50%;
+            background: var(--gradient-accent);
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-description {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+            line-height: 1.7;
+        }
+        
+        .features-img {
+            margin-top: 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .features-img img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+        }
+        
+        .features-img::before,
+        .features-img::after {
+            content: '';
+            position: absolute;
+            border-radius: 20px;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .features-img::before {
+            top: -20px;
+            left: -20px;
+            width: 50%;
+            height: 50%;
+        }
+        
+        .features-img::after {
+            bottom: -20px;
+            right: -20px;
+            width: 40%;
+            height: 40%;
+        }
+        
+        .features-img:hover::before,
+        .features-img:hover::after {
+            transform: scale(1.1);
+        }
+        
+        .features-action {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .benefits-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefits-heading {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .benefits-heading .section-title {
+            color: var(--white);
+        }
+        
+        .benefits-heading .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefit-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: var(--card-border);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            z-index: -1;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .benefit-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .benefit-number::after {
+            content: '+';
+            position: absolute;
+            top: 5px;
+            right: -20px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .benefit-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 1.5px;
+        }
+        
+        .benefit-description {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        .benefits-action {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(30, 11, 56, 0.03), transparent 70%),
+                        radial-gradient(ellipse at bottom left, rgba(30, 11, 56, 0.03), transparent 70%);
+            z-index: 1;
+        }
+        
+        .testimonials-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonials-heading {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 228, 235, 0.5);
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-accent);
+            z-index: 1;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .testimonial-card:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+        
+        .testimonial-content {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 25px;
+            flex-grow: 1;
+            position: relative;
+            line-height: 1.8;
+            padding-left: 25px;
+            padding-right: 10px;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            font-size: 5rem;
+            color: var(--accent);
+            opacity: 0.15;
+            line-height: 1;
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 20px -5px rgba(30, 11, 56, 0.3);
+        }
+        
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-name {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .limited-banner {
+            margin-top: 70px;
+            background: var(--gradient-bg);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .limited-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        .banner-accent {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent);
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .banner-accent-1 {
+            width: 200px;
+            height: 200px;
+            top: -80px;
+            left: -60px;
+        }
+        
+        .banner-accent-2 {
+            width: 250px;
+            height: 250px;
+            bottom: -100px;
+            right: -80px;
+        }
+        
+        .limited-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .limited-banner h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .limited-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--white);
+            padding: 60px 0 40px;
+            text-align: center;
+            border-top: 1px solid var(--gray-light);
+            position: relative;
+        }
+        
+        .disclaimer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 35px;
+            background-color: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .disclaimer-title {
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .disclaimer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 1.5px;
+        }
+        
+        .disclaimer p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .disclaimer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: 90%;
+            max-width: 500px;
+            animation: floating 2s infinite;
+        }
+        
+        .floating-btn .btn {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -5px var(--accent-glow);
+            padding: 20px 30px;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 189, 0, 0.3);
+        }
+        
+        @keyframes floating {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-12px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero {
+                padding: 140px 0 100px;
+            }
+            
+            .hero-title {
+                font-size: 3.4rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-img {
+                max-width: 100%;
+            }
+            
+            .hero-img-container {
+                transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.6rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .limited-offer {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+                right: 10px;
+                bottom: -20px;
+            }
+            
+            .feature-card, .benefit-card, .testimonial-card {
+                padding: 30px 25px;
+            }
+            
+            .limited-banner {
+                padding: 30px;
+            }
+            
+            .limited-banner h3 {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 70px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.9rem;
+            }
+            
+            .floating-btn .btn {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .disclaimer {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">投資知識共有<span>LINE</span>コミュニティへようこそ</h1>
+                    <p class="hero-description">
+                        私のファンや友人への感謝を込めて、今年私は無料のLINEコミュニティを立ち上げました。あなたが投資を始めたばかりでも、市場の変動の中で迷っていても、私たちはサポートと学びの環境を提供します。ここには複雑な障壁はなく、明確な知識の共有と志を同じくする仲間だけがいて、あなたと一緒に投資の次のステップへと進みます。
+                    </p>
+                    <button class="btn btn-large" onclick="opensite()">無料コミュニティに参加する</button>
+                    
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div>
+                                <h3 class="profile-name">Testa</h3> 
+                            </div>
+                        </div>
+                        <div class="profile-content">
+                            <span class="quote-mark quote-start">"</span>
+                           私は常に市場分析とリスク管理に注目しています。投資戦略を継続的に調整し最適化することで、2024年6月に良い結果を得ることができました。この経験から、投資の考え方を共有する重要性を認識しました。私の経験を通じて、合理的な投資の意義と価値を多くの人に理解していただければと思います。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-img">
+                    <div class="deco-circle deco-circle-1"></div>
+                    <div class="deco-circle deco-circle-2"></div>
+                    <div class="hero-img-container">
+                        <img src="img/2.jpg" alt="池上彰の投資コミュニティ"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <div class="features-wrapper">
+                <div class="features-heading">
+                    <h2 class="section-title">コミュニティの目的</h2>
+                    <p class="section-subtitle">私のファンや友人への感謝を込めて、今年私は無料のLINEコミュニティを立ち上げました。このコミュニティの目的は以下の通りです。</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card" style="animation: fadeInUp 0.6s ease-out;">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">知識共有</h3>
+                        <p class="feature-description">
+                            私はこのプラットフォームを通じて、長年の投資知識と経験を共有し、メンバーが基本的な投資原則と戦略を習得できるようサポートしたいと考えています。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="animation: fadeInUp 0.8s ease-out;">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">交流互動</h3>
+                        <p class="feature-description">
+                            コミュニティ内では、メンバーが自由に交流し、それぞれの投資体験や市場観察を共有できます。このような交流は理解を深め、新しい投資の視点を刺激します。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="animation: fadeInUp 1s ease-out;">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16Zm.25-14.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 1.5 0Zm0 10.5v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 1.5 0ZM1.5 8.75h1.5a.75.75 0 0 0 0-1.5H1.5a.75.75 0 0 0 0 1.5ZM13 8.75h1.5a.75.75 0 0 0 0-1.5H13a.75.75 0 0 0 0 1.5Zm-10.828 4.6 1.06-1.06a.75.75 0 0 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06Zm9.656-9.656 1.06-1.06a.75.75 0 0 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06Zm-9.656 0a.75.75 0 0 0 1.06 0l1.06-1.06a.75.75 0 0 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 0 1.06ZM13.828 13.35a.75.75 0 0 0 1.06 0l1.06-1.06a.75.75 0 0 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 0 1.06Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">リスク管理</h3>
+                        <p class="feature-description">
+                            私は常に、成功した投資には適切なリスク管理が不可欠だと信じています。コミュニティでは、投資リスクを評価し管理する方法について、定期的な講座やディスカッションを開催します。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="animation: fadeInUp 1.2s ease-out;">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">認知向上</h3>
+                        <p class="feature-description">
+                            私たちは定期的にディスカッションを開催し、市場動向や経済状況を分析して、メンバーが市場の背後にある論理をより良く理解し、より賢明な投資判断を下せるようサポートします。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="animation: fadeInUp 1.4s ease-out;">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">データ分析</h3>
+                        <p class="feature-description">
+                            財務諸表や市場データを分析する方法を共有し、メンバーが株式の実際の価値をどのように評価するかを理解し、投資判断の科学性を高めるのに役立ちます。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="features-img" style="animation: zoomIn 1s ease-out;">
+                    <img src="img/8.jpg" alt="投資コミュニティの特徴">
+                    <div class="features-action">
+                        <button class="btn btn-large" onclick="opensite()" style="margin-top: 40px;">残り30名様限定！今すぐ参加する</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="section benefits">
+        <div class="container">
+            <div class="benefits-wrapper">
+                <div class="benefits-heading">
+                    <h2 class="section-title">LINEコミュニティの価値</h2>
+                    <p class="section-subtitle">私たちのコミュニティに参加することで得られる特別な価値をご紹介します。</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card" style="animation: fadeInUp 0.6s ease-out;">
+                        <div class="benefit-number">8</div>
+                        <h3 class="benefit-title">豊富な経験の蓄積</h3>
+                        <p class="benefit-description">
+                            私たちのコミュニティは長年にわたり、投資家に専門的な交流プラットフォームを提供してきました。貴重な運営経験を蓄積し、投資家同士の交流と学習をサポートする、安定した信頼できる環境を作り上げています。
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card" style="animation: fadeInUp 0.8s ease-out;">
+                        <div class="benefit-number">6,221</div>
+                        <h3 class="benefit-title">活発なメンバーネットワーク</h3>
+                        <p class="benefit-description">
+                            現在、コミュニティには6,221名のメンバーがおり、初心者から経験豊富な投資家まで様々です。ここでは、同じ志を持つ仲間を見つけ、投資経験や市場動向を共有することができます。
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card" style="animation: fadeInUp 1s ease-out;">
+                        <div class="benefit-number">223</div>
+                        <h3 class="benefit-title">定期的なライブ配信</h3>
+                        <p class="benefit-description">
+                            これまでに223回のライブイベントを開催し、株式分析、市場トレンド解釈、投資戦略などのテーマを取り上げてきました。各ライブ配信は、メンバーに実用的な知識と洞察を提供し、より賢明な投資判断をサポートすることを目的としています。
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card" style="animation: fadeInUp 1.2s ease-out;">
+                        <div class="benefit-number">200</div>
+                        <h3 class="benefit-title">多様な学習リソース</h3>
+                        <p class="benefit-description">
+                            200以上の記事や動画を提供し、様々な投資テーマをカバーしています。これらのリソースは、投資理論と実践をより深く理解し、投資スキルを向上させるのに役立ちます。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefits-action">
+                    <button class="btn btn-large" onclick="opensite()">無料コミュニティに参加する</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="testimonials-wrapper">
+                <div class="testimonials-heading">
+                    <h2 class="section-title">メンバーの声</h2>
+                    <p class="section-subtitle">私たちのコミュニティに参加している方々の体験談をご紹介します。</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" style="animation: fadeInUp 0.6s ease-out;">
+                        <div class="testimonial-content">
+                            知識を深め、市場を理解する力が身につきました。何より、同じ志を持つ仲間と出会えたことが大きな財産になっています。
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">田</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">田中 雅子</div>
+                                <div class="testimonial-role">コミュニティメンバー・6ヶ月</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" style="animation: fadeInUp 0.8s ease-out;">
+                        <div class="testimonial-content">
+                            最初は投資に不安を感じていましたが、このコミュニティのおかげで自信を持って学ぶことができました。分かりやすい解説と実践的なアドバイスが非常に役立っています。コミュニティの雰囲気も温かく、質問がしやすい環境です。
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">山</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">山田 裕太</div>
+                                <div class="testimonial-role">コミュニティメンバー・3ヶ月</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" style="animation: fadeInUp 1s ease-out;">
+                        <div class="testimonial-content">
+                            他の投資グループとは一線を画すコミュニティです。ここでは単なる表面的な情報ではなく、投資の基本原則と長期的な視点を学ぶことができます。メンバー同士の交流も活発で、多様な視点に触れられるのが魅力です。
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">佐</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">佐藤 健太</div>
+                                <div class="testimonial-role">コミュニティメンバー・1年</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="limited-banner">
+                    <div class="banner-accent banner-accent-1"></div>
+                    <div class="banner-accent banner-accent-2"></div>
+                    <div class="limited-banner-content">
+                        <h3>残り30名様限定！無料参加枠</h3>
+                        <p>多くの方にご参加いただき、無料枠は残りわずかとなっています。この機会をお見逃しなく。</p>
+                        <button class="btn btn-large" onclick="opensite()">今すぐLINEコミュニティに参加する</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="disclaimer">
+                <h4 class="disclaimer-title">免責事項・開示情報</h4>
+                <p>本プラットフォームのすべてのコンテンツは教育目的のみであり、特定の投資結果を目指すものではありません。投資家は自身の状況に応じて独自に判断すべきです。</p>
+                <p>提供される情報は、金融商品や証券の売買の推奨や勧誘を意図するものではなく、投資、金融、法律、税務、またはその他の専門的なアドバイスとして解釈されるべきではありません。投資判断を行う前に、必ず資格のある専門家に相談してください。</p>
+                <p>投資には本質的にリスクが伴い、元本の保証はありません。過去のパフォーマンスは将来の結果を示唆または保証するものではありません。当社は、提供する情報の正確性、完全性、または適時性を保証するものではなく、この情報に基づいて行われた投資判断に対して責任を負いません。</p>
+            </div>
+            <p class="copyright">&copy; 2025 . All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Floating Button -->
+    <div class="floating-btn">
+        <button class="btn" onclick="opensite()">
+             
+            今すぐLINEコミュニティに参加する 
+        </button>
+    </div>
+    
+    <script>
+        function opensite() {
+            window.location.href = "https://works.do/5voe5OL";
+        }
+        
+        // On page load animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate on scroll
+            const animateElements = document.querySelectorAll('.feature-card, .benefit-card, .testimonial-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

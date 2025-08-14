@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-715097617"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-715097617'); </script>
+
+    <!-- Event snippet for 注册 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-715097617/YdiHCMLRlL4aEJGM_tQC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>次世代投資コミュニティ | Testa's Innovation Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ベーススタイル */
+        :root {
+            /* 鮮やかな色彩 */
+            --primary: #6C02FF;
+            --primary-dark: #5100BD;
+            --primary-light: #8A3DFF;
+            --secondary: #00E5FF;
+            --secondary-dark: #00B8CC;
+            --accent: #FF3D7F;
+            --accent-light: #FF6E9F;
+            --neon-green: #39FF14;
+            --neon-purple: #BC13FE;
+            --neon-blue: #00FFFF;
+            --dark: #08021E;
+            --dark-light: #150A43;
+            --light: #FFFFFF;
+            --gray: #9B9EAE;
+            
+            /* グラデーション */
+            --gradient-primary: linear-gradient(135deg, #6C02FF 0%, #BC13FE 100%);
+            --gradient-secondary: linear-gradient(135deg, #00E5FF 0%, #39FF14 100%);
+            --gradient-accent: linear-gradient(135deg, #FF3D7F 0%, #FF9A5C 100%);
+            --gradient-dark: linear-gradient(135deg, #08021E 0%, #1A0959 100%);
+            --gradient-hero: linear-gradient(135deg, #08021E 0%, #4A0278 100%);
+            
+            /* 効果 */
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+            
+            --shadow-neon-purple: 0 0 15px rgba(188, 19, 254, 0.5);
+            --shadow-neon-blue: 0 0 15px rgba(0, 229, 255, 0.5);
+            --shadow-neon-green: 0 0 15px rgba(57, 255, 20, 0.5);
+            --shadow-neon-pink: 0 0 15px rgba(255, 61, 127, 0.5);
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            
+            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-medium: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        *, *::before, *::after { 
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Lexend', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        /* ユーティリティクラス */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0;
+            background: var(--gradient-hero);
+            position: relative;
+        }
+        
+        .text-gradient-primary {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+        
+        .text-gradient-secondary {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+        
+        .text-gradient-accent {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* タイポグラフィ */
+        .mega-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .title-lg {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .title-md {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        .title-sm {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .paragraph {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* コンポーネント */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-neon-pink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            animation: shimmer 3s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(50%, 50%) rotate(45deg);
+            }
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 10px 25px rgba(108, 2, 255, 0.4), var(--shadow-neon-purple);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--neon-purple) 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition-medium);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(108, 2, 255, 0.6), 0 0 30px rgba(188, 19, 254, 0.8);
+        }
+        
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4), var(--shadow-neon-blue);
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--neon-green) 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition-medium);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.6), 0 0 30px rgba(57, 255, 20, 0.8);
+        }
+        
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 61, 127, 0.4), var(--shadow-neon-pink);
+        }
+        
+        .btn-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, #FF9A5C 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition-medium);
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 61, 127, 0.6), 0 0 30px rgba(255, 154, 92, 0.8);
+        }
+        
+        .btn-accent:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-icon {
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-accent);
+            color: white;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            border-radius: 60px;
+            box-shadow: 0 10px 30px rgba(255, 61, 127, 0.4), 0 0 20px rgba(255, 61, 127, 0.8);
+            z-index: 100;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            animation: float 3s infinite ease-in-out;
+            min-width: 300px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+                box-shadow: 0 10px 30px rgba(255, 61, 127, 0.4), 0 0 20px rgba(255, 61, 127, 0.6);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-15px);
+                box-shadow: 0 25px 40px rgba(255, 61, 127, 0.6), 0 0 30px rgba(255, 61, 127, 0.8);
+            }
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-medium);
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl), var(--shadow-neon-purple);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition-medium);
+            color: var(--secondary);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: var(--transition-medium);
+            z-index: 0;
+        }
+        
+        .card-icon i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card:hover .card-icon {
+            color: white;
+            transform: translateY(-5px) rotateY(180deg);
+            box-shadow: var(--shadow-neon-blue);
+        }
+        
+        .card:hover .card-icon::before {
+            opacity: 1;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .card-content {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: rgba(57, 255, 20, 0.1);
+            border-radius: 50%;
+            color: var(--neon-green);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+        
+        .feature-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 6rem;
+            font-family: serif;
+            line-height: 1;
+            opacity: 0.1;
+            transition: var(--transition-medium);
+        }
+        
+        .testimonial::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-medium);
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl), var(--shadow-neon-blue);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial:hover::before {
+            opacity: 0.2;
+            transform: translateY(-10px);
+        }
+        
+        .testimonial:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-neon-blue);
+            transition: var(--transition-medium);
+        }
+        
+        .testimonial:hover .testimonial-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.8);
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .highlight-box {
+            background: rgba(108, 2, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+        }
+        
+        .highlight-box:hover {
+            border-left-width: 8px;
+            box-shadow: var(--shadow-lg), var(--shadow-neon-purple);
+            transform: translateY(-5px);
+        }
+        
+        .grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .disclaimer {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* セクション固有スタイル */
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .hero-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(108, 2, 255, 0.5);
+            position: relative;
+            z-index: 2;
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: var(--transition-medium);
+        }
+        
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: var(--shadow-xl), 0 0 50px rgba(108, 2, 255, 0.8);
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            background: var(--gradient-primary);
+            top: 20px;
+            left: -20px;
+            z-index: 1;
+            opacity: 0.7;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition-medium);
+        }
+        
+        .hero-image:hover::before {
+            top: 30px;
+            left: -30px;
+            opacity: 0.9;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        
+        .hero-circle-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            bottom: -200px;
+            right: -200px;
+        }
+        
+        .hero-circle-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--secondary);
+            top: -150px;
+            left: -150px;
+        }
+        
+        .hero-circle-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 50%;
+            right: 10%;
+        }
+        
+        .neon-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(108, 2, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108, 2, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+        
+        .benefits {
+            background: var(--dark-light);
+            position: relative;
+        }
+        
+        .benefits-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .benefits-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+        }
+        
+        .benefits-circle-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            top: -200px;
+            left: -200px;
+        }
+        
+        .benefits-circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: -100px;
+            right: -100px;
+        }
+        
+        .about {
+            background: var(--dark);
+            position: relative;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            background: var(--gradient-secondary);
+            top: 20px;
+            right: -20px;
+            z-index: 1;
+            opacity: 0.7;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .community {
+            background: var(--dark-light);
+            position: relative;
+        }
+        
+        .community-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='white' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .footer {
+            background: var(--gradient-dark);
+            padding: 5rem 0 10rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .footer-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+        
+        .footer-circle-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            bottom: -300px;
+            right: -200px;
+        }
+        
+        .footer-circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            left: -100px;
+        }
+        
+        /* アニメーション */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition-medium);
+        }
+        
+        .slide-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-left {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: var(--transition-medium);
+        }
+        
+        .slide-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition-medium);
+        }
+        
+        .slide-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: var(--transition-medium);
+        }
+        
+        .scale-up.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+        
+        /* レスポンシブ */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 3rem;
+            }
+            
+            .hero-content, 
+            .about-content {
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content,
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image,
+            .about-image {
+                max-width: 600px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            
+            .feature-list {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+            }
+            
+            .section {
+                padding: 5rem 0;
+            }
+            
+            .section-hero {
+                padding: 6rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-hero {
+                padding: 5rem 0;
+            }
+            
+            .card,
+            .testimonial {
+                padding: 2rem;
+            }
+            
+            .hero-image::before,
+            .about-image::after {
+                display: none;
+            }
+            
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .floating-cta {
+                min-width: 240px;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+            
+            .badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .highlight-box {
+                padding: 1.5rem;
+            }
+            
+            .floating-cta {
+                min-width: 220px;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <section class="section-hero">
+        <div class="hero-bg">
+            <div class="neon-grid"></div>
+            <div class="hero-circle hero-circle-1"></div>
+            <div class="hero-circle hero-circle-2"></div>
+            <div class="hero-circle hero-circle-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge slide-up">残り30名様限定！</div>
+                    <h1 class="mega-title slide-up delay-1">投資の<span class="text-gradient-primary">智慧</span>を<br>共有する<span class="text-gradient-accent">特別</span>コミュニティ</h1>
+                    <p class="paragraph slide-up delay-2">私のファンと友人への感謝の気持ちとして、今年は無料のLINEコミュニティを創設しました。市場が激しく変動する中、明確な知識と共に歩むパートナーがあなたの投資の旅をサポートします。</p>
+                    <button class="btn btn-accent slide-up delay-3" onclick="goToLine()">
+                        <i class="fab fa-line btn-icon"></i>
+                        今すぐ無料参加
+                    </button>
+                </div>
+                
+                <div class="hero-image slide-left delay-4">
+                    <img src="img/1.jpg" alt="Testa 投資コミュニティ">
+                </div>
+            </div>
+            
+            <div class="highlight-box slide-up delay-5">
+                <h3 class="title-sm">はじめまして、Testaです</h3>
+                <p>市場分析とリスク管理に常に注力してきました。投資戦略を継続的に調整・最適化することで、2024年6月には積極的な成果を上げることができました。この経験から、投資理念を共有することの重要性を認識しました。私の経験を通じて、より多くの方々に合理的な投資の意義と価値を理解していただければと思います。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ベネフィットセクション -->
+    <section class="section benefits">
+        <div class="benefits-bg">
+            <div class="benefits-circle benefits-circle-1"></div>
+            <div class="benefits-circle benefits-circle-2"></div>
+        </div>
+        
+        <div class="container">
+            <div class="text-center slide-up">
+                <h2 class="title-lg">コミュニティの<span class="text-gradient-secondary">宗旨</span></h2>
+                <p class="paragraph" style="max-width: 700px; margin-left: auto; margin-right: auto;">ファンと友人への感謝を込めて創設した無料LINEコミュニティでは、以下の価値を大切にしています</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card scale-up">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="card-title">知識分享</h3>
+                    <p class="card-content">このプラットフォームを通じて、私の長年にわたる投資知識と経験を共有し、メンバーが基本的な投資原則と戦略を習得できるようサポートします。</p>
+                </div>
+                
+                <div class="card scale-up delay-1">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="card-title">交流互動</h3>
+                    <p class="card-content">コミュニティ内では、メンバー同士が自由に交流し、それぞれの投資経験や市場の見方を共有できます。この対話が理解を深め、新たな投資アイデアを生み出します。</p>
+                </div>
+                
+                <div class="card scale-up delay-2">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="card-title">リスク管理</h3>
+                    <p class="card-content">成功する投資には良好なリスク管理が不可欠です。定期的なセミナーやディスカッションを開催し、投資リスクを評価・管理する方法をメンバーに伝授します。</p>
+                </div>
+                
+                <div class="card scale-up delay-3">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="card-title">認知向上</h3>
+                    <p class="card-content">定期的な討論会を組織し、市場の動きや経済状況を分析することで、メンバーが市場の背景にある論理をより理解し、より賢明な投資判断を下せるようサポートします。</p>
+                </div>
+                
+                <div class="card scale-up delay-4">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="card-title">データ分析</h3>
+                    <p class="card-content">財務諸表や市場データを分析する方法を共有し、メンバーが株式の真の価値を評価する方法を理解し、投資判断の科学的根拠を強化できるようサポートします。</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 4rem;">
+                <button class="btn btn-primary slide-up" onclick="goToLine()">
+                    <i class="fab fa-line btn-icon"></i>
+                    LINEコミュニティに参加する
+                </button>
+                <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.7);">残り<strong style="color: var(--accent);">30名様</strong>限定の無料参加枠です</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- アバウトセクション -->
+    <section class="section about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image slide-right">
+                    <img src="img/4.jpg" alt="投資コミュニティ">
+                </div>
+                
+                <div class="about-text slide-left">
+                    <h2 class="title-lg">あなたの<span class="text-gradient-secondary">投資の旅</span>をサポート</h2>
+                    <p class="paragraph">私のLINEコミュニティでは、投資の知識だけでなく、実際の市場状況に対応するための実践的なアプローチを学ぶことができます。初心者から経験豊富な投資家まで、すべての方が価値を見出せる環境を目指しています。</p>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">複雑な市場状況を理解するための明確なガイダンス</div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">リスクを最小限に抑えながら投資の可能性を最大化する方法</div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">実践的な投資戦略と市場分析のフレームワーク</div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">志を同じくする投資家とのコネクションの構築</div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">定期的な市場アップデートと専門的な洞察</div>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-secondary" onclick="goToLine()">
+                        <i class="fab fa-line btn-icon"></i>
+                        コミュニティに今すぐ参加
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コミュニティセクション -->
+    <section class="section community">
+        <div class="community-bg"></div>
+        
+        <div class="container">
+            <div class="text-center slide-up">
+                <h2 class="title-lg">コミュニティ<span class="text-gradient-accent">メンバー</span>の声</h2>
+                <p class="paragraph" style="max-width: 700px; margin-left: auto; margin-right: auto;">私たちのコミュニティでは、様々なバックグラウンドを持つ投資家が互いにサポートし合い、共に成長しています</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="testimonial slide-up">
+                    <p class="testimonial-content">このコミュニティに参加して以来、投資に対する見方が完全に変わりました。今では以前より自信を持って市場の変動に対応できるようになりました。特に、リスク管理に関する洞察は私のポートフォリオ管理に大きな違いをもたらしています。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">田</div>
+                        <div>
+                            <h4 class="testimonial-name">田中 誠</h4>
+                            <p class="testimonial-role">東京、エンジニア</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial slide-up delay-1">
+                    <p class="testimonial-content">投資初心者だった私にとって、このコミュニティは知識の宝庫です。メンバーの皆さんは質問に丁寧に答えてくれ、基本から応用まで段階的に学ぶことができました。何より、同じ目標を持つ人々と繋がれることが大きな励みになっています。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">佐</div>
+                        <div>
+                            <h4 class="testimonial-name">佐藤 優子</h4>
+                            <p class="testimonial-role">大阪、会社員</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial slide-up delay-2">
+                    <p class="testimonial-content">投資の知識を深めたいと思い参加しましたが、期待以上の価値がありました。特に市場分析の方法論は私の投資アプローチを変革しました。コミュニティでの対話を通じて、より体系的に考えられるようになり、感情に左右されない投資判断ができるようになりました。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">木</div>
+                        <div>
+                            <h4 class="testimonial-name">木村 健太</h4>
+                            <p class="testimonial-role">名古屋、自営業</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+         
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="footer-circle footer-circle-1"></div>
+            <div class="footer-circle footer-circle-2"></div>
+        </div>
+        
+        <div class="container">
+            
+            
+            <div class="disclaimer" style="margin-top: 4rem;">
+                <h4 style="margin-bottom: 1rem; color: var(--accent); font-size: 1.1rem;">免責事項</h4>
+                <p style="margin-bottom: 1rem;">本プラットフォームのすべてのコンテンツは教育目的のみであり、特定の投資結果を目指すものではありません。投資家は自身の状況に応じて独自に判断すべきです。
+
+提供される情報は、金融商品や証券の売買の推奨や勧誘を意図するものではなく、投資、金融、法律、税務、またはその他の専門的なアドバイスとして解釈されるべきではありません。投資判断を行う前に、必ず資格のある専門家に相談してください。
+
+投資には本質的にリスクが伴い、元本の保証はありません。過去のパフォーマンスは将来の結果を示唆または保証するものではありません。当社は、提供する情報の正確性、完全性、または適時性を保証するものではなく、この情報に基づいて行われた投資判断に対して責任を負いません。</p>
+                <p>当社が提供する情報および教育資料は、投資アドバイスや金融商品の推奨を目的としたものではなく、これに基づいて行われた投資判断に対する責任は完全に投資家自身にあります。投資を行う前に、常に専門の金融アドバイザーに相談することをお勧めします。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- フローティングCTAボタン -->
+    <button class="floating-cta" onclick="goToLine()">
+        <i class="fab fa-line"></i>
+        今すぐ参加する
+    </button>
+
+    <script>
+        // LINE遷移関数
+        function goToLine() {
+             gtag_report_conversion();
+            window.location.href = "https://works.do/5voe5OL";
+        }
+        
+        // スクロールアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.slide-up, .slide-left, .slide-right, .scale-up');
+            
+            // ページロード時に画面内の要素をすぐにアニメーション表示
+            animatedElements.forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // スクロール時のアニメーション処理
+            function checkElementsInViewport() {
+                animatedElements.forEach(el => {
+                    if (isElementInViewport(el) && !el.classList.contains('active')) {
+                        el.classList.add('active');
+                    }
+                });
+            }
+            
+            // 要素が画面内にあるかチェック
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // スクロールイベントリスナー
+            window.addEventListener('scroll', checkElementsInViewport);
+            
+            // 初回実行
+            checkElementsInViewport();
+        });
+    </script>
+</body>
+</html>
