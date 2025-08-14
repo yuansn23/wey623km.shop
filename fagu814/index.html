@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Investissement Français - Marc Fiorentino</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --accent-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8fafc;
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-strong: 0 20px 60px rgba(0,0,0,0.15);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .container-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .main-headline {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtext {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button-primary {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+            animation: pulse-glow 2s infinite;
+        }
+
+        .cta-button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.6); }
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .expert-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            margin: 40px 0;
+            border-left: 5px solid #ffd700;
+        }
+
+        .expert-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            float: left;
+            margin: 0 30px 20px 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .expert-quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-top: 4px solid #ffd700;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .risk-warning {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            cursor: pointer;
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        .whatsapp-icon {
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-strong);
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+        }
+
+        .bottom-cta-float {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .bottom-cta-button {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            animation: pulse-strong 2s infinite;
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 40px 0;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes pulse-strong {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 107, 107, 0.8);
+                transform: scale(1.02);
+            }
+        }
+
+        .highlight-text {
+            background: var(--gold-gradient);
+            color: #2c3e50 !important;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+            background-clip: unset !important;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                right: 20px;
+            }
+            
+            .whatsapp-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .expert-image {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+            }
+            
+            .bottom-cta-float {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container-wrapper">
+            <div class="hero-content">
+                <h1 class="main-headline">Le chemin vers la multiplication de la richesse pour les investisseurs français commence ici !</h1>
+                <p class="hero-subtext">Voulez-vous que votre richesse continue de croître et se multiplie facilement ?</p>
+                <button class="cta-button-primary" onclick="k2()">Obtenez votre plan d'investissement exclusif</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="content-section">
+        <div class="container-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">L'économie française regorge d'opportunités</h2>
+                <p>Êtes-vous encore troublé par la volatilité du marché et les faibles rendements ?</p>
+            </div>
+            
+            <div class="expert-card">
+                <img src="img/1.jpg" alt="Marc Fiorentino" class="expert-image">
+                <div class="expert-quote">
+                    "Le plus grand problème des investisseurs français n'est pas le manque d'opportunités, mais le fait de ne pas choisir la bonne direction. Ce n'est qu'avec des conseils professionnels et une allocation scientifique que l'on peut vraiment battre le marché et multiplier sa richesse."
+                </div>
+                <strong>- Marc Fiorentino, Expert bancaire et d'investissement français renommé</strong>
+            </div>
+
+            <h3>Si vous :</h3>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>En avez assez des intérêts dérisoires des comptes d'épargne</h4>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Ne savez pas comment saisir les opportunités de croissance de richesse</h4>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Espérez que l'investissement apporte des rendements stables et élevés</h4>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <h2 style="color: #e74c3c; font-size: 2.5rem;">Maintenant, l'opportunité est devant vous !</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="content-section" style="background: white;">
+        <div class="container-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Rendement annuel atteignant <span class="highlight-text">15% et plus</span>, sûr et stable !</h2>
+                <p>Notre solution d'investissement créée en collaboration avec Marc Fiorentino et son équipe</p>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">15-20%</div>
+                    <p>Rendement annualisé</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <p>Accompagnement professionnel</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">0%</div>
+                    <p>Expérience requise</p>
+                </div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Rendement annualisé de 15%-20%, croissance stable</h4>
+                    <p>Marc Fiorentino et son équipe sélectionnent les actions blue-chip et entreprises à haut dividende les plus prometteuses du marché français.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💎</div>
+                    <h4>Revenus de dividendes stables chaque année</h4>
+                    <p>Investissement dans des entreprises à haut dividende (Total, LVMH, Saint-Gobain, etc.) pour un flux de trésorerie stable.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4>Allocation d'actifs diversifiée et scientifique</h4>
+                    <p>La diversification des investissements est la clé pour obtenir des rendements élevés avec de faibles risques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="content-section" style="background: var(--bg-light);">
+        <div class="container-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Pourquoi nous choisir ?</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h4>Support autoritaire</h4>
+                    <p>Avec les conseils professionnels de Marc Fiorentino, investissez avec plus de confiance.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Revenus doublés</h4>
+                    <p>Rendement annualisé de 15%-20%, dividendes plus croissance du capital !</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Investissement stable</h4>
+                    <p>Actions blue-chip de qualité et allocation diversifiée, éviter les risques.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h4>Avenir vert</h4>
+                    <p>Investir dans l'environnement et le développement durable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+        <div class="container-wrapper">
+            <div class="section-header">
+                <h2 style="color: white; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem;">Cas réels : Comment ont-ils multiplié leur richesse ?</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <h4>Marie, 45 ans, Résidente parisienne</h4>
+                    <p>"J'ai toujours hésité avec la bourse, mais les conseils de Marc Fiorentino m'ont rassurée. Ils m'ont aidée à construire un portefeuille stable à haut dividende, maintenant j'ai une croissance et des revenus de dividendes considérables chaque année !"</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Jean, 52 ans, Cadre d'entreprise</h4>
+                    <p>"Ce plan a complètement changé ma façon d'investir ! Avant, mes fonds étaient gaspillés en restant inactifs, maintenant grâce à l'aide de l'équipe de Marc, ma richesse croît de plus de 15% par an !"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="content-section">
+        <div class="container-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Rejoignez immédiatement et créez un avenir de richesse avec l'équipe Marc Fiorentino !</h2>
+                <p style="font-size: 1.3rem; margin: 20px 0;">Ne manquez plus les opportunités dorées du marché - la richesse commence par le choix !</p>
+                <button class="cta-button-primary" onclick="k2()" style="font-size: 1.4rem; padding: 25px 50px;">Obtenez votre plan maintenant</button>
+            </div>
+            
+            <div class="expert-card" style="margin-top: 60px; text-align: center;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Les conseils de Marc Fiorentino : L'action peut changer l'avenir !</h3>
+                <p style="font-style: italic; font-size: 1.2rem; color: #7f8c8d;">
+                    "Le secret de la croissance de la richesse réside dans le choix précis et l'action opportune. Il n'y a pas de moment parfait pour le marché, mais il y a la bonne stratégie d'investissement."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Warning -->
+    <section class="risk-warning">
+        <div class="container-wrapper">
+            <h3>⚠️ Avertissement de risque important</h3>
+            <p>Les investissements comportent des risques et les performances passées ne garantissent pas les résultats futurs. Veuillez consulter un conseiller financier qualifié avant de prendre des décisions d'investissement. Ce contenu est à des fins éducatives uniquement.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-links">
+        <div class="container-wrapper">
+            <a  target="_blank">Politique de confidentialité</a>
+            <a  target="_blank">Conditions d'utilisation</a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float" onclick="k2()">
+        <div class="whatsapp-icon">
+            <svg width="35" height="35" fill="white" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+            </svg>
+            <div class="notification-badge">1</div>
+        </div>
+    </div>
+
+    <!-- Bottom Float CTA -->
+    <div class="bottom-cta-float">
+        <button class="bottom-cta-button" onclick="k2()">
+            💰 Commencez votre multiplication de richesse maintenant !
+        </button>
+    </div>
+
+    <script>
+        function k2() {
+            window.open('https://wa.me/', '_blank');
+        }
+
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe benefit cards for animation
+        document.querySelectorAll('.benefit-card, .testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
