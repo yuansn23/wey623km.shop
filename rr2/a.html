@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesuta Official - テスタ公式</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'noto': ['Noto Sans JP', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4C1D95',
+                        'secondary': '#EC4899',
+                        'accent': '#F59E0B',
+                        'dark-bg': '#0F0F23',
+                        'dark-card': '#1A1A2E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #2D1B69 0%, #11011A 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-800 dark:text-gray-100">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <img src="img/1.jpg" alt="Tesuta" class="w-32 h-32 rounded-full mx-auto border-4 border-white/20 shadow-lg object-cover">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Tesuta</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90">公式ウェブサイト</p>
+            <div class="mt-8 inline-block bg-white/10 backdrop-blur-sm rounded-full px-6 py-2">
+                <span class="text-sm font-medium">いつも応援ありがとうございます</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+        <!-- Welcome Message -->
+        <section class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg card-hover">
+            <h2 class="text-3xl font-bold text-primary dark:text-secondary mb-6">親愛なるファンの皆様へ</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                こんにちは！私はTestaです。<br>
+                まず、私をフォローしてくださっている皆様に心から感謝いたします。皆様の支援と励ましがあるからこそ、私は成長し続け、前進する原動力を保つことができています。
+            </p>
+        </section>
+
+        <!-- Appreciation Section -->
+        <section class="bg-gradient-to-r from-secondary/10 to-accent/10 dark:from-secondary/20 dark:to-accent/20 rounded-2xl p-8 card-hover">
+            <h3 class="text-2xl font-bold text-primary dark:text-secondary mb-4">これまでのご支援に感謝</h3>
+            <p class="leading-relaxed">
+                最近、私のソーシャルメディアのフォロワー数が大幅に増加し、とても嬉しく思っています！私が共有するコンテンツを気に入ってくださり、コメント欄やDMでの真摯な交流に感謝しています。一つ一つのコメント、いいね、すべてが私にとって最大の認知と支援です。
+            </p>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-r-2xl p-8">
+            <h3 class="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
+                ⚠️ 重要なお知らせ：誤解にご注意ください
+            </h3>
+            <div class="space-y-4">
+                <p class="leading-relaxed">
+                    こちらで、皆様に重要な情報をお伝えする必要があります：
+                </p>
+                <div class="bg-white dark:bg-dark-card p-4 rounded-lg">
+                    <p class="font-semibold text-red-600 dark:text-red-400">
+                        現在、私はいかなる形の<strong>補習班、サロン、LINEグループ</strong>も開設しておりません。
+                    </p>
+                </div>
+                <p class="leading-relaxed">
+                    もし他のプラットフォームで類似の情報をご覧になった場合、それは誤解か、無許可の行為である可能性があります。皆様には十分ご注意いただき、誤導されないようお願いいたします。
+                </p>
+                <p class="leading-relaxed font-medium text-primary dark:text-secondary">
+                    将来的に新しい計画やプロジェクトがある場合は、必ず私の公式チャンネルを通じて最初にお知らせいたします。ご安心ください！
+                </p>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg card-hover">
+            <h3 class="text-2xl font-bold text-primary dark:text-secondary mb-6">私の理念とビジョン</h3>
+            <p class="leading-relaxed mb-6">
+                私の理念は、コンテンツの共有を通じて、より多くの人にポジティブなエネルギーと人生の美しさを感じてもらうことです。私の文章、写真、動画が皆様の忙しい生活の中の一筋の光となり、束の間のリラックスと喜びをもたらすことを願っています。
+            </p>
+            <div class="bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-xl p-6">
+                <h4 class="font-bold text-lg mb-4 text-primary dark:text-secondary">今後の予定コンテンツ：</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><span class="text-accent mr-3">📸</span> 生活の共有：日常の素晴らしい瞬間を記録</li>
+                    <li class="flex items-center"><span class="text-accent mr-3">💡</span> 知識の拡張：興味深く実用的な観点と経験</li>
+                    <li class="flex items-center"><span class="text-accent mr-3">💬</span> 交流トピック：人生、成長、夢について一緒に議論</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interaction Section -->
+        <section class="bg-gradient-to-r from-accent/10 to-secondary/10 dark:from-accent/20 dark:to-secondary/20 rounded-2xl p-8 card-hover">
+            <h3 class="text-2xl font-bold text-primary dark:text-secondary mb-4">皆様との交流を大切にしています！</h3>
+            <p class="leading-relaxed mb-4">
+                皆様との交流を非常に大切にしています。皆様の閲覧、コメント、さらには静かなフォローも、私の前進の原動力です。ご提案やアイデアがございましたら、いつでもコメントやDMでお聞かせください！
+            </p>
+            <p class="leading-relaxed">
+                また、私のコンテンツをお友達やご家族にシェアすることもお忘れなく。彼らもこのコンテンツを気に入って、この温かいコミュニティに参加してくれるかもしれません。
+            </p>
+        </section>
+
+        <!-- Official Platforms -->
+        <section class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-bold text-primary dark:text-secondary mb-6 text-center">公式プラットフォームをフォロー</h3>
+            <p class="text-center mb-8 text-gray-600 dark:text-gray-300">
+                誤解や情報の偏りを避けるため、以下の<strong>公式チャンネル</strong>から最新情報を入手してください：
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="#" class="bg-gradient-to-br from-pink-500 to-purple-600 text-white p-6 rounded-xl text-center hover:scale-105 transition-transform">
+                    <div class="text-2xl mb-2">📷</div>
+                    <div class="font-bold">Instagram</div>
+                    <div class="text-sm opacity-90">@TestaOfficial</div>
+                </a>
+                <a href="#" class="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-6 rounded-xl text-center hover:scale-105 transition-transform">
+                    <div class="text-2xl mb-2">📘</div>
+                    <div class="font-bold">Facebook</div>
+                    <div class="text-sm opacity-90">Testa Official Page</div>
+                </a>
+                <a href="#" class="bg-gradient-to-br from-red-500 to-red-700 text-white p-6 rounded-xl text-center hover:scale-105 transition-transform">
+                    <div class="text-2xl mb-2">📺</div>
+                    <div class="font-bold">YouTube</div>
+                    <div class="text-sm opacity-90">Testaチャンネル</div>
+                </a>
+            </div>
+            <p class="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
+                今後新しいコンテンツや活動を開始する場合は、上記のプラットフォームで最初に発表いたします。ぜひフォローしてください！
+            </p>
+        </section>
+
+        <!-- Final Message -->
+        <section class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8 text-center card-hover">
+            <h3 class="text-2xl font-bold text-primary dark:text-secondary mb-6">改めて皆様のご支援に感謝いたします！</h3>
+            <p class="leading-relaxed mb-6">
+                古くからのお友達も新しいファンの皆様も、皆様のお付き合いに心から感謝しています。皆様がいるからこそ、私の創作活動により意味があります。この小さな場所で、お互いの物語を共有し、より多くの温かさと愛を伝え続けられることを願っています。
+            </p>
+            <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-inner">
+                <p class="font-medium text-lg text-primary dark:text-secondary mb-4">
+                    一緒により美しい未来を期待しましょう！
+                </p>
+                <p class="text-gray-600 dark:text-gray-300">
+                    お時間があるときに、下にコメントして、お気に入りのコンテンツや見たいテーマを教えてください。皆様のご提案は私にとって非常に重要です！
+                </p>
+            </div>
+            <p class="mt-6 text-xl font-medium text-accent">
+                皆様が毎日充実して幸せに過ごされることを祈っています！
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8 px-4 mt-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold">Testa Official</h4>
+                <p class="text-gray-400">テスタ公式ウェブサイト</p>
+            </div>
+            <div class="border-t border-gray-700 pt-4">
+                <p class="text-sm text-gray-400">
+                    © 2024 Testa Official. All rights reserved. | すべての権利予約
+                </p>
+                <p class="text-xs text-gray-500 mt-2">
+                    このウェブサイトのすべてのコンテンツは著作権により保護されています。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add subtle animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
