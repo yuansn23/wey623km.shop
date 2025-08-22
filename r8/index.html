@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>堀江貴文の2025年日本株投資戦略 - 無料LINE登録キャンペーン</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="css2" rel="stylesheet">
+    
+    
+    <style>
+        :root {
+            --line-green: #06C755;
+            --line-green-dark: #059a42;
+            --accent: #eb524d;
+            --text: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            --blue-gradient: linear-gradient(to right, #1a2980, #26d0ce);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            padding-top: 60px;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ヘッダー */
+        header {
+            background: var(--blue-gradient);
+            color: var(--white);
+            padding: 8px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .header-cta {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            padding: 80px 0 60px;
+            background: url('img/a1.jpg') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+            color: var(--white);
+            margin-top: -60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 40, 85, 0.85);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-title span {
+            color: var(--accent);
+            display: block;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .horie-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 30px auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .horie-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+        
+        .horie-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .horie-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        
+        .horie-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* 共通スタイル */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #1a2980;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 25px auto 0;
+        }
+        
+        /* 特典セクション */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            z-index: -1;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .benefit-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .benefit-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .benefit-card:hover .benefit-img img {
+            transform: scale(1.05);
+        }
+        
+        .benefit-content {
+            padding: 25px;
+        }
+        
+        .benefit-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a2980;
+        }
+        
+        .benefit-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        /* 実績セクション */
+        .performance {
+            background: var(--blue-gradient);
+            color: var(--white);
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .performance-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .performance-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .performance-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .performance-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* ステップセクション */
+        .steps {
+            background: var(--light);
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 250px;
+            margin: 0 20px 40px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--line-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            z-index: 2;
+        }
+        
+        .step:nth-child(2) .step-number {
+            background: #1a2980;
+        }
+        
+        .step:nth-child(3) .step-number {
+            background: var(--accent);
+        }
+        
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 100%;
+            width: 40px;
+            height: 3px;
+            background: var(--line-green);
+            opacity: 0.3;
+        }
+        
+        .step:last-child::after {
+            display: none;
+        }
+        
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #1a2980;
+        }
+        
+        .step p {
+            color: var(--gray);
+        }
+        
+        /* LINEボタン */
+        .line-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #06C755, #059a42, #04d361);
+            background-size: 200% 200%;
+            color: var(--white);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 35px;
+            border-radius: 35px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4);
+            min-width: 300px;
+            animation: buttonGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes buttonGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .line-btn:hover {
+            background: var(--line-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(5, 169, 68, 0.4);
+        }
+        
+        .line-btn i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .line-btn-block {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        /* 登録セクション */
+        .registration {
+            background: url('img/a2.jpg') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+            color: var(--white);
+            padding: 100px 0;
+        }
+        
+        .registration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 41, 128, 0.9);
+        }
+        
+        .registration-content {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .registration-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+        }
+        
+        .registration-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .registration-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .step::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-cta {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .horie-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .horie-photo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .line-btn {
+                min-width: 250px;
+                padding: 14px 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .registration-box {
+                padding: 30px 20px;
+            }
+            
+            .line-btn {
+                min-width: 100%;
+                font-size: 1rem;
+            }
+        }
+    </style>
+<script type="text/javascript" async="" src="f.txt"></script><script type="text/javascript" async="" src="f%281%29.txt"></script></head>
+<body>
+    <!-- ヘ
+    
+    
+    
+    
+   <!-- Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1540153670495590');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1540153670495590&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- End Meta Pixel Code --> 
+    
+    
+    ッダー -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                 
+                <span>堀江貴文の日本株投資</span>
+            </div>
+            <div class="header-cta">
+                <a href="#registration" class="line-btn">
+                    LINEで無料登録
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                堀江貴文が明かす<br>
+                <span>2025年 急騰予想株情報</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                今ならLINE登録で、堀江貴文の最新投資戦略と厳選急騰予想株3銘柄を無料プレゼント！
+            </p>
+            
+            <div class="horie-profile">
+                <div class="horie-photo">
+                    <img src="img/r1.jpg" alt="堀江貴文">
+                </div>
+                <div class="horie-info">
+                    <h3>堀江 貴文</h3>
+                    <p>実業家・投資家・元ライブドア社長。日本を代表する起業家として活躍し、2025年現在も投資家として大きな成功を収めている。独自の投資理論で多くの個人投資家から支持される。</p>
+                </div>
+            </div>
+            
+            <a href="#registration" class="line-btn" style="font-size: 1.2rem; padding: 18px 40px;">
+                LINE追加で、今すぐ優良株情報を無料ゲット！
+            </a>
+        </div>
+    </section>
+
+    <!-- 特典セクション -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>無料登録特典</h2>
+                <p>LINE登録で今すぐ受け取れる2025年最新の豪華特典</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-img">
+                        <img src="img/1.jpg" alt="投資講座">
+                    </div>
+                    <div class="benefit-content">
+                        <h3>堀江式2025年投資戦略</h3>
+                        <p>堀江貴文が2025年に実践する最新投資戦略を完全公開。AI時代に対応した新しい投資手法と成功の秘訣を伝授。</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-img">
+                        <img src="img/2.jpg" alt="急騰予想株">
+                    </div>
+                    <div class="benefit-content">
+                        <h3>2025年急騰予想株3銘柄</h3>
+                        <p>堀江貴文の分析チームが厳選した、2025年に急騰が予想される日本株3銘柄を特別公開。詳細な分析レポート付き。</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-img">
+                        <img src="img/3.jpg" alt="市場分析">
+                    </div>
+                    <div class="benefit-content">
+                        <h3>週2回の最新市場分析</h3>
+                        <p>2025年の市場動向を分析したレポートを週2回配信。経済指標の解説から注目銘柄まで、投資に役立つ情報をお届けします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 実績セクション -->
+    <section class="section performance">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">堀江貴文の実績</h2>
+                <p style="color: rgba(255, 255, 255, 0.8);">2025年現在の確かな分析力と実績</p>
+            </div>
+            
+            <div class="performance-grid">
+                <div class="performance-card">
+                     
+                    <h3>78%</h3>
+                    <p>2024年に推薦した銘柄の平均上昇率</p>
+                </div>
+                
+                <div class="performance-card">
+                    
+                    <h3>42,000人</h3>
+                    <p>2025年現在のコミュニティメンバー数</p>
+                </div>
+                
+                <div class="performance-card">
+                     
+                    <h3>96%</h3>
+                    <p>メンバー満足度（2025年調査）</p>
+                </div>
+                
+                <div class="performance-card">
+                   
+                    <h3>16年</h3>
+                    <p>株式投資での実績</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ステップセクション -->
+    <section class="section steps">
+        <div class="container">
+            <div class="section-title">
+                <h2>簡単3ステップで始められます</h2>
+                <p>LINE登録から特典受け取りまでの流れ</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>LINEで友達追加</h3>
+                    <p>下のボタンから公式LINEアカウントを友達追加</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>特典を受け取る</h3>
+                    <p>登録後すぐに無料講座と予想株情報を受け取れます</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>投資を始める</h3>
+                    <p>学んだ知識と情報を元に、実際の投資を始めましょう</p>
+                </div>
+            </div>
+            
+            <div class="line-btn-block">
+                <a href="#registration" class="line-btn" style="margin-top: 20px;">
+                    LINE追加で、今すぐ優良株情報を無料ゲット！
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登録セクション -->
+    <section class="registration" id="registration">
+        <div class="container registration-content">
+            <div class="registration-box">
+                <h2>今すぐLINE登録して<br>無料特典を受け取ろう</h2>
+                
+                <p>2025年に向けた最新投資情報を手に入れるチャンスを逃さないでください</p>
+                
+                <a href="mailto:contact@investment-info.jp" class="line-btn">
+                    LINE追加で、今すぐ優良株情報を無料ゲット！
+                </a>
+                
+                <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                    ※登録後すぐに特典を受け取れます<br>
+                    ※いつでも配信解除できます
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 直接在HTML中定义自定义链接 - 只需要在这里修改一次即可
+        const customLink = 'https://sdun.io/vxkLPM';
+        
+        // 设置所有按钮的链接
+        document.addEventListener('DOMContentLoaded', function() {
+            const allButtons = document.querySelectorAll('.line-btn');
+            allButtons.forEach(btn => {
+                btn.href = customLink;
+                btn.target = '_blank'; // 在新窗口打开
+            });
+        });
+        
+        // ページ内スクロールをスムーズにする（保留内部锚点功能）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // 如果是.line-btn，不阻止默认行为，让它跳转到自定义链接
+                if (this.classList.contains('line-btn')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // LINEボタンに追加のアニメーション効果
+        const lineBtns = document.querySelectorAll('.line-btn');
+        lineBtns.forEach(btn => {
+            btn.addEventListener('mouseover', () => {
+                btn.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseout', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+</body></html>
