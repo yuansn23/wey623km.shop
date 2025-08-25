@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣遠訊傳媒集團 - 數位內容領導者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1a1a2e',
+                        secondary: '#16213e',
+                        accent: '#e94560',
+                        highlight: '#f39c12',
+                        dark: '#0f0f23',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-effect {
+            background: rgba(15, 15, 35, 0.8);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        .deep-card {
+            background: linear-gradient(145deg, #16213e, #1a1a2e);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: translateY(-2px);
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-dark text-gray-900 dark:text-gray-100">
+
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-6xl mx-auto animate-fadeIn">
+            <div class="mb-12 mt-16 md:mt-20">
+                <img src="img/1.jpg" alt="台灣遠訊傳媒集團" class="w-72 h-48 md:w-96 md:h-64 lg:w-[500px] lg:h-80 mx-auto object-cover rounded-2xl shadow-2xl mb-8 border-3 border-highlight">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                台灣遠訊<br>
+                <span class="text-highlight bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">傳媒集團</span>
+            </h1>
+            
+            <div class="mb-8 space-y-4">
+                <p class="text-2xl md:text-3xl text-highlight font-semibold">
+                    創新 • 連結 • 共榮
+                </p>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    引領數位內容潮流，讓每一位客戶在全球舞台展現獨特魅力
+                </p>
+            </div>
+            
+            <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 shadow-xl breathe">
+                立即聯繫我們
+            </button>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-secondary to-primary opacity-90"></div>
+        <div class="relative z-10 max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">關於台灣遠訊集團</h2>
+                <div class="w-24 h-1 bg-highlight mx-auto mb-8"></div>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    在台灣遠訊集團，我們堅信「創新、連結、共榮」是推動數位時代的核心價值
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+                <div class="deep-card p-8 rounded-2xl text-white hover-scale">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-highlight rounded-lg flex items-center justify-center mb-4">
+                            <span class="text-xl font-bold">📊</span>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">公司概況</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">公司名稱</p>
+                                <p class="text-gray-300">台灣遠訊集團商務股份有限公司</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">成立時間</p>
+                                <p class="text-gray-300">2024年</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">主要業務</p>
+                                <p class="text-gray-300">TikTok中視頻運營、TikTok短劇出海、網路綜合運營</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deep-card p-8 rounded-2xl text-white hover-scale">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+                            <span class="text-xl font-bold">🎯</span>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">核心價值觀</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-highlight pl-4">
+                            <h4 class="font-semibold text-highlight text-lg mb-2">🚀 創新</h4>
+                            <p class="text-gray-300 leading-relaxed">不斷開發具創意的內容和解決方案，以適應快速變化的市場需求</p>
+                        </div>
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold text-accent text-lg mb-2">🔗 連結</h4>
+                            <p class="text-gray-300 leading-relaxed">搭建多元化的平台，促進品牌與受眾之間的有效互動，實現雙向溝通</p>
+                        </div>
+                        <div class="border-l-4 border-highlight pl-4">
+                            <h4 class="font-semibold text-highlight text-lg mb-2">🤝 共榮</h4>
+                            <p class="text-gray-300 leading-relaxed">與合作夥伴共同成長，創造共贏的商業生態，推動整個行業的發展</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="deep-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-highlight">我們的使命</h3>
+                    <p class="text-xl text-gray-200 leading-relaxed max-w-4xl mx-auto mb-8">
+                        引領數位內容的潮流，使每一位客戶都能在全球舞台上展現其獨特魅力
+                    </p>
+                    <div class="mt-8">
+                        <img src="img/2.jpg" alt="台灣遠訊集團宣傳圖" class="w-full max-w-2xl mx-auto object-cover rounded-xl shadow-xl border-2 border-accent border-opacity-30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Sections -->
+    <section class="py-20 bg-gray-50 dark:bg-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Video Editing Jobs -->
+            <div class="mb-20">
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-gradient-to-r from-accent to-highlight p-3 rounded-2xl mb-6">
+                        <span class="text-3xl">✂️</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        短劇剪輯崗位
+                    </h2>
+                    <div class="max-w-3xl mx-auto mb-8">
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                            短劇剪輯師主要負責將原始影片素材進行剪輯、後期處理，添加字幕、特效、配樂等，最終製作成符合平台要求和觀眾口味的短劇作品
+                        </p>
+                        <div class="bg-highlight bg-opacity-10 p-4 rounded-lg border-l-4 border-highlight">
+                            <p class="text-lg text-gray-700 dark:text-gray-200">
+                                📚 <strong>新手培訓：</strong>免費線上培訓1天即可上崗<br>
+                                ⏰ <strong>工作時間：</strong>自由安排，兼職日結薪水<br>
+                                💼 <strong>工作方式：</strong>兼職或全職均可
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        馬上申請
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-highlight border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-highlight rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">🎬</span>
+                            </div>
+                            <h3 class="text-xl font-bold">短影音剪輯人員</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-highlight mb-2">3.5万~5万</div>
+                            <div class="text-gray-300">月薪 / 新台幣</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">熟悉短影音市場與節奏，熟練使用攝影器材或手機拍攝</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">能獨立依據腳本剪輯、添加轉場特效、鏡面設計</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">字卡動畫、字幕繕打、音樂搭配、基礎調光</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">★</span>
+                                <span class="text-gray-300">會TikTok剪輯後製，有加密貨幣、區塊鏈經驗者優先</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-accent border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">🎥</span>
+                            </div>
+                            <h3 class="text-xl font-bold">短影音剪輯師</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-accent mb-2">4万~5万</div>
+                            <div class="text-gray-300">月薪 / 新台幣</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">曾接觸過剪輯，對剪輯有熱情（需提供作品集）</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">有耐心、細心，熟悉基本電腦操作</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">短影音剪輯（公司使用剪映軟體）</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">★</span>
+                                <span class="text-gray-300">加分項：常滑抖音熟悉生態、擅長其他剪輯軟體</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-highlight border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-highlight rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">⏱️</span>
+                            </div>
+                            <h3 class="text-xl font-bold">短影音剪輯師</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-gradient bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent mb-2">140~150</div>
+                            <div class="text-gray-300">時薪 / 新台幣</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">具有後製相關工作經驗者佳，熟悉短影音</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">對各影音平台趨勢、時事通達</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">具有迷因極高敏感度，自律且自我要求高</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">★</span>
+                                <span class="text-gray-300">能獨立完成工作，具有良好的溝通能力</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deep-card p-8 rounded-2xl text-white border border-highlight border-opacity-20">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-highlight rounded-2xl flex items-center justify-center mr-6">
+                            <span class="text-2xl">💡</span>
+                        </div>
+                        <h4 class="text-3xl font-bold text-highlight">剪輯崗位小結</h4>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-xl font-semibold text-accent mb-4">薪資範圍</h5>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                從上述信息可以看出，短劇剪輯崗位的月薪普遍在<strong class="text-highlight">3萬新台幣到5萬新台幣</strong>之間，具體會根據經驗、技能水平和公司規模有所不同。對於兼職或按小時計算的崗位，時薪大約在<strong class="text-accent">140-150新台幣</strong>。
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold text-accent mb-4">核心要求</h5>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>熟練使用剪輯軟體（如剪映、Premiere、After Effects等）</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>對短視頻平台（尤其是TikTok）的生態和趨勢有敏銳洞察力</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>具備良好的審美和故事敘述能力</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            馬上申請
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Translation Jobs -->
+            <div>
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-gradient-to-r from-primary to-accent p-3 rounded-2xl mb-6">
+                        <span class="text-3xl">🔤</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        短劇翻譯崗位
+                    </h2>
+                    <div class="max-w-3xl mx-auto mb-8">
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                            短劇翻譯主要負責將短劇的對白、字幕或相關文案從一種語言翻譯成另一種語言（常見的有英譯中、日譯中、韓譯中等）
+                        </p>
+                        <div class="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-accent">
+                            <p class="text-lg text-gray-700 dark:text-gray-200">
+                                ✨ <strong>專業要求：</strong>翻譯準確、地道，符合目標語言的文化習慣和語境
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="h2()" class="bg-gradient-to-r from-primary to-accent text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        馬上申請
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-highlight">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-highlight rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">📺</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-highlight">影視節目字幕翻譯</h3>
+                        </div>
+                        <div class="text-3xl font-bold text-highlight mb-2">3.8万~4.5万</div>
+                        <div class="text-sm text-gray-400 mb-4">月薪 / 新台幣</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            影視節目（戲劇、綜藝）字幕翻譯（英文翻台灣繁體中文），必須使用台灣常用譯名（如國名、地名等）
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-accent">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">🎓</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-accent">工讀生-戲劇翻譯</h3>
+                        </div>
+                        <div class="text-3xl font-bold text-accent mb-2">160</div>
+                        <div class="text-sm text-gray-400 mb-4">時薪 / 新台幣</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            實習生性質，負責戲劇翻譯，適合學生或初學者累積經驗
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-highlight">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-accent to-highlight rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">🎙️</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-highlight">中英同步翻譯</h3>
+                        </div>
+                        <div class="text-2xl font-bold text-highlight mb-2">2000-4000</div>
+                        <div class="text-sm text-gray-400 mb-4">每小時 / 新台幣</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            具備口譯經驗，為國外科影視創作者的專訪進行中英文逐步翻譯。台北市（自由接案）
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-accent">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">📝</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-accent">中英筆譯</h3>
+                        </div>
+                        <div class="text-lg font-bold text-accent mb-2">
+                            英翻中：1元/字<br>
+                            中翻英：2元/字
+                        </div>
+                        <div class="text-sm text-gray-400 mb-4">按字計費</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            支援中英雙向翻譯，主要案件類型為影音字幕、演講稿等。需配合完成翻譯基本能力測試
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-20 gradient-bg text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6">歡迎您的加入</h2>
+            <p class="text-xl mb-8 opacity-90">
+                加入台灣遠訊傳媒集團，與我們一起引領數位內容的未來
+            </p>
+            <button onclick="h2()" class="bg-white text-primary px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                立即申請職位
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Line redirect function
+        function h2() {
+            // Replace this with the actual Line link when provided
+            window.open('https://lin.ee/1hKIoKu', '_blank');
+        }
+
+        // Smooth scroll animation on load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.animate-fadeIn').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
