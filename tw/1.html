@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tập đoàn Truyền thông Viễn thông Đài Loan - Dẫn đầu Nội dung Số</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1a1a2e',
+                        secondary: '#16213e',
+                        accent: '#e94560',
+                        highlight: '#f39c12',
+                        dark: '#0f0f23',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-effect {
+            background: rgba(15, 15, 35, 0.8);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        .deep-card {
+            background: linear-gradient(145deg, #16213e, #1a1a2e);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: translateY(-2px);
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-dark text-gray-900 dark:text-gray-100">
+
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-6xl mx-auto animate-fadeIn">
+            <div class="mb-12 mt-16 md:mt-20">
+                <img src="img/1.jpg" alt="Tập đoàn Truyền thông Viễn thông Đài Loan" class="w-72 h-48 md:w-96 md:h-64 lg:w-[500px] lg:h-80 mx-auto object-cover rounded-2xl shadow-2xl mb-8 border-3 border-highlight">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                Viễn thông Đài Loan<br>
+                <span class="text-highlight bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">Tập đoàn Truyền thông</span>
+            </h1>
+            
+            <div class="mb-8 space-y-4">
+                <p class="text-2xl md:text-3xl text-highlight font-semibold">
+                    Đổi mới • Kết nối • Cùng thịnh vượng
+                </p>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    Dẫn đầu xu hướng nội dung số, giúp mỗi khách hàng thể hiện sức hấp dẫn độc đáo trên sân khấu toàn cầu
+                </p>
+            </div>
+            
+            <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 shadow-xl breathe">
+                Liên hệ ngay với chúng tôi
+            </button>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-secondary to-primary opacity-90"></div>
+        <div class="relative z-10 max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">Về Tập đoàn Viễn thông Đài Loan</h2>
+                <div class="w-24 h-1 bg-highlight mx-auto mb-8"></div>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    Tại Tập đoàn Viễn thông Đài Loan, chúng tôi tin tưởng rằng "Đổi mới, Kết nối, Cùng thịnh vượng" là giá trị cốt lõi thúc đẩy kỷ nguyên số
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+                <div class="deep-card p-8 rounded-2xl text-white hover-scale">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-highlight rounded-lg flex items-center justify-center mb-4">
+                            <span class="text-xl font-bold">📊</span>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Tổng quan Công ty</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">Tên công ty</p>
+                                <p class="text-gray-300">Công ty Cổ phần Thương mại Tập đoàn Viễn thông Đài Loan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">Thời gian thành lập</p>
+                                <p class="text-gray-300">2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                            <div>
+                                <p class="font-medium text-highlight">Lĩnh vực kinh doanh chính</p>
+                                <p class="text-gray-300">Vận hành video trung bình TikTok, Phim ngắn TikTok xuất khẩu, Vận hành tổng hợp mạng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deep-card p-8 rounded-2xl text-white hover-scale">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+                            <span class="text-xl font-bold">🎯</span>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Giá trị cốt lõi</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-highlight pl-4">
+                            <h4 class="font-semibold text-highlight text-lg mb-2">🚀 Đổi mới</h4>
+                            <p class="text-gray-300 leading-relaxed">Không ngừng phát triển nội dung và giải pháp sáng tạo để thích ứng với nhu cầu thị trường thay đổi nhanh chóng</p>
+                        </div>
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold text-accent text-lg mb-2">🔗 Kết nối</h4>
+                            <p class="text-gray-300 leading-relaxed">Xây dựng nền tảng đa dạng, thúc đẩy tương tác hiệu quả giữa thương hiệu và khán giả, thực hiện giao tiếp hai chiều</p>
+                        </div>
+                        <div class="border-l-4 border-highlight pl-4">
+                            <h4 class="font-semibold text-highlight text-lg mb-2">🤝 Cùng thịnh vượng</h4>
+                            <p class="text-gray-300 leading-relaxed">Cùng phát triển với đối tác, tạo ra hệ sinh thái kinh doanh cùng có lợi, thúc đẩy sự phát triển của toàn ngành</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="deep-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-highlight">Sứ mệnh của chúng tôi</h3>
+                    <p class="text-xl text-gray-200 leading-relaxed max-w-4xl mx-auto mb-8">
+                        Dẫn đầu xu hướng nội dung số, giúp mỗi khách hàng có thể thể hiện sức hấp dẫn độc đáo trên sân khấu toàn cầu
+                    </p>
+                    <div class="mt-8">
+                        <img src="img/2.jpg" alt="Hình ảnh quảng bá Tập đoàn Viễn thông Đài Loan" class="w-full max-w-2xl mx-auto object-cover rounded-xl shadow-xl border-2 border-accent border-opacity-30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Sections -->
+    <section class="py-20 bg-gray-50 dark:bg-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Video Editing Jobs -->
+            <div class="mb-20">
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-gradient-to-r from-accent to-highlight p-3 rounded-2xl mb-6">
+                        <span class="text-3xl">✂️</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        Vị trí Biên tập Phim ngắn
+                    </h2>
+                    <div class="max-w-3xl mx-auto mb-8">
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                            Biên tập viên phim ngắn chủ yếu chịu trách nhiệm cắt ghép, hậu kỳ video gốc, thêm phụ đề, hiệu ứng, nhạc nền v.v., cuối cùng sản xuất tác phẩm phim ngắn phù hợp với yêu cầu nền tảng và thị hiếu khán giả
+                        </p>
+                        <div class="bg-highlight bg-opacity-10 p-4 rounded-lg border-l-4 border-highlight">
+                            <p class="text-lg text-gray-700 dark:text-gray-200">
+                                📚 <strong>Đào tạo người mới:</strong> Đào tạo trực tuyến miễn phí 1 ngày có thể bắt đầu làm việc<br>
+                                ⏰ <strong>Thời gian làm việc:</strong> Tự do sắp xếp, làm bán thời gian trả lương hàng ngày<br>
+                                💼 <strong>Phương thức làm việc:</strong> Có thể làm bán thời gian hoặc toàn thời gian
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        Nộp đơn ngay
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-highlight border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-highlight rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">🎬</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Nhân viên Biên tập Video ngắn</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-highlight mb-2">26-38 triệu</div>
+                            <div class="text-gray-300">Lương tháng / VND</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Quen thuộc với thị trường và nhịp độ video ngắn, sử dụng thành thạo thiết bị quay phim hoặc điện thoại</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Có thể độc lập cắt ghép theo kịch bản, thêm hiệu ứng chuyển cảnh, thiết kế gương</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Hoạt hình thẻ từ, viết phụ đề, phối nhạc, chỉnh ánh sáng cơ bản</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">★</span>
+                                <span class="text-gray-300">Biết hậu kỳ cắt ghép TikTok, có kinh nghiệm tiền mã hóa, blockchain sẽ được ưu tiên</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-accent border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">🎥</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Biên tập viên Video ngắn</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-accent mb-2">30-38 triệu</div>
+                            <div class="text-gray-300">Lương tháng / VND</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">Đã từng tiếp xúc với biên tập, có đam mê biên tập (cần cung cấp portfolio)</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">Có kiên nhẫn, cẩn thận, quen thuộc với thao tác máy tính cơ bản</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">▸</span>
+                                <span class="text-gray-300">Biên tập video ngắn (công ty sử dụng phần mềm CapCut)</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">★</span>
+                                <span class="text-gray-300">Điểm cộng: Thường xuyên lướt TikTok, quen thuộc hệ sinh thái, thành thạo các phần mềm biên tập khác</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deep-card p-8 rounded-2xl text-white hover-scale shadow-xl border border-highlight border-opacity-30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent to-highlight rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-xl font-bold">⏱️</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Biên tập viên Video ngắn</h3>
+                        </div>
+                        <div class="mb-6">
+                            <div class="text-4xl font-bold text-gradient bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent mb-2">105-113 nghìn</div>
+                            <div class="text-gray-300">Lương giờ / VND</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Có kinh nghiệm làm việc liên quan đến hậu kỳ sẽ tốt, quen thuộc video ngắn</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Hiểu biết về xu hướng, thời sự các nền tảng video</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-highlight mt-1">▸</span>
+                                <span class="text-gray-300">Có độ nhạy cảm cao với meme, tự giác và tự yêu cầu bản thân cao</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-accent mt-1">★</span>
+                                <span class="text-gray-300">Có thể hoàn thành công việc độc lập, có khả năng giao tiếp tốt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deep-card p-8 rounded-2xl text-white border border-highlight border-opacity-20">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-accent to-highlight rounded-2xl flex items-center justify-center mr-6">
+                            <span class="text-2xl">💡</span>
+                        </div>
+                        <h4 class="text-3xl font-bold text-highlight">Tóm tắt vị trí Biên tập</h4>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-xl font-semibold text-accent mb-4">Mức lương</h5>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Từ thông tin trên có thể thấy, lương tháng của vị trí biên tập phim ngắn thường trong khoảng <strong class="text-highlight">26 triệu VND đến 38 triệu VND</strong>, cụ thể sẽ có sự khác biệt tùy theo kinh nghiệm, trình độ kỹ năng và quy mô công ty. Đối với vị trí bán thời gian hoặc tính theo giờ, lương giờ khoảng <strong class="text-accent">105-113 nghìn VND</strong>.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold text-accent mb-4">Yêu cầu cốt lõi</h5>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>Sử dụng thành thạo phần mềm biên tập (như CapCut, Premiere, After Effects v.v.)</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>Có sự nhạy bén với hệ sinh thái và xu hướng nền tảng video ngắn (đặc biệt là TikTok)</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-highlight mt-1">•</span>
+                                    <span>Có thẩm mỹ tốt và khả năng kể chuyện</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="h2()" class="bg-gradient-to-r from-accent to-highlight text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Nộp đơn ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Translation Jobs -->
+            <div>
+                <div class="text-center mb-16">
+                    <div class="inline-block bg-gradient-to-r from-primary to-accent p-3 rounded-2xl mb-6">
+                        <span class="text-3xl">🔤</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        Vị trí Dịch thuật Phim ngắn
+                    </h2>
+                    <div class="max-w-3xl mx-auto mb-8">
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                            Dịch thuật phim ngắn chủ yếu chịu trách nhiệm dịch thoại, phụ đề hoặc văn bản liên quan của phim ngắn từ ngôn ngữ này sang ngôn ngữ khác (phổ biến có Anh-Việt, Nhật-Việt, Hàn-Việt v.v.)
+                        </p>
+                        <div class="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-accent">
+                            <p class="text-lg text-gray-700 dark:text-gray-200">
+                                ✨ <strong>Yêu cầu chuyên môn:</strong> Dịch thuật chính xác, tự nhiên, phù hợp với thói quen văn hóa và ngữ cảnh của ngôn ngữ đích
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="h2()" class="bg-gradient-to-r from-primary to-accent text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        Nộp đơn ngay
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-highlight">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-highlight rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">📺</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-highlight">Dịch phụ đề chương trình truyền hình</h3>
+                        </div>
+                        <div class="text-3xl font-bold text-highlight mb-2">28.5-34 triệu</div>
+                        <div class="text-sm text-gray-400 mb-4">Lương tháng / VND</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Dịch phụ đề chương trình truyền hình (phim truyền hình, show giải trí) từ tiếng Anh sang tiếng Việt, phải sử dụng thuật ngữ thông dụng tại Việt Nam (như tên quốc gia, địa danh v.v.)
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-accent">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">🎓</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-accent">Sinh viên thực tập-Dịch phim</h3>
+                        </div>
+                        <div class="text-3xl font-bold text-accent mb-2">120 nghìn</div>
+                        <div class="text-sm text-gray-400 mb-4">Lương giờ / VND</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Tính chất thực tập sinh, phụ trách dịch phim, phù hợp với sinh viên hoặc người mới bắt đầu tích lũy kinh nghiệm
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-highlight">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-accent to-highlight rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">🎙️</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-highlight">Dịch thuật đồng thời Việt-Anh</h3>
+                        </div>
+                        <div class="text-2xl font-bold text-highlight mb-2">1.5-3 triệu</div>
+                        <div class="text-sm text-gray-400 mb-4">Mỗi giờ / VND</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Có kinh nghiệm phiên dịch, thực hiện dịch thuật từng bước Việt-Anh cho cuộc phỏng vấn độc quyền của nhà sáng tạo phim ảnh nước ngoài. TP. Hồ Chí Minh (freelance)
+                        </p>
+                    </div>
+                    
+                    <div class="deep-card p-6 rounded-xl text-white hover-scale border-l-4 border-accent">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-3">
+                                <span class="text-lg font-bold">📝</span>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2 text-accent">Dịch thuật văn bản Việt-Anh</h3>
+                        </div>
+                        <div class="text-lg font-bold text-accent mb-2">
+                            Anh-Việt: 750 VND/từ<br>
+                            Việt-Anh: 1500 VND/từ
+                        </div>
+                        <div class="text-sm text-gray-400 mb-4">Tính theo từ</div>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Hỗ trợ dịch thuật hai chiều Việt-Anh, loại dự án chính là phụ đề video, bản thảo diễn thuyết v.v. Cần phối hợp hoàn thành bài kiểm tra năng lực dịch thuật cơ bản
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-20 gradient-bg text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6">Chào mừng bạn gia nhập</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Gia nhập Tập đoàn Truyền thông Viễn thông Đài Loan, cùng chúng tôi dẫn đầu tương lai nội dung số
+            </p>
+            <button onclick="h2()" class="bg-white text-primary px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                Nộp đơn ứng tuyển ngay
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Line redirect function
+        function h2() {
+            // Replace this with the actual Line link when provided
+            window.open('https://lin.ee/1hKIoKu', '_blank');
+        }
+
+        // Smooth scroll animation on load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.animate-fadeIn').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
