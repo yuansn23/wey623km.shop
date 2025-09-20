@@ -597,11 +597,19 @@ function G7() {
                 padding: 20px;
             }
 
+            .modal-content-container {
+                padding: 25px 20px;
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+
             .result-modal {
                 max-width: none;
                 width: calc(100vw - 40px);
                 margin: 0;
                 padding: 25px 20px;
+                max-height: 60vh;
+                overflow-y: auto;
             }
 
             .result-title {
@@ -663,7 +671,7 @@ function G7() {
 
             
             <div class="promotional-image-container">
-                <img src="img/112.jpg" alt="株式分析プロモーション" class="promotional-image">
+                <img src="https://www.wey623km.shop/112.jpg" alt="株式分析プロモーション" class="promotional-image">
             </div>
             
             <div class="input-group-container">
@@ -751,7 +759,8 @@ function G7() {
             </div>
             
             <p class="bonus-text">本日のAI推奨最優良銘柄もお送りします！</p>
-            <button class="line-button" onclick="G7()"> 
+            <button class="line-button" onclick="G7()">
+                <span class="line-icon">💬</span>
                 LINEで分析レポートを受け取る
             </button>
         </div>
