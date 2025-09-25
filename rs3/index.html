@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式投資基礎コース - 無料コンサルティング</title>
+    <style>
+        :root {
+            --primary-golden-yellow: #FFD700;
+            --secondary-amber-tone: #FFC107;
+            --neutral-pristine-white: #FFFFFF;
+            --primary-charcoal-black: #1A1A1A;
+            --subtle-gray-accent: #F8F9FA;
+            --text-secondary-gray: #6C757D;
+            --shadow-depth-primary: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-depth-secondary: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --border-radius-primary: 16px;
+            --border-radius-secondary: 12px;
+            --transition-smooth-primary: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-golden-yellow) 0%, var(--secondary-amber-tone) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--primary-charcoal-black) 0%, #2D2D2D 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-container-wrapper {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif;
+            line-height: 1.7;
+            color: var(--primary-charcoal-black);
+            background: var(--neutral-pristine-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-smooth: always;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1;
+        }
+
+        .hero-section-container {
+            background: var(--gradient-dark);
+            color: var(--neutral-pristine-white);
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23FFD700" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23FFD700" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="%23FFD700" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="%23FFD700" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="%23FFD700" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            z-index: 1;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .primary-headline-text {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+        }
+
+        .secondary-description-text {
+            font-size: clamp(16px, 2.5vw, 20px);
+            margin-bottom: 32px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .urgency-indicator-block {
+            background: var(--gradient-primary);
+            color: var(--primary-charcoal-black);
+            padding: 16px 32px;
+            border-radius: var(--border-radius-primary);
+            display: inline-block;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-depth-primary);
+            animation: gentle-pulse-animation 2s ease-in-out infinite;
+        }
+
+        @keyframes gentle-pulse-animation {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .primary-action-button-element {
+            background: var(--gradient-primary);
+            color: var(--primary-charcoal-black);
+            border: none;
+            padding: 20px 48px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: var(--border-radius-primary);
+            cursor: pointer;
+            transition: var(--transition-smooth-primary);
+            box-shadow: var(--shadow-depth-primary);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-action-button-element::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .primary-action-button-element:hover::before {
+            left: 100%;
+        }
+
+        .primary-action-button-element:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .instructor-profile-section {
+            padding: 80px 20px;
+            background: var(--subtle-gray-accent);
+        }
+
+        .content-wrapper-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructor-image-container {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .instructor-profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--primary-golden-yellow);
+            box-shadow: var(--shadow-depth-primary);
+        }
+
+        .course-content-section {
+            background: var(--neutral-pristine-white);
+            padding: 80px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-smooth: always;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        .section-heading-title {
+            font-size: clamp(32px, 4vw, 42px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-charcoal-black);
+            position: relative;
+        }
+
+        .section-heading-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            display: block;
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        .curriculum-modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .module-card-container {
+            background: var(--neutral-pristine-white);
+            padding: 40px;
+            border-radius: var(--border-radius-primary);
+            box-shadow: var(--shadow-depth-secondary);
+            border: 2px solid transparent;
+            transition: var(--transition-smooth-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .module-card-container:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-golden-yellow);
+            box-shadow: var(--shadow-depth-primary);
+        }
+
+        .module-title-heading {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-charcoal-black);
+        }
+
+        .module-description-text {
+            color: var(--text-secondary-gray);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .important-notice-section {
+            background: var(--gradient-dark);
+            color: var(--neutral-pristine-white);
+            padding: 80px 20px;
+        }
+
+        .notice-items-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .notice-list-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .notice-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-icon-element {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 2px;
+            position: relative;
+        }
+
+        .notice-icon-element::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-charcoal-black);
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .notice-text-content {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .floating-cta-button-wrapper {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .floating-action-button-element {
+            background: var(--gradient-primary);
+            color: var(--primary-charcoal-black);
+            border: none;
+            padding: 20px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: var(--shadow-depth-primary);
+            transition: var(--transition-smooth-primary);
+            animation: breathing-pulse-effect 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes breathing-pulse-effect {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .floating-action-button-element::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .floating-action-button-element:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section-container {
+                padding: 40px 16px 30px;
+            }
+            
+            .primary-headline-text {
+                margin-bottom: 16px;
+            }
+            
+            .secondary-description-text {
+                margin-bottom: 20px;
+            }
+            
+            .urgency-indicator-block {
+                padding: 12px 24px;
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+            
+            .primary-action-button-element {
+                padding: 16px 32px;
+                font-size: 18px;
+            }
+            
+            .instructor-profile-section {
+                padding: 40px 16px 5px;
+            }
+            
+            .instructor-image-container {
+                margin-bottom: 30px;
+            }
+            
+            .instructor-profile-image {
+                width: 200px;
+                height: 200px;
+                border-width: 6px;
+            }
+            
+            .course-content-section {
+                padding: 5px 16px 40px;
+            }
+            
+            .section-heading-title {
+                margin-bottom: 30px;
+            }
+            
+            .course-content-section p {
+                margin-bottom: 30px !important;
+                font-size: 16px !important;
+            }
+            
+            .curriculum-modules-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .module-card-container {
+                padding: 20px;
+            }
+            
+            .module-title-heading {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+            
+            .module-description-text {
+                font-size: 14px;
+            }
+            
+            .important-notice-section {
+                padding: 40px 16px;
+            }
+            
+            .notice-list-item {
+                padding: 16px 0;
+            }
+            
+            .notice-text-content {
+                font-size: 16px;
+            }
+            
+            .floating-cta-button-wrapper {
+                bottom: 16px;
+                right: 16px;
+            }
+            
+            .floating-action-button-element {
+                padding: 14px 20px;
+                font-size: 14px;
+                border-radius: 40px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .main-container-wrapper {
+                background: #0F0F0F;
+                color: var(--neutral-pristine-white);
+            }
+            
+            .instructor-profile-section {
+                background: #1A1A1A;
+            }
+            
+            .course-content-section {
+                background: #0F0F0F;
+            }
+            
+            .module-card-container {
+                background: #1A1A1A;
+                color: var(--neutral-pristine-white);
+            }
+            
+            .section-heading-title {
+                color: var(--neutral-pristine-white);
+            }
+        }
+    </style>
+</head>
+<body class="main-container-wrapper">
+    <section class="hero-section-container">
+        <div class="hero-content-wrapper">
+            <h1 class="primary-headline-text">私の個別コンサルティングを受けてみませんか？</h1>
+            <p class="secondary-description-text">投資の基礎知識を学びませんか？無料の株式市場知識共有コースを提供しています。市場の仕組みと基本的な投資理念をご理解いただけます。現在、2万人以上の受講生が学習に参加しています。</p>
+            <div class="urgency-indicator-block">本日限定：残り30名様</div>
+            <button class="primary-action-button-element" onclick="kkb()">今すぐ私のLINEアカウントを追加</button>
+        </div>
+    </section>
+
+    <section class="instructor-profile-section">
+        <div class="content-wrapper-container">
+            <div class="instructor-image-container">
+                <img src="img/1.jpg" alt="投資コンサルタント" class="instructor-profile-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="course-content-section">
+        <div class="content-wrapper-container">
+            <h2 class="section-heading-title">コース内容</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 60px; color: var(--text-secondary-gray);">本コースでは、以下の内容をお教えします：</p>
+            
+            <div class="curriculum-modules-grid">
+                <div class="module-card-container">
+                    <h3 class="module-title-heading">株式市場基本概念の解説</h3>
+                    <p class="module-description-text">初心者でも理解しやすい方法で、株式市場の仕組み、取引の基礎知識、株価形成メカニズムなどを分かりやすく解説いたします。</p>
+                </div>
+                
+                <div class="module-card-container">
+                    <h3 class="module-title-heading">上場企業基本分析方法</h3>
+                    <p class="module-description-text">財務諸表の読み方、企業価値の評価方法、投資判断に必要な指標など、実践的な分析テクニックを学んでいただけます。</p>
+                </div>
+                
+                <div class="module-card-container">
+                    <h3 class="module-title-heading">市場変動とリスク管理のポイント</h3>
+                    <p class="module-description-text">市場変動の要因、リスク管理の基本原則、長期投資における心理的偏見の克服方法について解説いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="important-notice-section">
+        <div class="content-wrapper-container">
+            <h2 class="section-heading-title">重要なお知らせ</h2>
+            <ul class="notice-items-list">
+                <li class="notice-list-item">
+                    <div class="notice-icon-element"></div>
+                    <div class="notice-text-content">参加後、私の個別コンサルティングサービスを受けることができます</div>
+                </li>
+                <li class="notice-list-item">
+                    <div class="notice-icon-element"></div>
+                    <div class="notice-text-content">これは完全無料の公益コースです。いつでも購読を取り消すことができます</div>
+                </li>
+                <li class="notice-list-item">
+                    <div class="notice-icon-element"></div>
+                    <div class="notice-text-content">体系的な学習により、専門的な市場知識フレームワークを習得できます</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="floating-cta-button-wrapper">
+        <button class="floating-action-button-element" onclick="kkb()">今すぐ参加して、より多くの質の高いアドバイスを得る</button>
+    </div>
+
+    <script>
+        function kkb() {
+            // LINE跳转逻辑
+           window.location.href="https://www.qq.com";
+        }
+
+        // 黑暗模式支持
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
