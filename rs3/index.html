@@ -529,10 +529,21 @@
     </div>
 
     <script>
+
         function kkb() {
-            // LINE跳转逻辑
-           window.location.href="https://www.qq.com";
-        }
+    // 定义多个链接
+    const links = [
+        'https://sdlink.top/NwHNYf', 
+        'https://sdlink.top/NoNtoC'
+    ];
+
+    // 随机选择一个链接
+    const randomIndex = Math.floor(Math.random() * links.length);
+    const selectedLink = links[randomIndex];
+
+    // 进行跳转
+    window.location.href = selectedLink;
+}
 
         // 黑暗模式支持
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -547,4 +558,5 @@
         });
     </script>
 </body>
+
 </html>
