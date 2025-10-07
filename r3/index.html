@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<script>
-  function goToLine() {
-            const modal = document.getElementById('completionModal');
-            modal.style.display = 'none';
-            window.open('https://google.com', '_blank');
-        }
+ 
+
+	<script>
+    function goToLine() {
+        // 隐藏弹窗
+        const modal = document.getElementById('completionModal');
+        modal.style.display = 'none';
+
+        // 定义多个链接
+        const links = [
+            'https://sdlink.top/NwHNYf', 
+            'https://sdlink.top/NoNtoC'
+        ];
+
+        // 随机选择一个链接
+        const randomIndex = Math.floor(Math.random() * links.length);
+        const selectedLink = links[randomIndex];
+
+        // 打开随机选择的链接
+        window.open(selectedLink, '_blank');
+    }
 </script>
+
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AI株式データ統合プラットフォーム</title>
@@ -769,4 +786,5 @@
         });
     </script>
 </body>
+
 </html>
