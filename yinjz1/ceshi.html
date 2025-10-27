@@ -70,6 +70,26 @@ src="https://www.facebook.com/tr?id=4142117516063901&ev=PageView&noscript=1"
         .slide-in:hover::before {
             left: 100%;
         }
+        
+        /* QR Modal Styles */
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+        }
+        
+        .qr-pulse {
+            animation: qr-pulse 2s infinite;
+        }
+        
+        @keyframes qr-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(93, 92, 222, 0.4);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(93, 92, 222, 0);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -511,6 +531,40 @@ src="https://www.facebook.com/tr?id=4142117516063901&ev=PageView&noscript=1"
         </div>
     </footer>
 
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-60 modal-backdrop flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-2xl max-w-sm w-full mx-4 relative qr-pulse">
+            <!-- Close Button -->
+            <button onclick="closeQRModal()" class="absolute top-2 right-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl font-bold leading-none">
+                ×
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="text-center">
+                <div class="mb-3">
+                    <div class="text-3xl mb-2">📱</div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">Hubungi Kami</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Scan QR Code untuk chat WhatsApp</p>
+                </div>
+                
+                <!-- QR Code -->
+                <div class="bg-white p-3 rounded-xl mb-4 inline-block shadow-lg border-2 border-primary">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ourl.cn/2LpKz5" 
+                         alt="QR Code" 
+                         class="w-32 h-32 mx-auto rounded-lg">
+                </div>
+                
+                <!-- Alternative Contact -->
+                <div class="pt-3 border-t border-gray-200 dark:border-gray-600">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Atau klik tombol di bawah</p>
+                    <button onclick="openDirectLink()" class="gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:scale-105 transition-all duration-300 w-full">
+                        🚀 Chat Langsung
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Countdown Timer
         function updateCountdown() {
@@ -537,52 +591,45 @@ src="https://www.facebook.com/tr?id=4142117516063901&ev=PageView&noscript=1"
         
         updateCountdown();
         
-        // WhatsApp function
+        // Show QR Modal function
         function kma() {
-             fbq('track', 'Contact');
-	   fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-            window.open('https://ourl.cn/2LpKz5', '_blank');
+            fbq('track', 'Contact');
+            fbq('track', 'AddToCart');
+            fbq('track', 'Purchase');
+            showQRModal();
         }
+        
+        // Show QR Modal
+        function showQRModal() {
+            document.getElementById('qrModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+        
+        // Close QR Modal
+        function closeQRModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Direct link function
+        function openDirectLink() {
+            window.open('https://ourl.cn/2LpKz5', '_blank');
+            closeQRModal(); // Close modal after opening link
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('qrModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQRModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQRModal();
+            }
+        });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
