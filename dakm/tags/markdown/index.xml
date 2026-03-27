@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Markdown on My New Hugo Project</title>
+    <link>https://example.org/tags/markdown/</link>
+    <description>Recent content in Markdown on My New Hugo Project</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 10:30:00 +0800</lastBuildDate>
+    <atom:link href="https://example.org/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇Hugo博客文章</title>
+      <link>https://example.org/posts/my-first-post/</link>
+      <pubDate>Mon, 15 Jan 2024 10:30:00 +0800</pubDate>
+      <guid>https://example.org/posts/my-first-post/</guid>
+      <description>这是我的第一篇使用Hugo创建的博客文章，展示了各种Markdown格式的用法。</description>
+    </item>
+  </channel>
+</rss>
