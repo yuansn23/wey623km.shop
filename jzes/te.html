@@ -566,9 +566,12 @@ src="https://www.facebook.com/tr?id= 844629431288954&ev=PageView&noscript=1"
 	<script>
   function kma() 
   {
-  fbq('track', 'Contact');
-        fbq('track', 'AddToCart');
-        fbq('track', 'Purchase');
+ fbq('track', 'Purchase', {
+  value: 100.00,
+  currency: 'USD',
+  content_ids: ['product123'],
+  content_type: 'product'
+});
 	    // window.location.href = "https://ourl.cn/xwEtRp";
   }
 	</script>
