@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오래 지속되는 효과</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            overflow-x: hidden;
+            background: #f7fafc;
+        }
+
+        .hero-wrapper {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #2b6cb0 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 4px solid #3182ce;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 1rem;
+        }
+
+        .main-headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fade-in-up 1s ease-out;
+        }
+
+        .sub-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            animation: fade-in-up 1s ease-out 0.3s both;
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .story-section {
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-section:nth-child(odd) {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            border-top: 1px solid #cbd5e0;
+            border-bottom: 1px solid #cbd5e0;
+        }
+
+        .story-section:nth-child(even) {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .narrative-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .narrative-block:nth-child(even) .text-content {
+            order: 2;
+        }
+
+        .narrative-block:nth-child(even) .image-content {
+            order: 1;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .visual-element {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .visual-element:hover {
+            transform: translateY(-5px);
+        }
+
+        .action-button {
+            background: linear-gradient(45deg, #3182ce, #2b6cb0);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(49, 130, 206, 0.4);
+            background: linear-gradient(45deg, #2b6cb0, #2c5282);
+        }
+
+        .gallery-section {
+            padding: 20px 0;
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #2b6cb0 100%);
+            border-top: 4px solid #3182ce;
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: linear-gradient(45deg, #3182ce, #2b6cb0);
+            color: white;
+            padding: 15px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4);
+            animation: pulse-breath 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes pulse-breath {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 15px 40px rgba(49, 130, 206, 0.6);
+            }
+        }
+
+        .floating-cta:hover {
+            animation-play-state: paused;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .main-headline {
+                font-size: 2.5rem;
+            }
+
+            .narrative-block {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .narrative-block:nth-child(even) .text-content,
+            .narrative-block:nth-child(even) .image-content {
+                order: initial;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-cta {
+                padding: 12px 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-wrapper">
+        <div class="hero-content">
+            <h1 class="main-headline">최고의 미국 발기 보조제, 한 알로 발기 가능.</h1>
+            <p class="sub-description">36시간 지속 / 18cm 증가 / 사정 없이 60분 지속 /어지럼증 등 부작용 없음</p>
+        </div>
+    </section>
+
+    <!-- Story Sections -->
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">세계에서 가장 강력하고 오래 지속되는 최고급 묘목제</h2>
+                    <p class="content-text">
+                        캡슐 하나로 약물이 활성화되는 데 단 3분이 소요되며, 효과는 36시간 지속됩니다
+                        돌처럼 단단해서 매번 완전히 삽입할 수 있습니다.
+
+18cm까지 확대되어 소변 없이 60분 동안 지속됩니다.
+
+언제든 그녀의 보지를 핥아주세요. 울 때까지 만족시켜 드릴게요
+                    </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/1.gif" alt="투자 전략" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">어떤 여자라도 당신을 보고 침을 흘리게 하세요</h2>
+                    <p class="content-text">
+                        에토 발기정은 메카(Mecha)가 "FAD"라고도 불리는 발기부전 치료를 위해 개발한 최신 제품입니다. 성욕이 부족한 중년 남성과 성생활이 바쁜 젊은 남성에게 가장 적합합니다. 더 오래 지속되고, 음경이 두껍고 단단해지며, 모든 여성의 군침을 돌게 할 수 있습니다.</br>
+						이 약은 환자의 자신감 회복을 도울 뿐만 아니라 언제 어디서나 발기 상태를 유지하고 원하는 것을 할 수 있도록 도와줍니다. 발기부전, 조루, 전립선 질환 등 어떤 질환이든, 이 약이 치료 효과가 있다는 것은 임상 시험을 통해 입증되었습니다.
+                    </p>
+					
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/2.gif" alt="시장 분석" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">26일 산에서 찍은 사진을 살펴보겠습니다.</h2>
+                    <p class="content-text">
+                        더 튼튼하게 만들고 싶으시다면, 두께는 3cm, 길이는 7cm, 배터리 사용 시간은 50분 더 길어집니다. 며칠 밤 만에 아내를 "항복"하게 만들 수 있을 거예요.
+                    </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/3.jpg" alt="성공 사례" class="visual-element">
+                </div>
+				<div class="image-content">
+                    <img src="img/4.gif" alt="성공 사례" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">아무리 많은 돈을 써도 예전과 같은 '활력'을 살 수 없습니다.</h2>
+                    <p class="content-text">
+                       십 년 넘게 결혼 생활을 해 온 아내는 여전히 착하고 아름답습니다. 세월의 흔적은 얼굴에 전혀 남지 않았지만, 다른 매력을 더해 주었습니다. 남자들에게 농사는 가장 중요한 직업이고, 그 외의 것은 중요하지 않습니다! 하지만 밤에는 아무리 돈을 써도 예전의 "활력"을 살 수 없습니다. 젊었을 때는 아내와 저는 발기력에 매우 만족했지만, 지금은 아무리 애를 써도 깨지 않으려는 남자를 깨울 수가 없습니다. 아무리 애를 써도 그는 무기력해 보이고, 저는 아무것도 할 수 없습니다.
+                    </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/4.jpg" alt="투자 기회" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">힘을 잃으면, 그녀는 완전히 사라진다</h2>
+                    <p class="content-text">
+                       그러던 어느 날, 인터넷에서 발기부전 치료제 관련 글을 봤는데, 다양한 환자들의 속마음이 가득 담겨 있었습니다. 이 글을 읽고 다시 희망의 불꽃이 타올랐습니다. 발기부전 치료제 한 봉지를 샀습니다. 제품을 받은 날 밤, 반 알을 먹었는데, 마치 어린 시절 아침에 일어났을 때처럼 효과가 즉각적이었습니다. 너무 딱딱해서 아내가 흥분해서 손으로 쓰다듬으며 길이를 재어 마침내 꽉 쥐었습니다. 아내는 웃음을 참을 수 없었고, 그 미소가 너무 매력적이어서 저도 결국 웃음을 참을 수 없었습니다. 아내를 침대에 살짝 거칠게 밀어 눕히자 아내는 저를 따라오며 다음 움직임을 기다렸습니다.
+
+그날 밤, 아내는 추위에 떨며 한꺼번에 사정을 해버렸지만, 저는 사정이 안 되는 것 같았습니다. 그래서 속도를 올렸고, 30분 후 마침내 서로 껴안고 사정했습니다. 이렇게 상쾌한 기분은 처음이었습니다.
+                    </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/5.gif" alt="전문가 조언" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">인생은 20년밖에 안 됐어요, 살아있는 동안 즐기세요</h2>
+                    <p class="content-text">
+                       끝나고 나서 아내가 제가 레투라는 발기제를 먹었다는 사실을 알게 됐어요. 효과가 없다고 말했지만, 아내는 진심으로 더 사라고 권했죠. 물론 이 소식을 듣고 정말 기뻤고, 어떤 남자도 반대하지 않을 거예요! 한 달째 먹고 있어요! 발기가 더 강해진 것 같고, 밤에도 몇 번씩 발기하는 시간을 조절할 수 있어요. 무엇보다 중요한 건, 발기부전과 조루증이 완치되었다는 거예요! 인생은 이제 겨우 20년밖에 안 됐으니, 살아있는 동안 즐기세요.
+                    </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/5.jpg" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">레토 발기제가 당신을 구해 줄 것입니다</h2>
+                    <p class="content-text">
+                    저희가 설문 조사한 대부분의 여성들이 실제로 이렇게 생각했습니다!
+
+"섹스 없는 결혼 생활은 과부와 같아요. 이 관계가 얼마나 오래갈지 모르겠어요."
+
+"침대에 누워 있으면 오랫동안 일어나지 못해요. 으악!"
+
+"아직 자극을 받지 않았는데도 남편이 바로 사정을 해버려요. 사정 후에 기분이 나아졌냐고 묻잖아요?" 저는 정말 충격을 받았습니다. </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/6.jpg" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	 <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">발기부전 치료제 '레토'로 세상에 도전하는 남자</h2>
+                    <p class="content-text">
+                  결혼한 지 겨우 2년밖에 안 됐지만, 여성의 오르가즘을 거의 느껴보지 못했습니다. 남편의 성기는 항상 좋지 않았습니다. 조금만 세게 당기면 바로 새어 나오는데, 아직 느끼지 못한다는 겁니다! 너무 불편했습니다. 오랜 시간이 지나 더 이상 참을 수 없어서 원나잇을 함께할 사람을 찾고 싶었습니다. 그런데 남편이 '보쿠토 우레토'를 착용한 지 며칠 만에 갑자기 열정이 불타오르며 전례 없는 쾌감을 느꼈습니다. 땀을 뻘뻘 흘리며 여러 번 큰 소리로 비명을 질렀습니다. 전에는 경험해보지 못한 섹스였습니다. 마치 마법에 걸린 듯 그의 성기는 점점 더 커지고 두꺼워졌습니다. 침대에서 사나운 황소로 변했다는 게 믿기지 않습니다. 이제 남편은 더 이상 그렇게 약한 남자가 아니라 언제든 일어설 수 있는 남자가 되었습니다… 한 번에 30분 이상 버티는 그를 저는 더 이상 참을 수 없습니다  </p>
+                    <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/6.gif" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+	 <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">그날 밤 아내가 옷을 찢고 비명을 질렀습니다</h2>
+                    <p class="content-text">
+                 젊었을 때는 아무렇지 않게 자위를 했지만, 중년이 되어 결혼 후 사정을 여러 번 했고, 아내의 성질이 점점 더 예민해졌습니다. "브레토"를 발견한 후로는 시도해 볼 용기가 나지 않았지만, 동료들도 먹고 있다는 것을 알고 한 병 사서 먹어보기로 했습니다. 그날 밤, 저는 약간 흥분해서 견딜 수가 없었습니다. 에너지가 넘쳤고, 곧 성기가 발기되어 딱딱해졌습니다. 똑바로 서자 바지가 거의 벗겨질 뻔했습니다. 아내와 저 사이의 격렬한 운동은 50분이 넘게 지속되었습니다. 아내는 두 손으로 제 똥을 움켜쥐고 비명을 질렀습니다. 완전히 정복당한 것 같았습니다. 저는 너무 행복했습니다! 끝나고 아내는 어린 양처럼 제 하체를 꽉 껴안고 달라붙었습니다.   <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/7.gif" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+	
+	 <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">전립선염 치료, 레토정으로 발기부전 쉽게 치료하세요</h2>
+                    <p class="content-text">
+                  20년 넘게 전립선염을 앓아 온 키노시타 히로스케 씨는 감사 편지에 이렇게 썼습니다. "저는 올해 69세입니다. 온갖 방법과 약을 다 써보고 돈도 많이 썼지만, 결국 고칠 수 없었습니다. 결국 포기했습니다. 어쨌든 저는 더 이상 젊지 않습니다. 최대한 오래 살겠습니다. 제 딸도 착한 딸입니다. 제게 맞는 치료법을 찾고 있었습니다. 얼마 전, 미국인 쿠라스(Kurasu) 친구에게 레토(Retto)라는 발기부전 치료제를 온라인으로 사달라고 부탁했습니다. 마지막 시도로 복용을 시작했는데, 같은 날 배뇨 횟수가 눈에 띄게 줄었습니다. 일주일도 채 되지 않아 배뇨통, 급박뇨, 통증, 양쪽 발에 소변이 자주 마려운 증상들이 눈에 띄게 호전되었습니다. 한 병을 마시고 나니 기분이 완전히 좋아졌습니다. 병원에 가서 검진을 받았고, 모든 병이 나았습니다.  <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/7.jpg" alt="투자 결과" class="visual-element">
+                </div>
+				 <div class="image-content">
+                    <img src="img/8.jpg" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+	
+	 <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">발기 부전 치료제인 브라토의 효능</h2>
+                    <p class="content-text">
+                 레토는 5형 인산분해효소 억제제(PDE5)를 함유하고 있으며, 이 억제제는 5형 인산분해효소의 활성을 감소시켜 혈관 평활근의 수축을 억제합니다. 혈관이 수축되면 혈류가 감소하고, 혈류가 부족하면 발기 부전이 발생합니다. 수축된 혈관이 이완되고 음경이 혈액으로 가득 차 부풀어 오르면 혈류가 증가하여 음경 발기가 이루어집니다. 이것이 발기 부전 치료에 있어 레토의 작용 ​​원리이며, 수축된 부위로의 혈류를 증가시켜 좋은 발기를 얻는 데 도움을 줍니다.  <a href="#" class="action-button" onclick="openweb()">자세히 알아보기</a>
+                </div>
+                <div class="image-content">
+                    <img src="img/8.gif" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+		 <section class="story-section">
+        <div class="container-fluid">
+            <div class="narrative-block">
+                <div class="text-content">
+                    <h2 class="section-title">직접 주문하시면 가격도 아주 좋고 효과도 아주 강력합니다</h2>
+                    <p class="content-text">
+               복용 당일:
+
+사정 지연, 성생활 30%~50% 연장, 성욕 증진, 음경 발기 속도 증가, 귀두 따뜻하고 부풀어 오르는 효과, 열정과 활력 증가, 경직도 증가, 활기차고 상쾌한 느낌으로 기분 좋은 성적 쾌감을 선사합니다. 이전보다 훨씬 상쾌한 기분을 느낄 수 있으며, 사정이 더욱 강력해지고 사정 후 피곤함이나 졸림이 없어집니다.
+
+1주일 연속 사용 후:</br>
+ <div class="image-content">
+                    <img src="img/5.gif" alt="투자 결과" class="visual-element">
+                </div>
+발기부전과 조루가 완전히 사라지고 몸이 건강하고 활력이 넘칩니다. 성관계 시 음경이 빠르게 발기되고 두껍고 단단해집니다. 발기 시 음경은 부풀어 오르고 부풀어 오르며, 귀두는 자줏빛 검은색에서 분홍색으로 변하고 귀두 기울기가 90도 이상까지 올라갑니다. 끝까지 오르는 쾌감을 경험하고 상쾌한 섹스를 즐겨보세요. 성관계 시간은 40분 이상 지속될 수 있습니다. 음경이 짧은 분들은 길이를 3~5cm, 두께를 10~25%까지 늘릴 수 있습니다.
+
+2주간 지속 사용 후:</br>
+
+발기부전과 조루를 완전히 해소하고, 수축과 발기가 인체 최고의 상태에 도달합니다. 음경 해면체가 완전히 채워지고, 발기가 단단하며, 움직임이 강력하고, 쉽게 지치지 않으며, 쾌감이 천천히 사라지고, 파워가 지속적으로 증가하며, 여러 번 가속할 수 있습니다. 사정 타이밍을 완벽하게 조절하고 원하는 대로 성관계를 가질 수 있습니다. 질이 짧은 분들은 길이를 5~8cm까지 늘리고, 두께를 25~30%까지 늘릴 수 있습니다. 갈비뼈 경련이나 수축을 유발하지 않습니다. </div>
+                <div class="image-content">
+                    <img src="img/2.gif" alt="투자 결과" class="visual-element">
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container-fluid">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="img/9.jpg" alt="갤러리 1" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/10.jpg" alt="갤러리 2" class="gallery-image">
+                </div>
+                
+            </div>
+            <div style="text-align: center;">
+                <a href="#" class="action-button" onclick="openweb()" style="font-size: 1.2rem; padding: 15px 40px;">자세히 알아보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTA Button -->
+    <button class="floating-cta" onclick="openweb()">자세히 알아보기</button>
+
+    <script>
+        function openweb() {
+            // KakaoTalk 그룹 링크로 이동
+            window.open('https://lin.ee/Km2RLwZ', '_blank');
+        }
+
+        // 스크롤 애니메이션
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.narrative-block, .gallery-item');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // 초기 스타일 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.narrative-block, .gallery-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+            
+            checkVisibility();
+        });
+
+        window.addEventListener('scroll', checkVisibility);
+
+        // 다크 모드 지원
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
